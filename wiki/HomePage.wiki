@@ -5,5 +5,5 @@ For starters, let's use this page as an index to other pages in this WIKI. We'll
 
 
 = Details =
- * [Getting Started] for new SW members: development environment setup.
+ * [GettingStarted] for new SW members: development environment setup.
  * [Links] to common SW information pages and resources.
