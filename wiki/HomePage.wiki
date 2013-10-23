@@ -1,0 +1,9 @@
+#RTR Team Robotics SW developer's WIKI [Home Page].
+
+= Introduction =
+For starters, let's use this page as an index to other pages in this WIKI. We'll refine our approach as it grows.
+
+
+= Details =
+* [Getting Started] for new SW members: development environment setup.
+* [Links] to common SW information pages and resources.
