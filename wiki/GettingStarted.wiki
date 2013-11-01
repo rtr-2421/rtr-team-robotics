@@ -2,12 +2,13 @@
 
 = Introduction =
 
-Add your content here.
+This page provides general FRC setup instructions, plus team-specific setup steps.
 
 
-= Details =
+= General Setup =
+[http://wpilib.screenstepslive.com/s/3120/m/7885 FRC Technical Resources Reference]
+ # Install Java
+ # Install NetBeans
+ # Add FRC Plugins
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Team Repository Setup =
