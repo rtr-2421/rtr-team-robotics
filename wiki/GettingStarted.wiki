@@ -18,4 +18,6 @@ This page provides general FRC setup instructions, plus team-specific setup step
  # Hit the Add button
  # Enter a name for the FRC plugin repository such as "FRC Plugins"
  # Enter the URL for the service: [http://first.wpi.edu/FRC/java/netbeans/update/Release/updates.xml]
+ # Select the Available Plugins tab. Now the FRC plugins should listed.
+ # 
 = Team Repository Setup =
