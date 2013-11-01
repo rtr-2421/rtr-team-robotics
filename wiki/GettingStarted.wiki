@@ -22,7 +22,7 @@ This page provides general FRC setup instructions, plus team-specific setup step
  # Select the 6 listed plugins whose names begin with "FRC".
  # Select the Install button and follow prompts.
 = Team Repository Setup =
-Subversion (SVN) was installed as part of NetBeans. This is the protocol we will use to access the team's source code repository in [http://code.google.com/p/rtr-team-robotics/ Google Code].
+The Subversion (SVN) client plugin was installed as part of NetBeans. This is the protocol we will use to access the team's source code repository in [http://code.google.com/p/rtr-team-robotics/ Google Code].
 _I got it to work uploading a new project, but it took a few tries. Better notes to come._
  * *URL* https://rtr-team-robotics.googlecode.com/svn/trunk/
  * *User Name* is gmail account.
