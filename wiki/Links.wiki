@@ -1,5 +1,4 @@
-#summary One-sentence summary of this page.
-
+#Common links for tools and resources.
 = Common Links =
  * [http://wpilib.screenstepslive.com/s/3120/m/7885/l/79405-installing-the-java-development-tools FRC instructions for setting up Java development tools.]
  * [http://www.oracle.com/technetwork/java/javase/downloads/jdk-7-netbeans-download-432126.html Java/NetBeans bundle downlod page.]
