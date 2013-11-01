@@ -7,10 +7,15 @@ This page provides general FRC setup instructions, plus team-specific setup step
 
 = General Setup =
 [http://wpilib.screenstepslive.com/s/3120/m/7885 FRC Technical Resources Reference]
-  * Install Java
+==Install Java==
   * You can install the latest Java JDK and Netbeans as a bundle from [http://www.oracle.com/technetwork/java/javase/downloads/jdk-7-netbeans-download-432126.html HERE].
   * LinuxInstallInstructions
-  * Install NetBeans
-  * Add FRC Plugins
-
+==Install NetBeans==
+==Add FRC Plugins==
+ # Open NetBeans
+ # Select Tools->Plugins from the top menu bar
+ # Select the Settings tab
+ # Hit the Add button
+ # Enter a name for the FRC plugin repository such as "FRC Plugins"
+ # Enter the URL for the service: [http://first.wpi.edu/FRC/java/netbeans/update/Release/updates.xml]
 = Team Repository Setup =
