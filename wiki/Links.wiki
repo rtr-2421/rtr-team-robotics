@@ -1,0 +1,14 @@
+#summary One-sentence summary of this page.
+
+= Common Links =
+[http://wpilib.screenstepslive.com/s/3120/m/7885/l/79405-installing-the-java-development-tools FRC instructions for setting up Java development tools.]
+[http://www.oracle.com/technetwork/java/javase/downloads/jdk-7-netbeans-download-432126.html Java/NetBeans bundle downlod page.]
+
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
