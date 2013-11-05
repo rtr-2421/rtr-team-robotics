@@ -7,5 +7,5 @@ At today's meeting Mr. Wilstatter challenged the team to break into two groups a
 = Team Neptune =
 Mr. Liebert uploaded to the repository a _very_ simple robot that might oughtta work to make a 2-stick tank drive. It does not use the Command classes. This is not an example of robot code structure to follow, but it significantly simplifies getting a drive system going.
 
-*Check it out!*
+[http://code.google.com/p/rtr-team-robotics/source/browse/SimpleDriver/src/rtr/robots/examples/RobotTemplate.java *Check it out!*]
 = Team Breadboard = 
