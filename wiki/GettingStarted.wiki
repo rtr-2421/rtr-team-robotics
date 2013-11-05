@@ -13,7 +13,7 @@ This page provides general FRC setup instructions, plus team-specific setup step
 ==Install NetBeans==
 _Need to fill this section out as someone installs JDK and Netbeans individually._
 ==Add FRC Plugins==
- # Open NetBeans
+ # Open Netbeans
  # Select Tools->Plugins from the top menu bar
  # Select the Settings tab
  # Hit the Add button
@@ -22,8 +22,9 @@ _Need to fill this section out as someone installs JDK and Netbeans individually
  # Select the Available Plugins tab. Now the FRC plugins should listed.
  # Select the 6 listed plugins whose names begin with "FRC".
  # Select the Install button and follow prompts.
+ # After the plugins have installed (may require a restart of Netbeans), set the Team number under the *Tools->Options* the select the *Miscellaneous*  tab and *FRC Configuration* subtab. It should be 2421.
 = Team Repository Setup =
-The Subversion (SVN) client plugin was installed as part of NetBeans. This is the protocol we will use to access the team's source code repository in [http://code.google.com/p/rtr-team-robotics/ Google Code].
+The Subversion (SVN) client plugin was installed as part of Netbeans. This is the protocol we will use to access the team's source code repository in [http://code.google.com/p/rtr-team-robotics/ Google Code].
 _I got it to work uploading a new project, but it took a few tries. Better notes to come._
  * *URL* https://rtr-team-robotics.googlecode.com/svn/trunk/
  * *User Name* is gmail account.
