@@ -1,0 +1,10 @@
+#summary Subversion Basics
+= Introduction =
+
+This page is an introduction to Subversion terminology and tasks
+
+
+= Terminology =
+
+ * Update - pull the latest copy of the repository files
+ * Commit - upload your changes back to the repository
