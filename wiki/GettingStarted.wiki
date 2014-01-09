@@ -20,6 +20,7 @@ _Need to fill this section out as someone installs JDK and Netbeans individually
  # Hit the Add button
  # Enter a name for the FRC plugin repository such as "FRC Plugins"
  # Enter the URL for the service: [http://first.wpi.edu/FRC/java/netbeans/update/Release/updates.xml]
+ # Hit the OK button
  # Select the Available Plugins tab. Now the FRC plugins should listed.
  # Select the 6 listed plugins whose names begin with "FRC".
  # Select the Install button and follow prompts.
