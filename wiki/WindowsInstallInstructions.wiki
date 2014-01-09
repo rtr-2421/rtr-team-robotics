@@ -1,0 +1,14 @@
+#summary Install instruction for Java/Netbeans bundle on Windows.
+
+= Introduction =
+
+Steps to install the Java/Netbeans co-bundle on Windows. When you download, get the version appropriate to your computer (i586/64 bit).
+
+= Details =
+
+
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
