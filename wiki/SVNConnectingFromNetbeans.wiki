@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary How to connect and checkout files from the team repository using the NetBeans plugin.
 
 = Introduction =
 The Subversion (SVN) client plugin was installed as part of Netbeans. This is the protocol we will use to access the team's source code repository in [http://code.google.com/p/rtr-team-robotics/ Google Code].
