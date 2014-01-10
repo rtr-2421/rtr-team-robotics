@@ -9,3 +9,25 @@ This page is an introduction to Subversion terminology and tasks
 For FRC, we are using the Netbeans Integrated Development Environment (IDE). The Subversion client is included in the bundled software. You can install a standalone client, like TortoiseSVN, if it helps you see what's going on in the repository.
  * [SVNConnectingFromNetbeans]
  * [SVNConnectingFromTortoise]
+= Normal Workflow =
+Subversion has numerous features, options, bells, and whistles, but on a day-to-day basis, odds are that you will use only a few of
+them. In this section, we'll run through the most common things that you might find yourself doing with Subversion in the course
+of a day's work.
+The typical work cycle looks like this:
+  # Update your working copy. This involves the use of the svn update command.
+  # Make your changes. The most common changes that you'll make are edits to the contents of your existing files. But sometimes
+you need to add, remove, copy and move files and directories—the svn add, svn delete, svn copy, and svn move commands
+handle those sorts of structural changes within the working copy.
+  # Review your changes. The svn status and svn diff commands are critical to reviewing the changes you've made in your working
+copy.
+  # Fix your mistakes. Nobody's perfect, so as you review your changes, you may spot something that's not quite right. Sometimes
+the easiest way to fix a mistake is start all over again from scratch. The svn revert command restores a file or directory to its
+Basic Usage
+19
+unmodified state.
+  # Resolve any conflicts (merge others' changes). In the time it takes you to make and review your changes, others might have
+made and published changes, too. You'll want to integrate their changes into your working copy to avoid the potential outof-
+dateness scenarios when you attempt to publish your own. Again, the svn update command is the way to do this. If this results
+in local conflicts, you'll need to resolve those using the svn resolve command.
+  # Publish (commit) your changes. The svn commit command transmits your changes to the repository where, if they are accepted,
+they create the newest versions of all the things you modified. Now others can see your work, too!
