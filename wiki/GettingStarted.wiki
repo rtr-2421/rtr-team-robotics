@@ -9,8 +9,8 @@ This page provides general FRC setup instructions, plus team-specific setup step
 [http://wpilib.screenstepslive.com/s/3120/m/7885 FRC Technical Resources Reference]
 ==Install Java/Netbeans Bundle==
   * You can install the latest Java JDK and Netbeans as a bundle from [http://www.oracle.com/technetwork/java/javase/downloads/jdk-7-netbeans-download-432126.html HERE].
-  * LinuxInstallInstructions
-  * WindowsInstallInstructions
+  * [LinuxInstallInstructions Linux install instructions]
+  * [WindowsInstallInstructions Windows install instructions]
 ==Install NetBeans==
 _Need to fill this section out as someone installs JDK and Netbeans individually._
 ==Add FRC Plugins==
