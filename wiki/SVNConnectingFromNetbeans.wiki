@@ -1,10 +1,8 @@
 #summary One-sentence summary of this page.
 
 = Introduction =
-
-= Team Repository Setup =
 The Subversion (SVN) client plugin was installed as part of Netbeans. This is the protocol we will use to access the team's source code repository in [http://code.google.com/p/rtr-team-robotics/ Google Code].
-
+= Team Repository Setup =
  * In Netbeans Team-->Subversion-->Checkout
 == Page 1 ==
  * *URL* https://rtr-team-robotics.googlecode.com/svn/rtr2014/playground
