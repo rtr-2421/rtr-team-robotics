@@ -7,5 +7,5 @@ This page is an introduction to Subversion terminology and tasks
  * Commit - upload your changes back to the repository
 = Connecting to the Repository =
 For FRC, we are using the Netbeans Integrated Development Environment (IDE). The Subversion client is included in the bundled software. You can install a standalone client, like TortoiseSVN, if it helps you see what's going on in the repository.
- * SVNConnectingFromNetbeans
- * SVNConnectingFromTortoise
+ * [SVNConnectingFromNetbeans]
+ * [SVNConnectingFromTortoise]
