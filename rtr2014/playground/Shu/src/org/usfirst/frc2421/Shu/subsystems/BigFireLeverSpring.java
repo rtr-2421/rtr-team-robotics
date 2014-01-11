@@ -55,6 +55,23 @@ public class BigFireLeverSpring extends Subsystem {
         
     }
     
+    public void startMotor(double x){
+        
+        if (x > 1){
+            x = 1;
+        }
+        
+        if (x < -1){
+            x = -1;
+        }
+        
+        try {
+            leverReset.setX(x);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void initDefaultCommand() {

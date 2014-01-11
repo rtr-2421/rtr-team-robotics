@@ -8,12 +8,19 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 package org.usfirst.frc2421.Shu.commands;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.Shu.Robot;
+import org.usfirst.frc2421.Shu.subsystems.BigFireLeverSpring;
 /**
  *
  */
 public class  bigFireLeverReset extends Command {
+    
+    double motorSpeed;
+    
+    boolean finished = false;
+    
     public bigFireLeverReset() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -26,10 +33,24 @@ public class  bigFireLeverReset extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        //Spring
+        if (Robot.bigFireLeverSpring.readEncoder() == 90){
+            motorSpeed = -.5;
+            Robot.bigFireLeverSpring.startMotor(motorSpeed);
+        }
+        
+        if (Robot.bigFireLeverSpring.readEncoder()== 0){
+            motorSpeed = 0;
+            Robot.bigFireLeverSpring.startMotor(motorSpeed);
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if (Robot.bigFireLeverSpring.readEncoder()== 0){
+            finished = true;
+        }
+        
+        return finished;
     }
     // Called once after isFinished returns true
     protected void end() {
