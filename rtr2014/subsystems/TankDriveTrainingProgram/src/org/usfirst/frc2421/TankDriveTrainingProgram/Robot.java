@@ -9,6 +9,8 @@
 // it from being updated in th future.
 package org.usfirst.frc2421.TankDriveTrainingProgram;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -70,6 +72,59 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        Joystick driveControl;
+        driveControl = new Joystick(1);
+        
+        double x;
+        x = driveControl.getX();
+        double y;
+        y = driveControl.getY();
+        
+        double maxMotor;
+        double leftSpeed = 0;
+        double rightSpeed = 0;
+        
+        if(y > 0.2 && (x > 0.2 || x < -0.2)){//Checking if the joystick is in the deadzone.
+            leftSpeed = y + x;//y is speed, and x is turn. We found out that the left motor's value should be speed + turn
+            rightSpeed = y - x;//Same as above, but the right motor's value should be speed - turn.
+        }
+        else if(y < -0.2 && (x < -0.2 || x > 0.2)){//Checking for deadzone
+            leftSpeed = y + x;//See above.
+            rightSpeed = y - x;//See above.
+        }
+                
+        if(Math.abs(y) <= Math.abs(x)){
+            maxMotor = x;//Necessary to divide by highest absolute motor value when input is larger than one,
+                         //so we check to see which motor has the highest absolute value.
+        }
+        else{
+            maxMotor = y;//See above.
+        }
+        
+        leftSpeed /= maxMotor;//Dividing by the highest motor absolute value, found above. 
+        rightSpeed /= maxMotor;//Same.
+        
+        //Limiting the values to be between 1 and -1 which is what the motors accept.
+        if(leftSpeed > 1){
+            leftSpeed = 1;
+        }
+        else if(leftSpeed < -1){
+            leftSpeed = -1;
+        }
+        
+        if(rightSpeed > 1){
+            rightSpeed = 1;
+        }
+        else if(rightSpeed < -1){
+            rightSpeed = -1;
+        }
+        
+        try {
+            drive.controlMotorL(leftSpeed);//Setting the left motor speed.
+            drive.controlMotorR(rightSpeed);//Setting the right motor speed.
+        } catch (CANTimeoutException ex) {
+        }
     }
     /**
      * This function called periodically during test mode
