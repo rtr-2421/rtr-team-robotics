@@ -54,6 +54,7 @@ public class RobotTemplate extends IterativeRobot {
         } catch (CANTimeoutException ex) {
             System.err.println("CAN Timeout error.");
         }
+        /* two joystick tandrive */
         driveSystem = new RobotDrive(driveLeft, driveRight);
         leftStick = new Joystick(1);
         rightStick = new Joystick(2);
