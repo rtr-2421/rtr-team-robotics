@@ -4,7 +4,7 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
+//random comment
 //Testing -Josh
 package rtr.robots.examples;
 
@@ -76,4 +76,3 @@ public class RobotTemplate extends IterativeRobot {
     }
     
 }
-//change
