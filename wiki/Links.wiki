@@ -5,7 +5,6 @@
  * [http://www.oracle.com/technetwork/java/javase/downloads/jdk-7-netbeans-download-432126.html Java/NetBeans bundle download page.]
  * [http://svnbook.red-bean.com/ Subversion] - the complete guide to SVN Version Control
  * [http://tortoisesvn.tigris.org/ TortoiseSVN] - Useful Subversion client that is integrated with Windows Explorer to give you a coherent view of your files.
-
  * [http://wpilib.screenstepslive.com/s/3120/m/8559/l/91405-programming-your-radio-for-home-use Programming the WiFi radio for use outside of competitions]
  * [http://wpilib.screenstepslive.com/s/3120/m/8559/l/89729-configuring-an-axis-camera Camera Setup]
 == General ==
