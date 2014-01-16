@@ -1,9 +1,13 @@
 #summary Common links for tools and resources.
 = Common Links =
+== SW Team ==
  * [http://wpilib.screenstepslive.com/s/3120/m/7885/l/79405-installing-the-java-development-tools FRC instructions for setting up Java development tools.]
  * [http://www.oracle.com/technetwork/java/javase/downloads/jdk-7-netbeans-download-432126.html Java/NetBeans bundle download page.]
  * [http://svnbook.red-bean.com/ Subversion] - the complete guide to SVN Version Control
  * [http://tortoisesvn.tigris.org/ TortoiseSVN] - Useful Subversion client that is integrated with Windows Explorer to give you a coherent view of your files.
- * [http://www.usfirst.org/roboticsprograms/frc/first-choice FIRST Choice] is a menu of items available to registered 2013 FRC teams, for free, as part of their Kit of Parts (KoP). For additional information on the program, please visit: http://www.usfirst.org/roboticsprograms/frc/first-choice.
+
  * [http://wpilib.screenstepslive.com/s/3120/m/8559/l/91405-programming-your-radio-for-home-use Programming the WiFi radio for use outside of competitions]
  * [http://wpilib.screenstepslive.com/s/3120/m/8559/l/89729-configuring-an-axis-camera Camera Setup]
+== General ==
+ * [http://www.usfirst.org/roboticsprograms/frc/technical-resources FRC 2014 Technical Resources Page]
+ * [http://www.usfirst.org/roboticsprograms/frc/first-choice FIRST Choice] is a menu of items available to registered 2013 FRC teams, for free, as part of their Kit of Parts (KoP). For additional information on the program, please visit: http://www.usfirst.org/roboticsprograms/frc/first-choice.
