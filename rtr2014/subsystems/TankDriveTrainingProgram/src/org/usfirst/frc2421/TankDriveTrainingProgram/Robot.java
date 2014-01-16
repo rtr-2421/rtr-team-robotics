@@ -86,7 +86,7 @@ public class Robot extends IterativeRobot {
         double rightSpeed = 0;
         final double deadZone = 0.2;
         
-        if((-deadZone > x) && (x < deadZone) && (-deadZone > y) && (y < deadZone)){//Checking if the joystick is in the deadzone.
+        if((-deadZone < x) && (x < deadZone) && (-deadZone < y) && (y < deadZone)){//Checking if the joystick is in the deadzone.
             leftSpeed = 0;//y is speed, and x is turn. We found out that the left motor's value should be speed + turn
             rightSpeed = 0;//Same as above, but the right motor's value should be speed - turn.
         }
@@ -95,12 +95,12 @@ public class Robot extends IterativeRobot {
             rightSpeed = y - x;//See above.
         }
                 
-        if(Math.abs(y) <= Math.abs(x)){
-            maxMotor = x;//Necessary to divide by highest absolute motor value when input is larger than one,
+        if(Math.abs(y) > Math.abs(x)){
+            maxMotor = y;//Necessary to divide by highest absolute motor value when input is larger than one,
                          //so we check to see which motor has the highest absolute value.
         }
         else{
-            maxMotor = y;//See above.
+            maxMotor = x;//See above.
         }
         
         leftSpeed /= maxMotor;//Dividing by the highest motor absolute value, found above. 
