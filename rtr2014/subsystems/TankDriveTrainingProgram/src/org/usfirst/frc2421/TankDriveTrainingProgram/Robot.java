@@ -86,11 +86,11 @@ public class Robot extends IterativeRobot {
         double rightSpeed = 0;
         final double deadZone = 0.2;
         
-        if(y > deadZone && (x > deadZone || x < -deadZone)){//Checking if the joystick is in the deadzone.
-            leftSpeed = y + x;//y is speed, and x is turn. We found out that the left motor's value should be speed + turn
-            rightSpeed = y - x;//Same as above, but the right motor's value should be speed - turn.
+        if((-deadZone > x) && (x < deadZone) && (-deadZone > y) && (y < deadZone)){//Checking if the joystick is in the deadzone.
+            leftSpeed = 0;//y is speed, and x is turn. We found out that the left motor's value should be speed + turn
+            rightSpeed = 0;//Same as above, but the right motor's value should be speed - turn.
         }
-        else if(y < -deadZone && (x < -deadZone || x > deadZone)){//Checking for deadzone
+        else{ //Checking for deadzone
             leftSpeed = y + x;//See above.
             rightSpeed = y - x;//See above.
         }
