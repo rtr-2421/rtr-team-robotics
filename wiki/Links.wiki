@@ -5,3 +5,4 @@
  * [http://svnbook.red-bean.com/ Subversion] - the complete guide to SVN Version Control
  * [http://tortoisesvn.tigris.org/ TortoiseSVN] - Useful Subversion client that is integrated with Windows Explorer to give you a coherent view of your files.
  * [http://www.usfirst.org/roboticsprograms/frc/first-choice FIRST Choice] is a menu of items available to registered 2013 FRC teams, for free, as part of their Kit of Parts (KoP). For additional information on the program, please visit: http://www.usfirst.org/roboticsprograms/frc/first-choice.
+ * [http://wpilib.screenstepslive.com/s/3120/m/8559/l/91405-programming-your-radio-for-home-use Programming the WiFi radio for use outside of competitions]
