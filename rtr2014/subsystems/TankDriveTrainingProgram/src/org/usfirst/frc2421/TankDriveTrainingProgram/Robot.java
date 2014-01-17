@@ -74,12 +74,12 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         
         Joystick driveControl;
-        driveControl = new Joystick(1);
+        driveControl = new Joystick(1);//Creating the joystick.
         
         double x;
-        x = driveControl.getX();
+        x = driveControl.getY();//x and y where switched on joystick, so it's fixed in the code.
         double y;
-        y = driveControl.getY();
+        y = driveControl.getX();//Same as above.
         
         double maxMotor;
         double leftSpeed = 0;
@@ -87,12 +87,12 @@ public class Robot extends IterativeRobot {
         final double deadZone = 0.2;
         
         if((-deadZone < x) && (x < deadZone) && (-deadZone < y) && (y < deadZone)){//Checking if the joystick is in the deadzone.
-            leftSpeed = 0;//y is speed, and x is turn. We found out that the left motor's value should be speed + turn
-            rightSpeed = 0;//Same as above, but the right motor's value should be speed - turn.
+            leftSpeed = 0;//Shouldn't move while inside deadzone.
+            rightSpeed = 0;//Same as above.
         }
-        else{ //Checking for deadzone
-            leftSpeed = y + x;//See above.
-            rightSpeed = y - x;//See above.
+        else{ 
+            leftSpeed = y + x;//y is speed, and x is turn. We found out that the left motor's value should be speed + turn.
+            rightSpeed = y - x;//Same as above, but the right motor's value should be speed - turn.
         }
                 
         if(Math.abs(y) > Math.abs(x)){
@@ -120,12 +120,14 @@ public class Robot extends IterativeRobot {
         else if(rightSpeed < -1){
             rightSpeed = -1;
         }
-        
         try {
             drive.controlMotorL(leftSpeed);//Setting the left motor speed.
             drive.controlMotorR(rightSpeed);//Setting the right motor speed.
         } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
         }
+        
+        
     }
     /**
      * This function called periodically during test mode

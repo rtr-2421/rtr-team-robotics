@@ -24,7 +24,7 @@ public class Drive extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    
+        
     public void controlMotorL(double lMotorPower) throws CANTimeoutException{ 
         leftWheel.setX(lMotorPower);
     }
