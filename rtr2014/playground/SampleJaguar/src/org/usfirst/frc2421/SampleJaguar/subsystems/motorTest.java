@@ -69,5 +69,21 @@ public class motorTest extends Subsystem {
             }
         }
     }
+    
+    //I KNOW THERE ARE ERRORS!!!
+    
+    public void launchArm() {
+        if(readEncoder() <= 0){
+            motorSpeed = 1;
+            try {
+                setX(motorSpeed);
+            } catch (CANTimeoutException ex){
+                ex.printStackTrace();
+            }
+        }
+        if(readEncoder() >= 90){
+            resetArm();
+        }
+    }
             
 } 
