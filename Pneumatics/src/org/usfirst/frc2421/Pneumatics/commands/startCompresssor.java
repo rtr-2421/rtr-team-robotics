@@ -20,7 +20,6 @@ import org.usfirst.frc2421.Pneumatics.subsystems.Pneumatic;
  */
 public class  startCompresssor extends Command {
     Compressor compressor = RobotMap.pneumaticCompressor;
-    Relay relaySolenoid = RobotMap.pneumaticRelaySolenoid1;;
     
     public startCompresssor() {
         // Use requires() here to declare subsystem dependencies
