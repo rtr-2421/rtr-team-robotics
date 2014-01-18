@@ -17,7 +17,7 @@ import org.usfirst.frc2421.Pneumatics.RobotMap;
  */
 public class  extendPiston extends Command {
     
-    Relay relaysolenoid = RobotMap.pneumaticRelaySolenoid1;
+    Relay relaySolenoid = RobotMap.pneumaticRelaySolenoid1;
     
     public extendPiston() {
         // Use requires() here to declare subsystem dependencies
@@ -29,7 +29,7 @@ public class  extendPiston extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        
+        relaySolenoid.set(Relay.Value.kForward);        
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {

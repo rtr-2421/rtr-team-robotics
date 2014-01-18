@@ -8,12 +8,17 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc2421.Pneumatics.commands;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.Pneumatics.Robot;
+import org.usfirst.frc2421.Pneumatics.RobotMap;
 /**
  *
  */
 public class  retractPiston extends Command {
+    
+    Relay relaySolenoid = RobotMap.pneumaticRelaySolenoid1;
+    
     public retractPiston() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -24,6 +29,7 @@ public class  retractPiston extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        relaySolenoid.set(Relay.Value.kReverse);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
