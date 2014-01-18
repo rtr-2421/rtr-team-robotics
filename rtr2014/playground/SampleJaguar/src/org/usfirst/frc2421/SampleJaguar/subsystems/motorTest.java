@@ -32,4 +32,16 @@ public class motorTest extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    //Moves motor1
+    public void setX(double speed) throws CANTimeoutException {
+        jagTest1.setX(speed);
+        jagTest2.setX(speed);
+        jagTest3.setX(speed);
+     
+              
+        
+        
+    }
+    
 }
