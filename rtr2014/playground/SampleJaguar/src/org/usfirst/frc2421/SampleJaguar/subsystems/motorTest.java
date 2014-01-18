@@ -34,15 +34,40 @@ public class motorTest extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    //Moves motor1
+    //Sets the speed of all of the numbers to the provided input "speed"
     public void setX(double speed) throws CANTimeoutException {
         jagTest1.setX(speed);
         jagTest2.setX(speed);
         jagTest3.setX(speed);
-     
-              
-        
-        
     }
     
-}
+    //Gets the encoder value
+    public double readEncoder(){
+        return analogChannel.getAverageVoltage() * 72;
+    }
+    
+    //main static variable
+    double motorSpeed;
+    
+    //sets motor speed according to encoder value
+    public void resetArm() {
+        //check encoder, and sets the cjag motors to the start pos
+        if(readEncoder() == 90) {
+            motorSpeed = -.5;
+            try {
+                setX(motorSpeed);
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+        }
+        if(readEncoder() == 0) {
+            motorSpeed = 0;
+            try {
+                setX(motorSpeed);
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+            
+} 
