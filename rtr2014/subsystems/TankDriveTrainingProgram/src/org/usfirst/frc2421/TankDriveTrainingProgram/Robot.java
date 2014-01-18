@@ -77,9 +77,9 @@ public class Robot extends IterativeRobot {
         driveControl = new Joystick(1);//Creating the joystick.
         
         double x;
-        x = driveControl.getY();//x and y where switched on joystick, so it's fixed in the code.
+        x = driveControl.getX();//x and y where switched on joystick, so it's fixed in the code.
         double y;
-        y = driveControl.getX();//Same as above.
+        y = driveControl.getY();//Same as above.
         
         double maxMotor;
         double leftSpeed = 0;
@@ -96,11 +96,11 @@ public class Robot extends IterativeRobot {
         }
                 
         if(Math.abs(y) > Math.abs(x)){
-            maxMotor = y;//Necessary to divide by highest absolute motor value when input is larger than one,
+            maxMotor = Math.abs(y);//Necessary to divide by highest absolute motor value when input is larger than one,
                          //so we check to see which motor has the highest absolute value.
         }
         else{
-            maxMotor = x;//See above.
+            maxMotor = Math.abs(x);//See above.
         }
         
         leftSpeed /= maxMotor;//Dividing by the highest motor absolute value, found above. 
@@ -122,7 +122,7 @@ public class Robot extends IterativeRobot {
         }
         try {
             drive.controlMotorL(leftSpeed);//Setting the left motor speed.
-            drive.controlMotorR(rightSpeed);//Setting the right motor speed.
+            drive.controlMotorR(-rightSpeed);//Setting the right motor speed.
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
