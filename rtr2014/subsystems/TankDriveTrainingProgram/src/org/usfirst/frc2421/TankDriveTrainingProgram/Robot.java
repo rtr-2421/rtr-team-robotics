@@ -121,8 +121,8 @@ public class Robot extends IterativeRobot {
             rightSpeed = -1;
         }
         try {
-            drive.controlMotorL(leftSpeed);//Setting the left motor speed.
-            drive.controlMotorR(-rightSpeed);//Setting the right motor speed.
+            drive.controlMotorL(-leftSpeed);//Setting the left motor speed.
+            drive.controlMotorR(rightSpeed);//Setting the right motor speed.
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
