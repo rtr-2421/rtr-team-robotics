@@ -74,7 +74,7 @@ public class Robot extends IterativeRobot {
             System.out.println("Pressure Switch On");
         }
         else{
-            System.out.println("Pressure Swithch Off");
+            System.out.println("Pressure Switch Off");
         }
         
         Relay.Value relay;
