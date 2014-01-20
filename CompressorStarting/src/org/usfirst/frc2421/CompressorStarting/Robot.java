@@ -63,7 +63,7 @@ public class Robot extends IterativeRobot {
             System.out.println("Compressor has been enabled.");
         }
         else{
-            System.out.println("Compressor has not been enabled");
+            System.out.println("Compressor has not been enabled.");
         }
         
         
