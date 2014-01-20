@@ -81,9 +81,6 @@ public class motorTest extends Subsystem {
                 ex.printStackTrace();
             }
         }
-        if(readEncoder() >= 90){
-            resetArm();
-        }
-    }
+      }
             
-} 
+}
