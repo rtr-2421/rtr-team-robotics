@@ -14,8 +14,10 @@ import org.usfirst.frc2421.SampleJaguar.Robot;
  *
  */
 public class  AutonomousCommand extends Command {
+    int loopTimer = 20000;
+    boolean timerIsFinished = false;
     
-    //random comment / potato
+    //random comment / Fishnoses
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -25,13 +27,15 @@ public class  AutonomousCommand extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    loopTimer = loopTimer - 1;   
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return timerIsFinished;
     }
     // Called once after isFinished returns true
     protected void end() {
@@ -39,5 +43,6 @@ public class  AutonomousCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        
     }
 }
