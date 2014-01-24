@@ -55,8 +55,8 @@ public class motorTest extends Subsystem {
     }
     
     //main static variable
-    double motorSpeed;
-    double driveSpeed;
+    public double motorSpeed;
+    public double driveSpeed;
     
     //sets motor speed according to encoder value
     public void resetArm() {
@@ -79,8 +79,7 @@ public class motorTest extends Subsystem {
         }
     }
     
-    //I KNOW THERE ARE ERRORS!!!
-    
+        
     public void launchArm() {
         if(readEncoder() <= 0){
             motorSpeed = 1;
@@ -91,11 +90,11 @@ public class motorTest extends Subsystem {
             }
         }
       }
-    
+    //creates a variable for range reading of ult
     public double readUltrasonic(){
         return ultRange.getRangeInches();
     }
-    
+    //checks range feedback of ult and drives/stops
     public void drive(){
         if(readUltrasonic() < maxDistance){
             driveSpeed = .5;

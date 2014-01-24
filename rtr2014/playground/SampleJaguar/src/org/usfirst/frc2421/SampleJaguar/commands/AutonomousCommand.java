@@ -8,6 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc2421.SampleJaguar.commands;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.SampleJaguar.Robot;
 /**
@@ -18,7 +19,9 @@ public class  AutonomousCommand extends Command {
     int loopTimer = driveTime * 20000;
     boolean timerIsFinished = false;
     
-    //random comment / Fishnoses
+    double maxDistance = 30;
+    double driveSpeed;
+    //random comment / potato
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -32,10 +35,21 @@ public class  AutonomousCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    while (loopTimer <= 0){
-        loopTimer = loopTimer - 1;   
-    }
-    isFinished = true;
+        if(Robot.motorTest.readUltrasonic() < maxDistance){
+            Robot.motorTest.driveSpeed = .5;
+            try{
+                Robot.motorTest.setX2(driveSpeed);
+            }catch (CANTimeoutException ex){
+                ex.printStackTrace();
+            }
+        }else{
+            driveSpeed = 0;
+            try{
+               Robot.motorTest.setX2(driveSpeed); 
+            }catch (CANTimeoutException ex){
+                ex.printStackTrace();
+            }
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
