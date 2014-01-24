@@ -14,7 +14,8 @@ import org.usfirst.frc2421.SampleJaguar.Robot;
  *
  */
 public class  AutonomousCommand extends Command {
-    int loopTimer = 20000;
+    int driveTime = 4;
+    int loopTimer = driveTime * 20000;
     boolean timerIsFinished = false;
     
     //random comment / Fishnoses
@@ -31,7 +32,10 @@ public class  AutonomousCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    loopTimer = loopTimer - 1;   
+    while (loopTimer <= 0){
+        loopTimer = loopTimer - 1;   
+    }
+    isFinished = true;
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
