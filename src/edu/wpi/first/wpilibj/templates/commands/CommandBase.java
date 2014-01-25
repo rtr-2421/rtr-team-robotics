@@ -1,9 +1,9 @@
-package frc.rtr.examples.commands;
+package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.rtr.examples.OI;
-import frc.rtr.examples.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.templates.OI;
+import edu.wpi.first.wpilibj.templates.subsystems.ExampleSubsystem;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

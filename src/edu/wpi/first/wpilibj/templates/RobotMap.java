@@ -1,4 +1,4 @@
-package frc.rtr.examples;
+package edu.wpi.first.wpilibj.templates;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
