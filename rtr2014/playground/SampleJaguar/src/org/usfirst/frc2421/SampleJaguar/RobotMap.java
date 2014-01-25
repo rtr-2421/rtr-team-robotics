@@ -52,10 +52,10 @@ public class RobotMap {
         }
 	
         
-        motorTestultRange = new Ultrasonic(1, 1, 1, 2);
+        //motorTestultRange = new Ultrasonic(1, 1, 1, 2);
 	LiveWindow.addSensor("motorTest", "ultRange", motorTestultRange);
         
-        motorTestencoder = new AnalogChannel(1, 1);
+        motorTestencoder = new AnalogChannel(1, 2);
 	LiveWindow.addSensor("motorTest", "encoder", motorTestencoder);
         
         try { 
