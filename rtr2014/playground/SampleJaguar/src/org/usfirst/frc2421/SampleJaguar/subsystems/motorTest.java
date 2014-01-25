@@ -51,7 +51,7 @@ public class motorTest extends Subsystem {
     }
     //Gets the encoder value
     public double readEncoder(){
-        return encoder.get();
+        return encoder.getRaw();
     }
     
     public double readRaw(){
