@@ -13,7 +13,6 @@ package org.usfirst.frc2421.TimerAutonomousDrive.subsystems;
 
 import edu.wpi.first.wpilibj.CANJaguar;
 import org.usfirst.frc2421.TimerAutonomousDrive.RobotMap;
-import org.usfirst.frc2421.TimerAutonomousDrive.commands.*;
 import edu.wpi.first.wpilibj.can.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
