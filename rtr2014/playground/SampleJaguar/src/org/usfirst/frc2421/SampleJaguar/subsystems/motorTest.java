@@ -54,6 +54,18 @@ public class motorTest extends Subsystem {
         return encoder.get();
     }
     
+    public double readRaw(){
+        return encoder.getRaw();
+    }
+    
+    public double readRate(){
+        return encoder.getRate();
+    }
+    
+    public double readDriven(){
+        return encoder.getDistance();
+    }
+    
     //main static variable
     public double motorSpeed;
     public double driveSpeed;
