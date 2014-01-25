@@ -42,7 +42,7 @@ public class motorTest extends Subsystem {
     public void setX(double speed) throws CANTimeoutException {
         jagTest1.setX(speed);
         jagTest2.setX(speed);
-        jagTest3.setX(speed);
+       // jagTest3.setX(speed);
     }
     
     public void setX2(double speed2) throws CANTimeoutException {
