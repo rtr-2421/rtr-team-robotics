@@ -22,7 +22,7 @@ public class motorTest extends Subsystem {
     CANJaguar jagTest1 = RobotMap.motorTestjagTest1;
     CANJaguar jagTest2 = RobotMap.motorTestjagTest2;
     Ultrasonic ultRange = RobotMap.motorTestultRange;
-    AnalogChannel encoder = RobotMap.motorTestencoder;
+    Encoder encoder = RobotMap.motorTestencoder;
     CANJaguar driveCan1 = RobotMap.motorTestdriveCan1;
     CANJaguar driveCan2 = RobotMap.motorTestdriveCan2;
     double maxDistance = 30;
@@ -51,7 +51,7 @@ public class motorTest extends Subsystem {
     }
     //Gets the encoder value
     public double readEncoder(){
-        return encoder.getAverageVoltage() * 72;
+        return encoder.get();
     }
     
     //main static variable
@@ -99,7 +99,7 @@ public class motorTest extends Subsystem {
     //checks range feedback of ult and drives/stops
     public void drive(){
         if(readUltrasonic() < maxDistance){
-            driveSpeed = .25;
+            driveSpeed = .5;
             try{
                 setX2(driveSpeed);
             }catch (CANTimeoutException ex){
