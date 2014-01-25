@@ -1,6 +1,6 @@
-MIDlet-Name: ExampleRobot
+MIDlet-Name: RobotBuilderTest
 MIDlet-Version: 1.0.0
 MIDlet-Vendor: FIRST
-MIDlet-1: RobotTemplate, , frc.rtr.examples.RobotTemplate
+MIDlet-1: Robot, , org.usfirst.frc2421.TankDriveTrainingProgram.Robot
 MicroEdition-Profile: IMP-1.0
 MicroEdition-Configuration: CLDC-1.1
