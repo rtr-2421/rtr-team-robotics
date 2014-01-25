@@ -15,8 +15,10 @@ import org.usfirst.frc2421.SampleJaguar.Robot;
  *
  */
 public class  Fire extends Command {
-    public double motorSpeed = -.5;
+    public double motorSpeed;
     boolean finished = false;
+    public static final double DEADZONE = 0;
+    
     public Fire() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -32,7 +34,7 @@ public class  Fire extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if(Robot.motorTest.readEncoder() <= 0){
+        if(Robot.motorTest.readEncoder() <= 0 + DEADZONE){
             motorSpeed = 0.25;
             try {
                 Robot.motorTest.setX(motorSpeed);
@@ -40,7 +42,7 @@ public class  Fire extends Command {
                 ex.printStackTrace();
             }
         }
-        if(Robot.motorTest.readEncoder() >= 90) {
+        if(Robot.motorTest.readEncoder() >= 90 + DEADZONE) {
                 motorSpeed = 0;
             try {
                 Robot.motorTest.setX(motorSpeed);

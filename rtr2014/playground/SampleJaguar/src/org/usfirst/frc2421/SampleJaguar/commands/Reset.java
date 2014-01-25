@@ -8,12 +8,16 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc2421.SampleJaguar.commands;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.SampleJaguar.Robot;
 /**
  *
  */
 public class  Reset extends Command {
+    public double motorSpeed;
+    public static final double DEADZONE = 0;
+
     public Reset() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -26,6 +30,22 @@ public class  Reset extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if(Robot.motorTest.readEncoder() >= 90 + DEADZONE){
+            motorSpeed = -0.25;
+            try {
+                Robot.motorTest.setX(motorSpeed);
+            } catch (CANTimeoutException ex){
+                ex.printStackTrace();
+            }
+        }
+        if(Robot.motorTest.readEncoder() <= 0 + DEADZONE) {
+                motorSpeed = 0;
+            try {
+                Robot.motorTest.setX(motorSpeed);
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+}
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
