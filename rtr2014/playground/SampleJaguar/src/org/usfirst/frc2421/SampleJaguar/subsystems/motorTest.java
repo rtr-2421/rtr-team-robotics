@@ -76,6 +76,8 @@ public class motorTest extends Subsystem {
             } catch (CANTimeoutException ex) {
                 ex.printStackTrace();
             }
+        }else{
+            System.out.println(readEncoder());
         }
     }
     
