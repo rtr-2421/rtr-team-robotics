@@ -55,7 +55,7 @@ public class RobotMap {
         //motorTestultRange = new Ultrasonic(1, 1, 1, 2);
 	//LiveWindow.addSensor("motorTest", "ultRange", motorTestultRange);
         
-        motorTestencoder = new Encoder(2, 1);
+        motorTestencoder = new Encoder(1, 2, false, CounterBase.EncodingType.k4X);
 	LiveWindow.addSensor("motorTest", "encoder", motorTestencoder);
         
 //        try { 
