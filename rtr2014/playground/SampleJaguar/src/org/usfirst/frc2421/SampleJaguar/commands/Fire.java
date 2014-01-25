@@ -33,7 +33,7 @@ public class  Fire extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if(Robot.motorTest.readEncoder() <= 0){
-            motorSpeed = 1;
+            motorSpeed = 0.25;
             try {
                 Robot.motorTest.setX(motorSpeed);
             } catch (CANTimeoutException ex){
@@ -41,21 +41,23 @@ public class  Fire extends Command {
             }
         }
         if(Robot.motorTest.readEncoder() >= 90) {
-            
+                motorSpeed = 0;
             try {
                 Robot.motorTest.setX(motorSpeed);
             } catch (CANTimeoutException ex) {
                 ex.printStackTrace();
             }
         }
-        if(Robot.motorTest.readEncoder() <= 0) {
+        /*if(Robot.motorTest.readEncoder() <= 0) {
             motorSpeed = 0;
             try {
                 Robot.motorTest.setX(motorSpeed);
             } catch (CANTimeoutException ex) {
                 ex.printStackTrace();
             }
-        }
+        }else{
+            System.out.println(Robot.motorTest.readEncoder());
+        }*/
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

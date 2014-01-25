@@ -62,7 +62,7 @@ public class motorTest extends Subsystem {
     public void resetArm() {
         //check encoder, and sets the cjag motors to the start pos
         if(readEncoder() == 90) {
-            motorSpeed = -.5;
+            motorSpeed = -.25;
             try {
                 setX(motorSpeed);
             } catch (CANTimeoutException ex) {
@@ -84,7 +84,7 @@ public class motorTest extends Subsystem {
         
     public void launchArm() {
         if(readEncoder() <= 0){
-            motorSpeed = 1;
+            motorSpeed = 0.25;
             try {
                 setX(motorSpeed);
             } catch (CANTimeoutException ex){
@@ -99,7 +99,7 @@ public class motorTest extends Subsystem {
     //checks range feedback of ult and drives/stops
     public void drive(){
         if(readUltrasonic() < maxDistance){
-            driveSpeed = .5;
+            driveSpeed = .25;
             try{
                 setX2(driveSpeed);
             }catch (CANTimeoutException ex){

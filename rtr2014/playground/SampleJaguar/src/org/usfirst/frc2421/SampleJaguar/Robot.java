@@ -70,6 +70,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        System.out.println("Encoder value = " + Robot.motorTest.readEncoder());
     }
     /**
      * This function called periodically during test mode
