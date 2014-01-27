@@ -22,7 +22,7 @@ public class motorTest extends Subsystem {
     CANJaguar jagTest1 = RobotMap.motorTestjagTest1;
     CANJaguar jagTest2 = RobotMap.motorTestjagTest2;
     Ultrasonic ultRange = RobotMap.motorTestultRange;
-    Encoder encoder = RobotMap.motorTestencoder;
+    AnalogChannel encoder = RobotMap.motorTestencoder;
     CANJaguar driveCan1 = RobotMap.motorTestdriveCan1;
     CANJaguar driveCan2 = RobotMap.motorTestdriveCan2;
     double maxDistance = 30;
@@ -51,8 +51,20 @@ public class motorTest extends Subsystem {
     }
     //Gets the encoder value
     public double readEncoder(){
-        return encoder.getRaw();
+        return encoder.getAverageVoltage() * 72;
     }
+//    
+//    public double readRaw(){
+//        return encoder.getRaw();
+//    }
+//    
+//    public double readRate(){
+//        return encoder.getRate();
+//    }
+//    
+//    public double readDriven(){
+//        return encoder.getDistance();
+//    }
     
     //main static variable
     public double motorSpeed;
