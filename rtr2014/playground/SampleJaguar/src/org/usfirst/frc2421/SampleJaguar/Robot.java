@@ -86,14 +86,15 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
     }
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        System.out.print("Encoder value = " + Robot.motorTest.readUltrasonic());
-        System.out.println("");
+        System.out.println("Encoder value = " + motorTest.readEncoder());
+        
     }
     /**
      * This function called periodically during test mode
