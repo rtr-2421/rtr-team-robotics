@@ -19,8 +19,8 @@ import org.usfirst.frc2421.TimerAutonomousDrive.Robot;
  *
  */
 public class  AutonomousCommand extends Command {
-int driveTime = 4;
-    int loopTimer = driveTime * 20000;
+int driveTime = 4;//measured in seconds
+    int loopTimer = driveTime * 80;//80 is the time per second
     boolean timerIsFinished = false;
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
@@ -43,8 +43,12 @@ int driveTime = 4;
             ex.printStackTrace();
         }
         loopTimer = loopTimer - 1;   
-    }
-    timerIsFinished = true;
+    
+        }
+        else {
+            timerIsFinished = true;
+        }
+        System.out.println(loopTimer);
     }
 
     // Make this return true when this Command no longer needs to run execute()
