@@ -30,7 +30,7 @@ public class  Reset extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if(Robot.motorTest.readEncoder() >= 90 + DEADZONE){
+        if(Robot.motorTest.readEncoder() > 0 + DEADZONE){
             motorSpeed = -0.25;
             try {
                 Robot.motorTest.setX(motorSpeed);
@@ -38,7 +38,7 @@ public class  Reset extends Command {
                 ex.printStackTrace();
             }
         }
-        if(Robot.motorTest.readEncoder() <= 0 + DEADZONE) {
+        else if(Robot.motorTest.readEncoder() == 0 + DEADZONE) {
                 motorSpeed = 0;
             try {
                 Robot.motorTest.setX(motorSpeed);

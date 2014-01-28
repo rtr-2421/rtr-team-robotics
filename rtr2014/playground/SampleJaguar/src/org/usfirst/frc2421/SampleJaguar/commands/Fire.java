@@ -34,7 +34,7 @@ public class  Fire extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if(Robot.motorTest.readEncoder() <= 0 + DEADZONE){
+        if((Robot.motorTest.readEncoder() >= 0 + DEADZONE) && (Robot.motorTest.readEncoder() < 90)){
             motorSpeed = 0.25;
             try {
                 Robot.motorTest.setX(motorSpeed);

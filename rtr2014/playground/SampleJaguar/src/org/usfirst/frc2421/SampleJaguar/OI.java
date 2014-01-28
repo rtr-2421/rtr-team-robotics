@@ -60,13 +60,13 @@ public class OI {
         joystick1 = new Joystick(1);
         
         joystickButton1 = new JoystickButton(joystick1, 1);
-        joystickButton1.whenPressed(new buttonPress());
+        joystickButton1.whenPressed(new Fire());
         
         joystickButton2 = new JoystickButton(joystick1, 2);
-        joystickButton2.whenPressed(new Fire());
+        joystickButton2.whenPressed(new Reset());
         
-        joystickButton3 = new JoystickButton(joystick1, 3);
-        joystickButton3.whenPressed(new Reset());
+//        joystickButton3 = new JoystickButton(joystick1, 3);
+//        joystickButton3.whenPressed(new Reset());
 	    
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
