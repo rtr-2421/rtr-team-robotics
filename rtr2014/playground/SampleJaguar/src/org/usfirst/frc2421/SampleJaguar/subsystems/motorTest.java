@@ -21,7 +21,7 @@ public class motorTest extends Subsystem {
     CANJaguar jagTest3 = RobotMap.motorTestjagTest3;
     CANJaguar jagTest1 = RobotMap.motorTestjagTest1;
     CANJaguar jagTest2 = RobotMap.motorTestjagTest2;
-    Ultrasonic ultRange = RobotMap.motorTestultRange;
+    AnalogChannel ultRange = RobotMap.motorTestultRange;
     AnalogChannel encoder = RobotMap.motorTestencoder;
     CANJaguar driveCan1 = RobotMap.motorTestdriveCan1;
     CANJaguar driveCan2 = RobotMap.motorTestdriveCan2;
@@ -106,7 +106,7 @@ public class motorTest extends Subsystem {
       }
     //creates a variable for range reading of ult
     public double readUltrasonic(){
-        return ultRange.getRangeInches();
+        return ultRange.getAverageVoltage() / 512;
     }
     //checks range feedback of ult and drives/stops
     public void drive(){
