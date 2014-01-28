@@ -17,7 +17,7 @@ import org.usfirst.frc2421.SampleJaguar.Robot;
 public class  Fire extends Command {
     public double motorSpeed;
     boolean finished = false;
-    public static final double DEADZONE = 0;
+    public static final double DEADZONE = 20;
     
     public Fire() {
         // Use requires() here to declare subsystem dependencies
@@ -34,7 +34,7 @@ public class  Fire extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if((Robot.motorTest.readEncoder() >= 0 + DEADZONE) && (Robot.motorTest.readEncoder() < 90)){
+        if((Robot.motorTest.readEncoder() < 0 + DEADZONE) /*&& (Robot.motorTest.readEncoder() < 90 + DEADZONE)*/){
             motorSpeed = 0.25;
             try {
                 Robot.motorTest.setX(motorSpeed);
@@ -42,28 +42,30 @@ public class  Fire extends Command {
                 ex.printStackTrace();
             }
         }
-        if(Robot.motorTest.readEncoder() >= 90 + DEADZONE) {
-                motorSpeed = 0;
+        else if(Robot.motorTest.readEncoder() >= 90 + DEADZONE) {
+            motorSpeed = 0;
+            finished = true;
+            System.out.println("Stop");
             try {
                 Robot.motorTest.setX(motorSpeed);
             } catch (CANTimeoutException ex) {
                 ex.printStackTrace();
             }
         }
-        /*if(Robot.motorTest.readEncoder() <= 0) {
-            motorSpeed = 0;
-            try {
-                Robot.motorTest.setX(motorSpeed);
-            } catch (CANTimeoutException ex) {
-                ex.printStackTrace();
-            }
-        }else{
-            System.out.println(Robot.motorTest.readEncoder());
-        }*/
+//        /*if(Robot.motorTest.readEncoder() <= 0) {
+//            motorSpeed = 0;
+//            try {
+//                Robot.motorTest.setX(motorSpeed);
+//            } catch (CANTimeoutException ex) {
+//                ex.printStackTrace();
+//            }
+//        }else{
+//            System.out.println(Robot.motorTest.readEncoder());
+//        }*/
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return finished = true;
+        return finished;
     }
     // Called once after isFinished returns true
     protected void end() {

@@ -39,14 +39,14 @@ public class RobotMap {
 	
         
         try { 
-            motorTestjagTest1 = new CANJaguar(9);
+            motorTestjagTest1 = new CANJaguar(3);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
 	
         
         try { 
-            motorTestjagTest2 = new CANJaguar(8);
+            motorTestjagTest2 = new CANJaguar(7);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
@@ -65,14 +65,14 @@ public class RobotMap {
 //>>>>>>> .r195
         
            try { 
-            motorTestdriveCan1 = new CANJaguar(3);
+            motorTestdriveCan1 = new CANJaguar(8);
             } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
 	
         
         try { 
-           motorTestdriveCan2 = new CANJaguar(7);
+           motorTestdriveCan2 = new CANJaguar(9);
        } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }

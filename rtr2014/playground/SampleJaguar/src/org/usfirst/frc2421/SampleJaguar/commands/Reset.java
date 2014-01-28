@@ -16,7 +16,8 @@ import org.usfirst.frc2421.SampleJaguar.Robot;
  */
 public class  Reset extends Command {
     public double motorSpeed;
-    public static final double DEADZONE = 0;
+    public static final double DEADZONE = 20;
+    public boolean finished = false;
 
     public Reset() {
         // Use requires() here to declare subsystem dependencies
@@ -38,8 +39,9 @@ public class  Reset extends Command {
                 ex.printStackTrace();
             }
         }
-        else if(Robot.motorTest.readEncoder() == 0 + DEADZONE) {
+        else if(Robot.motorTest.readEncoder() <= 0 + DEADZONE) {
                 motorSpeed = 0;
+                finished = true;
             try {
                 Robot.motorTest.setX(motorSpeed);
             } catch (CANTimeoutException ex) {
@@ -49,7 +51,7 @@ public class  Reset extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return finished;
     }
     // Called once after isFinished returns true
     protected void end() {
