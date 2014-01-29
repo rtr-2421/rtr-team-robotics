@@ -106,7 +106,7 @@ public class motorTest extends Subsystem {
       }
     //creates a variable for range reading of ult
     public double readUltrasonic(){
-        return ultRange.getAverageVoltage() / 512;
+        return ultRange.getAverageVoltage() / (12 / 512) / 12;
     }
     //checks range feedback of ult and drives/stops
     public void drive(){
