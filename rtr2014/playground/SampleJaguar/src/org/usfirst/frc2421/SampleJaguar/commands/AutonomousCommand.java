@@ -35,21 +35,21 @@ public class  AutonomousCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if(Robot.motorTest.readUltrasonic() < maxDistance){
-            Robot.motorTest.driveSpeed = .5;
-            try{
-                Robot.motorTest.setX2(driveSpeed);
-            }catch (CANTimeoutException ex){
-                ex.printStackTrace();
-            }
-        }else{
-            driveSpeed = 0;
-            try{
-               Robot.motorTest.setX2(driveSpeed); 
-            }catch (CANTimeoutException ex){
-                ex.printStackTrace();
-            }
-        }
+//        if(Robot.motorTest.readUltrasonic() < maxDistance){
+//            Robot.motorTest.driveSpeed = .5;
+//            try{
+//                Robot.motorTest.setX2(driveSpeed);
+//            }catch (CANTimeoutException ex){
+//                ex.printStackTrace();
+//            }
+//        }else{
+//            driveSpeed = 0;
+//            try{
+//               Robot.motorTest.setX2(driveSpeed); 
+//            }catch (CANTimeoutException ex){
+//                ex.printStackTrace();
+//            }
+//        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

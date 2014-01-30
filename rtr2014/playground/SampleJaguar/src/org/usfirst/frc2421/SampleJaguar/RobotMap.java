@@ -59,7 +59,6 @@ public class RobotMap {
 ////        motorTestencoder = new Encoder(1, 2, false, CounterBase.EncodingType.k4X);
 ////	LiveWindow.addSensor("motorTest", "encoder", motorTestencoder);
 ////        motorTestencoder.start();
-//=======
         motorTestencoder = new AnalogChannel(1);
 	LiveWindow.addSensor("motorTest", "encoder", motorTestencoder);
 //>>>>>>> .r195

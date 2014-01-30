@@ -16,7 +16,8 @@ import org.usfirst.frc2421.SampleJaguar.Robot;
  */
 public class  Reset extends Command {
     public double motorSpeed;
-    public static final double DEADZONE = 20;
+    public double motorSwitch = -1;
+    public static final double DEADZONE = 131.18;
     public boolean finished = false;
 
     public Reset() {
@@ -28,18 +29,21 @@ public class  Reset extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
+        
         if(Robot.motorTest.readEncoder() > 0 + DEADZONE){
-            motorSpeed = -0.25;
+            motorSpeed = -0.25 * motorSwitch;
             try {
                 Robot.motorTest.setX(motorSpeed);
             } catch (CANTimeoutException ex){
                 ex.printStackTrace();
             }
         }
-        else if(Robot.motorTest.readEncoder() <= 0 + DEADZONE) {
+        if(Robot.motorTest.readEncoder() <= 0 + DEADZONE) {
                 motorSpeed = 0;
                 finished = true;
             try {
@@ -55,9 +59,11 @@ public class  Reset extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+        finished = false;
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        finished = true;
     }
 }

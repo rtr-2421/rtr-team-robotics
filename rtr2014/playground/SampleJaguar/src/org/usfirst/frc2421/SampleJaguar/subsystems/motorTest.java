@@ -106,25 +106,25 @@ public class motorTest extends Subsystem {
       }
     //creates a variable for range reading of ult
     public double readUltrasonic(){
-        return ultRange.getAverageVoltage() * 8.8;
+        return ultRange.getAverageVoltage() * 8.8573;   
     }
     //checks range feedback of ult and drives/stops
-    public void drive(){
-        if(readUltrasonic() < maxDistance){
-            driveSpeed = .5;
-            try{
-                setX2(driveSpeed);
-            }catch (CANTimeoutException ex){
-                ex.printStackTrace();
-            }
-        }else{
-            driveSpeed = 0;
-            try{
-               setX2(driveSpeed); 
-            }catch (CANTimeoutException ex){
-                ex.printStackTrace();
-            }
-        }
-    }
+//    public void drive(){
+//        if(readUltrasonic() < maxDistance){
+//            driveSpeed = .5;
+//            try{
+//                setX2(driveSpeed);
+//            }catch (CANTimeoutException ex){
+//                ex.printStackTrace();
+//            }
+//        }else{
+//            driveSpeed = 0;
+//            try{
+//               setX2(driveSpeed); 
+//            }catch (CANTimeoutException ex){
+//                ex.printStackTrace();
+//            }
+//        }
+//    }
             
 }
