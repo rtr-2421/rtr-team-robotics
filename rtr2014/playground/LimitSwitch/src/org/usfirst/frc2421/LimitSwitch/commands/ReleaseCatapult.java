@@ -32,22 +32,21 @@ boolean finished = false;
     // Called just before this Command runs the first time
     protected void initialize() {
          if (Robot.subsystem1.upperLimit()){
-        try {
+        finished = false;
+         }
+         else{
+          try {
            
             Robot.subsystem1.turnMotorsOn(-motorPower);
         } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
         }
-         }
-         else{
-           finished = true;  
          
          }
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (Robot.subsystem1.lowerLimit() == true){
+        if (Robot.subsystem1.lowerLimit() == false){
            finished = true; 
     }
     }
@@ -59,6 +58,10 @@ boolean finished = false;
 
     // Called once after isFinished returns true
     protected void end() {
+    try {
+        Robot.subsystem1.turnMotorsOn(0);
+    } catch (CANTimeoutException ex) {
+    }
     }
 
     // Called when another command which requires one or more of the same
