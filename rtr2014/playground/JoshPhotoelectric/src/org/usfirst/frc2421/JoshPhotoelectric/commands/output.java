@@ -32,7 +32,7 @@ public class  output extends Command {
             Robot.photosensor.setX(.1);
             System.out.println("Set motor speed to .1"); 
         } else {
-           Robot.photosensor.setX(0);
+           Robot.photosensor.setX(-1);
            System.out.println("Set motor speed to 0");
         }
     }
@@ -42,6 +42,8 @@ public class  output extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+        System.out.println("Turned off motor when let go");
+        Robot.photosensor.setX(0);
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
