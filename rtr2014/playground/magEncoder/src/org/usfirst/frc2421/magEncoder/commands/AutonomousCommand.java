@@ -33,11 +33,18 @@ public class  AutonomousCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if(Robot.driveMotors.encoderValue() <= Robot.driveMotors.distance){
+            Robot.driveMotors.setX(.1);
+        } else {
+            Robot.driveMotors.setX(0);
+            isFinished = true;
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
+    private boolean isFinished = false;
     protected boolean isFinished() {
-        return false;
+        return isFinished;
     }
 
     // Called once after isFinished returns true
