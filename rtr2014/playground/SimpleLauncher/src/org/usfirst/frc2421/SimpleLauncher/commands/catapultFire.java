@@ -8,9 +8,12 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc2421.SimpleLauncher.commands;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc2421.SimpleLauncher.OI;
 import org.usfirst.frc2421.SimpleLauncher.Robot;
+import org.usfirst.frc2421.SimpleLauncher.RobotMap;
 import org.usfirst.frc2421.SimpleLauncher.subsystems.Catapult;
 /**
  *
@@ -18,6 +21,8 @@ import org.usfirst.frc2421.SimpleLauncher.subsystems.Catapult;
 public class  catapultFire extends Command {
     
     public double motorSpeed = Robot.catapult.motorSpeed;
+    Joystick joystick = Robot.oi.getcatapultControl();
+    public boolean finished = false;
     
     public catapultFire() {
         // Use requires() here to declare subsystem dependencies
@@ -38,17 +43,29 @@ public class  catapultFire extends Command {
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
-               
+                
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return finished;
     }
     // Called once after isFinished returns true
     protected void end() {
+        
+        try {
+            Robot.catapult.setX(0);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+                
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+    
+    protected void setFinished(boolean isFinished){
+        finished = isFinished;
+    }
+    
 }

@@ -8,6 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc2421.SimpleLauncher;
+import com.sun.squawk.debugger.JDWPListener;
 import org.usfirst.frc2421.SimpleLauncher.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
@@ -59,9 +60,10 @@ public class OI {
         catapultControl = new Joystick(1);
         
         resetCatapult = new JoystickButton(catapultControl, 3);
-        resetCatapult.whileHeld(new catapultReset());
+        resetCatapult.whenPressed(new catapultReset());
         fireCatapult = new JoystickButton(catapultControl, 1);
-        fireCatapult.whileHeld(new catapultFire());
+        fireCatapult.whenPressed(new catapultFire());       
+        
 	    
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
