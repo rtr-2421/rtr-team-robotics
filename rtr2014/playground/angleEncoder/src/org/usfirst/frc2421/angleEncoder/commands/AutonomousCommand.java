@@ -58,6 +58,11 @@ public class AutonomousCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        try {
+            Robot.bigRedButton.cANJaguar1.setX(0);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
     }
 
     // Called when another command which requires one or more of the same
