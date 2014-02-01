@@ -35,8 +35,10 @@ public class  AutonomousCommand extends Command {
     protected void execute() {
         if(Robot.driveMotors.encoderValue() <= Robot.driveMotors.distance){
             Robot.driveMotors.setX(.1);
+            System.out.println("yes");
         } else {
             Robot.driveMotors.setX(0);
+            System.out.println("no");
             isFinished = true;
         }
     }
