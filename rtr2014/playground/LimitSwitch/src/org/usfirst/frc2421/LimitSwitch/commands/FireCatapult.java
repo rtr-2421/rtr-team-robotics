@@ -55,8 +55,21 @@ boolean finished = false;
                 Robot.subsystem1.turnMotorsOn(motorPower);
             } catch (CANTimeoutException ex) {
             }
+    } 
+        finished = false;
+         while (!finished){    
+        
+        if (Robot.subsystem1.lowerLimit() == false){
+           finished = true; 
+        }
+            try {
+                Robot.subsystem1.turnMotorsOn(-motorPower);
+            } catch (CANTimeoutException ex) {
+            }
+    } 
     }
-    }
+    
+    
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     
