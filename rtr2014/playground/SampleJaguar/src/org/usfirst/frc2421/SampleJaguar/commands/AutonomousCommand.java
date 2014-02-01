@@ -11,6 +11,7 @@ package org.usfirst.frc2421.SampleJaguar.commands;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.SampleJaguar.Robot;
+import org.usfirst.frc2421.SampleJaguar.RobotMap;
 /**
  *
  */
@@ -18,6 +19,7 @@ public class  AutonomousCommand extends Command {
     int driveTime = 4;
     int loopTimer = driveTime * 20000;
     boolean timerIsFinished = false;
+    public static int initialValue;
     
     double maxDistance = 30;
     double driveSpeed;
@@ -31,25 +33,10 @@ public class  AutonomousCommand extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        
+        initialValue = RobotMap.motorTestencoder.getRaw();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//        if(Robot.motorTest.readUltrasonic() < maxDistance){
-//            Robot.motorTest.driveSpeed = .5;
-//            try{
-//                Robot.motorTest.setX2(driveSpeed);
-//            }catch (CANTimeoutException ex){
-//                ex.printStackTrace();
-//            }
-//        }else{
-//            driveSpeed = 0;
-//            try{
-//               Robot.motorTest.setX2(driveSpeed); 
-//            }catch (CANTimeoutException ex){
-//                ex.printStackTrace();
-//            }
-//        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
@@ -63,4 +50,11 @@ public class  AutonomousCommand extends Command {
     protected void interrupted() {
         
     }
+    
+    public int getEncoderValue(){
+        int value = initialValue - RobotMap.motorTestencoder.getRaw();
+        value /= 2;
+        return value;
+    }
+    
 }

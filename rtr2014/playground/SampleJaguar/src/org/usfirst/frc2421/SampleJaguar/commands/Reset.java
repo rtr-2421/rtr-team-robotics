@@ -11,14 +11,16 @@ package org.usfirst.frc2421.SampleJaguar.commands;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.SampleJaguar.Robot;
+import org.usfirst.frc2421.SampleJaguar.RobotMap;
 /**
  *
  */
 public class  Reset extends Command {
     public double motorSpeed;
-    public double motorSwitch = -1;
-    public static final double DEADZONE = 131.18;
+    Fire fire = new Fire();
+    public static final double DEADZONE = 20;
     public boolean finished = false;
+    static int initialValue;
 
     public Reset() {
         // Use requires() here to declare subsystem dependencies
@@ -29,21 +31,26 @@ public class  Reset extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        
+        initialValue = RobotMap.motorTestencoder.getRaw();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        int value = initialValue - RobotMap.motorTestencoder.getRaw();
+        value /= 2;
         
-        
-        if(Robot.motorTest.readEncoder() > 0 + DEADZONE){
-            motorSpeed = -0.25 * motorSwitch;
+        if(fire.isActive()){
+            motorSpeed = 0;
+            finished = true;
+        }
+        if(value > (0 + DEADZONE)){
+            motorSpeed = -0.25;
             try {
                 Robot.motorTest.setX(motorSpeed);
             } catch (CANTimeoutException ex){
                 ex.printStackTrace();
             }
         }
-        if(Robot.motorTest.readEncoder() <= 0 + DEADZONE) {
+        else if(value <= (0 + DEADZONE)) {
                 motorSpeed = 0;
                 finished = true;
             try {
@@ -66,4 +73,10 @@ public class  Reset extends Command {
     protected void interrupted() {
         finished = true;
     }
+    
+    protected boolean isActive(){
+        boolean isFinished = !finished;
+        return isFinished;
+    }
+    
 }
