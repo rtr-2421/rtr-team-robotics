@@ -9,6 +9,7 @@
 // it from being updated in the future.
 package org.usfirst.frc2421.LimitSwitch;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc2421.LimitSwitch.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
