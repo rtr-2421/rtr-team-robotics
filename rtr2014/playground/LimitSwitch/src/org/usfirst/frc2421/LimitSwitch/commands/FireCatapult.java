@@ -36,7 +36,6 @@ boolean finished = false;
     protected void initialize() {
         if (Robot.subsystem1.lowerLimit()){
              try {
-           
             Robot.subsystem1.turnMotorsOn(motorPower);
         } catch (CANTimeoutException ex) {
         }
