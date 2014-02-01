@@ -35,7 +35,7 @@ public class RobotMap {
         }
 	
         
-        bigRedButtonmagEncoder = new Encoder(1, 1, 1, 2, true, EncodingType.k4X);
+        bigRedButtonmagEncoder = new Encoder(1, 2, 1, 1, true, EncodingType.k4X);
 	LiveWindow.addSensor("bigRedButton", "magEncoder", bigRedButtonmagEncoder);
         bigRedButtonmagEncoder.setDistancePerPulse(1.0);
         bigRedButtonmagEncoder.setPIDSourceParameter(PIDSourceParameter.kDistance);
