@@ -50,7 +50,7 @@ public class RobotMap {
 	LiveWindow.addSensor("Subsystem 1", "Upper", subsystem1Upper);
         
         try { 
-            subsystem1motor2 = new CANJaguar(2);
+            subsystem1motor2 = new CANJaguar(5);
         } catch (CANTimeoutException ex) {
         }
 	

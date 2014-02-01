@@ -21,6 +21,7 @@ import org.usfirst.frc2421.LimitSwitch.Robot;
  *
  */
 public class  FireCatapult extends Command {
+    
 final int motorPower = 1;
 boolean finished = false;
     
@@ -68,6 +69,9 @@ boolean finished = false;
         Robot.subsystem1.turnMotorsOn(0);
     } catch (CANTimeoutException ex) {
     }
+    
+    finished = false;
+    
     }
 
     // Called when another command which requires one or more of the same
