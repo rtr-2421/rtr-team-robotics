@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2421.TimerAutonomousDrive.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.TimerAutonomousDrive.Robot;
@@ -19,9 +20,8 @@ import org.usfirst.frc2421.TimerAutonomousDrive.Robot;
  *
  */
 public class  AutonomousCommand extends Command {
-    int driveTime = 4;//seconds
-    int loopTimer = driveTime * 80;//time per second = 80
-    boolean timerIsFinished = false;
+    static Timer timer = new Timer();
+    final static int DURATION = 4000;//Four Seconds
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -32,41 +32,33 @@ public class  AutonomousCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (loopTimer >= 0){
-        try {
-            Robot.drive.setMotorValues(1);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
-        loopTimer = loopTimer - 1;   
-    
-        }
-        else {
-            timerIsFinished = true;
-        }
-        System.out.println(loopTimer);
+        Robot.drive.setMotorValues (1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return timerIsFinished;
+        if (timer.get() >= DURATION) {
+            timer.stop();
+            timer.reset();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    try {
         Robot.drive.setMotorValues(0);
-    } catch (CANTimeoutException ex) {
-        ex.printStackTrace();
-    }
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        Robot.drive.setMotorValues (0);
     }
 }
