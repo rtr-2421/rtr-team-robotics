@@ -30,9 +30,14 @@ public class Drive extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    public void setMotorValues (double motorSpeed) throws CANTimeoutException{
-        leftMotor.setX(motorSpeed);
-        rightMotor.setX(motorSpeed);
+    public void setMotorValues (double motorSpeed){
+        try {
+            leftMotor.setX(motorSpeed);
+            rightMotor.setX(motorSpeed);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     public void initDefaultCommand() {
