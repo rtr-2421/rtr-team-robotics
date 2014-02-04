@@ -93,7 +93,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        System.out.println("Encoder value = " + (motorTest.readEncoder() - 131.18));
+        System.out.println("Encoder value = " + (((Reset.initialValue) - (RobotMap.motorTestencoder.getRaw())))/2);
         
     }
     /**
