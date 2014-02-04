@@ -51,9 +51,19 @@ public class  Fire extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+        try {
+            Robot.catapult.setX(0);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        try {
+            Robot.catapult.setX(0);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
     }
 }
