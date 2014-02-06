@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2421.Apollo.commands;
 
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.Apollo.Robot;
 
@@ -19,6 +20,8 @@ import org.usfirst.frc2421.Apollo.Robot;
  */
 public class  CaptureBall extends Command {
 
+    public double spinSpeed = 1;
+    
     public CaptureBall() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -34,6 +37,11 @@ public class  CaptureBall extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        try {
+            Robot.ballIntake.setIntakeSpeed(spinSpeed);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -48,5 +56,10 @@ public class  CaptureBall extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        try {
+            Robot.ballIntake.setIntakeSpeed(0);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
     }
 }

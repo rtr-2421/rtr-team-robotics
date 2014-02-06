@@ -11,15 +11,26 @@
 
 package org.usfirst.frc2421.Apollo.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.Apollo.Robot;
+import org.usfirst.frc2421.Apollo.subsystems.*;
+
+
 
 /**
  *
  */
 public class  DriveCommand extends Command {
-
+    public Joystick driveStick;
+    double maxMotor;
+    double leftSpeed = 0;
+    double rightSpeed = 0;
+    final double deadZone = 0.2;
+            
     public DriveCommand() {
+        driveStick = Robot.oi.driveStick;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -34,6 +45,42 @@ public class  DriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
+        double x;
+        x = -driveStick.getX();//X has a reversed value and has to be negative.
+        double y;
+        y = driveStick.getY();
+        
+        if((-deadZone < x) && (x < deadZone) && (-deadZone < y) && (y < deadZone)){//Checking if the joystick is in the deadzone.
+            leftSpeed = 0;//Shouldn't move while inside deadzone.
+            rightSpeed = 0;//Same as above.
+        }
+        else{ 
+            leftSpeed = y + x;//y is speed, and x is turn. We found out that the left motor's value should be speed + turn.
+            rightSpeed = y - x;//Same as above, but the right motor's value should be speed - turn.
+        }
+        
+        if(leftSpeed > 0.5){
+           leftSpeed = 0.5;//change all 0.5s to ones            leftSpeed = 0.5;
+        }
+        else if(leftSpeed < -0.5){
+            leftSpeed = -0.5;
+        }
+        
+        if(rightSpeed > 0.5){
+            rightSpeed = 0.5;
+        }
+        else if(rightSpeed < -0.5){
+            rightSpeed = -0.5;
+        }
+        try {
+            Robot.drive.controlMotorL(-leftSpeed);//Setting the left motor speed.
+            Robot.drive.controlMotorR(rightSpeed);//Setting the right motor speed.
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
