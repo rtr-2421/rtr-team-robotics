@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2421.Apollo.commands;
 
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.Apollo.Robot;
 
@@ -19,6 +20,11 @@ import org.usfirst.frc2421.Apollo.Robot;
  */
 public class  AutonomousCommand extends Command {
 
+    
+    int driveTime = 4;//measured in seconds
+    int loopTimer = driveTime * 80;//80 is the time per second
+    boolean timerIsFinished = false;
+    
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -33,6 +39,19 @@ public class  AutonomousCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if (loopTimer >= 0){
+            try {
+                Robot.drive.controlMotorL(1);
+                Robot.drive.controlMotorR(1);   
+                loopTimer = loopTimer - 1;
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+    
+        }
+        else {
+            timerIsFinished = true;
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
