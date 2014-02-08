@@ -17,6 +17,8 @@ import org.usfirst.frc2421.angleEncoder.Robot;
  */
 public class AutonomousCommand extends Command {
     static int initialValue;
+    
+    
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -39,13 +41,16 @@ public class AutonomousCommand extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         int value = initialValue - Robot.bigRedButton.magEncoder.getRaw();
-        System.out.println("Raw value = " + value);
+        value /= 2;
+        System.out.println("Angle value = " + value / 2);
         
         if(value < 0){
             value *= -1;
         }
         
        return value > 720;
+       
+       // this would be two rotations
     }
     // Called once after isFinished returns true
     protected void end() {

@@ -57,6 +57,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        System.out.println("Distance = " + RobotMap.bigRedButtonmagEncoder.getDistance());
     }
     public void teleopInit() {
 	// This makes sure that the autonomous stops running when
