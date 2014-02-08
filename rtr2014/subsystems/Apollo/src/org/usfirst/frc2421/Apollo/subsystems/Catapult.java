@@ -31,7 +31,7 @@ public class Catapult extends Subsystem {
     CANJaguar catMotor3 = RobotMap.catapultcatMotor3;
     DigitalInput upperLimit = RobotMap.catapultupperLimit;
     DigitalInput lowerLimit = RobotMap.catapultlowerLimit;
-    Encoder catAngle = RobotMap.catapultcatAngle;
+    Encoder catAngle = RobotMap.catAngle;
   
     public double fireSpeed = 1;
     public double reverseSpeed = -fireSpeed / 4;

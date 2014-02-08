@@ -5,44 +5,41 @@
  */
 package org.usfirst.frc2421.Apollo.commands;
 
+import edu.wpi.first.wpilibj.AnalogChannel;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc2421.Apollo.Robot;
 import org.usfirst.frc2421.Apollo.RobotMap;
 
 /**
  *
  * @author Driver
  */
-public class FireCat extends Command {
+public class SystemDebug extends Command {
     
-    static int initialValue;
-    double motorspeed = Robot.catapult.fireSpeed;
     Encoder catAngle = RobotMap.catAngle;
+    Encoder leftDrive = RobotMap.leftWheelEncoder;
+    Encoder rightDrive = RobotMap.rightWheelEncoder;
+    AnalogChannel ultraRange = RobotMap.ultrasonicRangeFinder;
+
+    public synchronized void cancel() {
+        super.cancel(); //To change body of generated methods, choose Tools | Templates.
+    }
     
-    public FireCat() {
+    
+    
+    public SystemDebug() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.catapult);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        initialValue = catAngle.getRaw();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
-        try {
-            Robot.catapult.setX(motorspeed);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
-        
-        int value = initialValue - catAngle.getRaw();
-        value /= 2;
         
     }
 
@@ -53,20 +50,11 @@ public class FireCat extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        try {
-            Robot.catapult.setX(0);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        try {
-            Robot.catapult.setX(0);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
     }
+    
 }

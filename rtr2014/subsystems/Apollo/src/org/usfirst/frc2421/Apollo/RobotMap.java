@@ -32,12 +32,12 @@ public class RobotMap {
     public static CANJaguar catapultcatMotor3;
     public static DigitalInput catapultupperLimit;
     public static DigitalInput catapultlowerLimit;
-    public static Encoder catapultcatAngle;
+    public static Encoder catAngle;
     public static CANJaguar driveleftrive;
     public static CANJaguar driverightDrive;
-    public static Encoder driveleftQuadEncoder;
-    public static Encoder driverightQuadEncoder;
-    public static AnalogChannel drivedistanceSensor;
+    public static Encoder leftWheelEncoder;
+    public static Encoder rightWheelEncoder;
+    public static AnalogChannel ultrasonicRangeFinder;
     public static DigitalInput drivephotoSensor;
     public static CANJaguar ballIntakeintakeMotor;
     public static CANJaguar ballIntakeballEjector;
@@ -72,11 +72,11 @@ public class RobotMap {
         catapultlowerLimit = new DigitalInput(1, 6);
 	LiveWindow.addSensor("Catapult", "lowerLimit", catapultlowerLimit);
         
-        catapultcatAngle = new Encoder(1, 9, 1, 10, false, EncodingType.k4X);
-	LiveWindow.addSensor("Catapult", "catAngle", catapultcatAngle);
-        catapultcatAngle.setDistancePerPulse(1.0);
-//        catapultcatAngle.setPIDSourceParameter(PIDSourceParameter.kRate);
-        catapultcatAngle.start();
+        catAngle = new Encoder(1, 9, 1, 10, false, EncodingType.k4X);
+	LiveWindow.addSensor("Catapult", "catAngle", catAngle);
+        catAngle.setDistancePerPulse(1.0);
+//        catAngle.setPIDSourceParameter(PIDSourceParameter.kRate);
+        catAngle.start();
         try { 
             driveleftrive = new CANJaguar(2);
         } catch (CANTimeoutException ex) {
@@ -91,18 +91,18 @@ public class RobotMap {
         }
 	
         
-        driveleftQuadEncoder = new Encoder(1, 1, 1, 2, false, EncodingType.k4X);
-	LiveWindow.addSensor("Drive", "leftQuadEncoder", driveleftQuadEncoder);
-        driveleftQuadEncoder.setDistancePerPulse(1.0);
-//        driveleftQuadEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-        driveleftQuadEncoder.start();
-        driverightQuadEncoder = new Encoder(1, 3, 1, 4, false, EncodingType.k4X);
-	LiveWindow.addSensor("Drive", "rightQuadEncoder", driverightQuadEncoder);
-        driverightQuadEncoder.setDistancePerPulse(1.0);
-//        driverightQuadEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-        driverightQuadEncoder.start();
-        drivedistanceSensor = new AnalogChannel(2);
-	LiveWindow.addSensor("Drive", "distanceSensor", drivedistanceSensor);
+        leftWheelEncoder = new Encoder(1, 1, 1, 2, false, EncodingType.k4X);
+	LiveWindow.addSensor("Drive", "leftQuadEncoder", leftWheelEncoder);
+        leftWheelEncoder.setDistancePerPulse(1.0);
+//        leftWheelEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
+        leftWheelEncoder.start();
+        rightWheelEncoder = new Encoder(1, 3, 1, 4, false, EncodingType.k4X);
+	LiveWindow.addSensor("Drive", "rightQuadEncoder", rightWheelEncoder);
+        rightWheelEncoder.setDistancePerPulse(1.0);
+//        rightWheelEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
+        rightWheelEncoder.start();
+        ultrasonicRangeFinder = new AnalogChannel(2);
+	LiveWindow.addSensor("Drive", "distanceSensor", ultrasonicRangeFinder);
         
         drivephotoSensor = new DigitalInput(1, 1);
 	LiveWindow.addSensor("Drive", "photoSensor", drivephotoSensor);

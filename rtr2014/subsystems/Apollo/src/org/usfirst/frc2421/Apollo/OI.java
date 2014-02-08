@@ -73,7 +73,7 @@ public class OI {
         resetButton = new JoystickButton(weaponStick, 2);
         resetButton.whileHeld(new ResetCat());
         fireButton = new JoystickButton(weaponStick, 1);
-        fireButton.whileHeld(new FireCat());
+        fireButton.whileHeld(new CompleteFire());
         driveStick = new Joystick(1);
         
         passButton = new JoystickButton(driveStick, 1);
@@ -87,7 +87,7 @@ public class OI {
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 
-        SmartDashboard.putData("FireCat", new FireCat());
+        SmartDashboard.putData("FireCat", new CompleteFire());
 
         SmartDashboard.putData("PassBall", new PassBall());
 
