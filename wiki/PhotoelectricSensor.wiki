@@ -1,0 +1,13 @@
+#summary Uses light to measure distance
+
+= Introduction =
+
+The Photoelectric sensor bounces light off of objects in front of it and measures how long the light takes to make a round trip to measure distance.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
