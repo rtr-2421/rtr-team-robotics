@@ -37,6 +37,8 @@ public class  ResetCat extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        
+        //sets an initial raw value
         initialValue = catAngle.getRaw();
     }
 
@@ -49,6 +51,7 @@ public class  ResetCat extends Command {
             ex.printStackTrace();
         }
         
+        //gets the angle of the encoder
         int value = initialValue - catAngle.getRaw();
         value /= 2;
     }

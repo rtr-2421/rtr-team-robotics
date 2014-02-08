@@ -41,6 +41,8 @@ public class Drive extends Subsystem {
     public void controlMotorR(double rMotorPower) throws CANTimeoutException{
         rightDrive.setX(rMotorPower);
     }
+    
+    //converts the voltage to inches
 
     public double readUltrasonic(){
         return distanceSensor.getAverageVoltage() * 8.8573;   

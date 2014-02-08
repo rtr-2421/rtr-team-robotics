@@ -41,7 +41,9 @@ public class FireCat extends Command {
             ex.printStackTrace();
         }
         
-        int value = initialValue - catAngle.getRaw();//Calculating angle with encoder
+        //gets the current raw value then converts it to an angle
+        
+        int value = initialValue - catAngle.getRaw();
         value /= 2;
         
     }
