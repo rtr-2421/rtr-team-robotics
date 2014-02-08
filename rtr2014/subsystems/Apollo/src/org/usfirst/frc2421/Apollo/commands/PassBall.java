@@ -35,8 +35,8 @@ public class PassBall extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         try {
-            Robot.ballIntake.setEjectSpeed(Robot.ballIntake.spinnerSpeed);
-            Robot.ballIntake.setIntakeSpeed(-Robot.ballIntake.spinnerSpeed);
+            Robot.ballIntake.setEjectSpeed(Robot.ballIntake.spinnerSpeed);//Setting the speed to fire ball
+            Robot.ballIntake.setIntakeSpeed(-Robot.ballIntake.spinnerSpeed);//Setting the speed to capture ball
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }

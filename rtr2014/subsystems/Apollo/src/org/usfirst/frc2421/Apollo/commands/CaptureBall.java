@@ -20,7 +20,7 @@ import org.usfirst.frc2421.Apollo.Robot;
  */
 public class  CaptureBall extends Command {
 
-    public double spinSpeed = 1;
+    public double spinSpeed = 1;//Speed of the grabber's motor
     
     public CaptureBall() {
         // Use requires() here to declare subsystem dependencies
@@ -38,7 +38,7 @@ public class  CaptureBall extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         try {
-            Robot.ballIntake.setIntakeSpeed(spinSpeed);
+            Robot.ballIntake.setIntakeSpeed(spinSpeed);//Setting the speed of the grabber
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
@@ -51,13 +51,18 @@ public class  CaptureBall extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        try {
+            Robot.ballIntake.setIntakeSpeed(0);//Stopping motor if finished
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
         try {
-            Robot.ballIntake.setIntakeSpeed(0);
+            Robot.ballIntake.setIntakeSpeed(0);//Stopping motor if interrupted
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
