@@ -41,6 +41,13 @@ public class SystemDebug extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         
+        System.out.println(
+            "Catapult raw value: " + getCatapult(catAngle)+ "/n"+
+            "Right drive raw value: " + getDrive(rightDrive)+"/n"+
+            "Left drive raw value: " + getDrive(leftDrive)+"/n"+
+            "Ultrasonic range: " + findRange(ultraRange)
+        );
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -56,5 +63,18 @@ public class SystemDebug extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+    
+    public double getCatapult(Encoder catapultEncoder){        
+        return catAngle.getRaw();       
+    }
+    
+     public double getDrive(Encoder driveEncoder){        
+        return driveEncoder.getRaw();       
+    }
+    
+    public double findRange(AnalogChannel rangeFinder){
+        return rangeFinder.getAverageVoltage() * 8.8573;
+    }
+
     
 }
