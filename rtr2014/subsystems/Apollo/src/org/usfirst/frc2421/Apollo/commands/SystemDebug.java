@@ -22,6 +22,7 @@ public class SystemDebug extends Command {
     Encoder leftDrive = RobotMap.leftWheelEncoder;
     Encoder rightDrive = RobotMap.rightWheelEncoder;
     AnalogChannel ultraRange = RobotMap.ultrasonicRangeFinder;
+    static int initialValue;
 
     public synchronized void cancel() {
         super.cancel(); //To change body of generated methods, choose Tools | Templates.
@@ -36,13 +37,14 @@ public class SystemDebug extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        initialValue = catAngle.getRaw();        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         
         System.out.println(
-            "Catapult raw value: " + getCatapult(catAngle)+ "/n"+
+            "Catapult Angle: " + getCatapult(catAngle)+ "/n"+
             "Right drive raw value: " + getDrive(rightDrive)+"/n"+
             "Left drive raw value: " + getDrive(leftDrive)+"/n"+
             "Ultrasonic range: " + findRange(ultraRange)
@@ -65,7 +67,10 @@ public class SystemDebug extends Command {
     }
     
     public double getCatapult(Encoder catapultEncoder){        
-        return catAngle.getRaw();       
+        int value = initialValue - catAngle.getRaw();
+        value /= 2;
+        
+        return value;       
     }
     
      public double getDrive(Encoder driveEncoder){        
