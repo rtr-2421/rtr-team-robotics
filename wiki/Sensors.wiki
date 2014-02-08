@@ -1,0 +1,14 @@
+#summary List of Sensors and how their code and wiring is set up.
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+  * [LimitSwitch Limit Switch]
+  * [UltrasonicSensor Ultrasonic Sensor]
+  * [PhotoelectricSensor Photoelectric Sensor]
+  * [MagneticEncoder Magnetic Encoder]
+  * [RotaryEncoder Rotary Encoder]
