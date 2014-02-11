@@ -18,7 +18,7 @@ import org.usfirst.frc2421.angleEncoder.Robot;
 public class AutonomousCommand extends Command {
     static double initialValue;
     int cyclePerRev = 250;
-    double wheelCircumference = 21.21
+    double wheelCircumference = 21.21;
     
     
     public AutonomousCommand() {
