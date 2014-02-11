@@ -16,7 +16,9 @@ import org.usfirst.frc2421.angleEncoder.Robot;
  *
  */
 public class AutonomousCommand extends Command {
-    static int initialValue;
+    static double initialValue;
+    int cyclePerRev = 250;
+    double wheelCircumference = 21.21
     
     
     public AutonomousCommand() {
@@ -28,7 +30,9 @@ public class AutonomousCommand extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        initialValue = Robot.bigRedButton.magEncoder.getRaw();
+        initialValue = Robot.bigRedButton.magEncoder.getRaw() / cyclePerRev * wheelCircumference;
+        // Sets initial value in Previous Line to Distance in Inches
+        
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -40,9 +44,9 @@ public class AutonomousCommand extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        int value = initialValue - Robot.bigRedButton.magEncoder.getRaw();
-        value /= 2;
-        System.out.println("Angle value = " + value / 2);
+        double value = initialValue - Robot.bigRedButton.magEncoder.getRaw() / cyclePerRev * wheelCircumference; 
+        // Sets output of Previous Line to Distance in Inches
+        System.out.println("Angle value = " + value);
         
         if(value < 0){
             value *= -1;
