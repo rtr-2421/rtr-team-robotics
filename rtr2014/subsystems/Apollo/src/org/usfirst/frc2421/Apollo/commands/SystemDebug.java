@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc2421.Apollo.RobotMap;
 
 /**
@@ -49,7 +50,10 @@ public class SystemDebug extends Command {
             "Left drive raw value: " + getDrive(leftDrive)+"/n"+
             "Ultrasonic range: " + findRange(ultraRange)
         );
-        
+        SmartDashboard.putNumber("Catapult raw value:", getCatapult(catAngle));
+        SmartDashboard.putNumber("Right drive raw value: ", getDrive(rightDrive));
+        SmartDashboard.putNumber("Left drive raw value: ", getDrive(leftDrive));
+        SmartDashboard.putNumber("Ultrasonic range: ", getDrive(leftDrive));
     }
 
     // Make this return true when this Command no longer needs to run execute()
