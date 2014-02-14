@@ -19,7 +19,7 @@ public class  Fire extends Command {
     public double motorSpeed;
     Reset reset = new Reset();
     boolean finished = false;
-    public static final double DEADZONE = 131.18;
+    public static final double DEADZONE = 0;
     static int initialValue;
     
     public Fire() {
@@ -39,6 +39,7 @@ public class  Fire extends Command {
     protected void execute() {
         int value = initialValue - RobotMap.motorTestencoder.getRaw();
         value /= 2;        
+        System.out.println(value);
         
         if(reset.isActive()){
             motorSpeed = 0;

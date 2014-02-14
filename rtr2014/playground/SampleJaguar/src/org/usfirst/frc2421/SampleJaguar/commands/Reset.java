@@ -18,7 +18,7 @@ import org.usfirst.frc2421.SampleJaguar.RobotMap;
 public class  Reset extends Command {
     public double motorSpeed;
     Fire fire = new Fire();
-    public static final double DEADZONE = 20;
+    public static final double DEADZONE = 0;
     public boolean finished = false;
     public static int initialValue;
 
@@ -37,6 +37,7 @@ public class  Reset extends Command {
     protected void execute() {
         int value = initialValue - RobotMap.motorTestencoder.getRaw();
         value /= 2;
+        System.out.println(value);
         
         if(fire.isActive()){
             motorSpeed = 0;
