@@ -38,18 +38,18 @@ public class RobotMap {
 //        }
 	
         
-        try { 
-            motorTestjagTest1 = new CANJaguar(2);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
-	
-        
-        try { 
-            motorTestjagTest2 = new CANJaguar(7);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
+//        try { 
+//            motorTestjagTest1 = new CANJaguar(2);
+//        } catch (CANTimeoutException ex) {
+//            ex.printStackTrace();
+//        }
+//	
+//        
+//        try { 
+//            motorTestjagTest2 = new CANJaguar(7);
+//        } catch (CANTimeoutException ex) {
+//            ex.printStackTrace();
+//        }
 	
         
         motorTestultRange = new AnalogChannel(4);
@@ -59,8 +59,8 @@ public class RobotMap {
 ////        motorTestencoder = new Encoder(1, 2, false, CounterBase.EncodingType.k4X);
 ////	LiveWindow.addSensor("motorTest", "encoder", motorTestencoder);
 ////        motorTestencoder.start();
-        motorTestencoder = new Encoder(1, 2);
-	LiveWindow.addSensor("motorTest", "encoder", motorTestencoder);
+//        motorTestencoder = new Encoder(1, 2);
+//	LiveWindow.addSensor("motorTest", "encoder", motorTestencoder);
 //>>>>>>> .r195
         
 //           try { 
