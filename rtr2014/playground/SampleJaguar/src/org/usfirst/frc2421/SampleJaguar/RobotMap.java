@@ -52,7 +52,7 @@ public class RobotMap {
         }
 	
         
-        motorTestultRange = new AnalogChannel(6);
+        motorTestultRange = new AnalogChannel(4);
 	LiveWindow.addSensor("motorTest", "ultRange", motorTestultRange);
         
 //<<<<<<< .mine
