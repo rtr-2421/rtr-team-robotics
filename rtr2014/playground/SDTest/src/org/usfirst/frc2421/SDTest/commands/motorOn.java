@@ -26,10 +26,12 @@ public class  motorOn extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        Robot.subsystem1.motorSpeed = .25;
+        Robot.subsystem1.setX(Robot.subsystem1.motorSpeed);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
     // Called once after isFinished returns true
     protected void end() {
