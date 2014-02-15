@@ -17,10 +17,10 @@ import org.usfirst.frc2421.angleEncoder.RobotMap;
  *
  */
 public class AutonomousCommand extends Command {
-    static double initialValue;
-    int cyclePerRev = 250;
-    double wheelCircumference = 18.84;
-    
+
+    boolean finished = false;
+    double distanceTraveled;
+    static double distance = 4.00;
     
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
@@ -31,30 +31,43 @@ public class AutonomousCommand extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        initialValue = Robot.bigRedButton.magEncoder.getRaw() / (cyclePerRev * wheelCircumference);
+//        initialValue = Robot.bigRedButton.magEncoder.getRaw() / (cyclePerRev * wheelCircumference);
         // Sets initial value in Previous Line to Distance in Inches
         
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
+        distanceTraveled = Robot.bigRedButton.magEncoder.getDistance() / 12;
+                
+        if(distanceTraveled < distance){
         try {
-            Robot.bigRedButton.cANJaguar1.setX(.1);
+            Robot.bigRedButton.cANJaguar1.setX(0.25);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
+        }
+        }
+        if(distanceTraveled >= distance){
+            try {
+                Robot.bigRedButton.cANJaguar1.setX(0);
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+            finished = true;
         }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        double value = initialValue - (Robot.bigRedButton.magEncoder.getRaw() / (cyclePerRev * wheelCircumference)); 
+//        double value = initialValue - (Robot.bigRedButton.magEncoder.getRaw() / (cyclePerRev * wheelCircumference)); 
         // Sets output of Previous Line to Distance in Inches
 //        System.out.println("Angle value = " + value);
 //        System.out.println("Distance = " + Robot.bigRedButton.magEncoder.getDistance());
         
-        if(value < 0){
-            value *= -1;
-        }
+//        if(value < 0){
+//            value *= -1;
+//        }
         
-       return value > 720;
+       return finished;
        
        // this would be two rotations
     }
@@ -65,9 +78,18 @@ public class AutonomousCommand extends Command {
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
+        finished = false;
+        Robot.bigRedButton.magEncoder.reset();
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        try {
+            Robot.bigRedButton.cANJaguar1.setX(0);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        finished = false;
+        Robot.bigRedButton.magEncoder.reset();
     }
 }

@@ -57,7 +57,27 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();        
+        Scheduler.getInstance().run(); 
+//        double distance = RobotMap.bigRedButtonmagEncoder.getDistance() / 12;
+////        System.out.println("Distance = " + distance);
+//        
+//        if(distance < 2.00){
+//            try {
+//                Robot.bigRedButton.cANJaguar1.setX(0.25);
+//            } catch (CANTimeoutException ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+//        if(distance >= 2.00){
+//            try {
+//                Robot.bigRedButton.cANJaguar1.setX(0);
+//            } catch (CANTimeoutException ex) {
+//                ex.printStackTrace();
+//            }
+//            Robot.bigRedButton.magEncoder.reset();
+//        }
+        
+        
     }
     public void teleopInit() {
 	// This makes sure that the autonomous stops running when
@@ -71,23 +91,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        double distance = RobotMap.bigRedButtonmagEncoder.getDistance() / 12;
-//        System.out.println("Distance = " + distance);
         
-        if(distance < 2.00){
-            try {
-                Robot.bigRedButton.cANJaguar1.setX(0.25);
-            } catch (CANTimeoutException ex) {
-                ex.printStackTrace();
-            }
-        }
-        if(distance >= 2.00){
-            try {
-                Robot.bigRedButton.cANJaguar1.setX(0);
-            } catch (CANTimeoutException ex) {
-                ex.printStackTrace();
-            }
-        }
         
     }
     /**
