@@ -50,10 +50,10 @@ public class motorTest extends Subsystem {
 //        driveCan2.setX(speed2);
 //    }
     //Gets the encoder value
-    public int readEncoder(){
-        int value = 0;
-        return value;
-    }
+//    public int readEncoder(){
+//        int value = 0;
+//        return value;
+//    }
 //    
 //    public double readRaw(){
 //        return encoder.getRaw();
