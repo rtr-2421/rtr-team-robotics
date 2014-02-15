@@ -14,7 +14,7 @@ import org.usfirst.frc2421.SampleJaguar.RobotMap;
  */
 public class encoderValue extends Command {
     
-    static int initialValue;
+//    static int initialValue;
     
     public encoderValue() {
         // Use requires() here to declare subsystem dependencies

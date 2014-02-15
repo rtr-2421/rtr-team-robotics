@@ -16,11 +16,11 @@ import org.usfirst.frc2421.SampleJaguar.RobotMap;
  *
  */
 public class  Reset extends Command {
-    public double motorSpeed;
+//    public double motorSpeed;
     Fire fire = new Fire();
     public static final double DEADZONE = 0;
     public boolean finished = false;
-    public static int initialValue;
+//    public static int initialValue;
 
     public Reset() {
         // Use requires() here to declare subsystem dependencies

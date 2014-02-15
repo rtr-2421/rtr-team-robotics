@@ -68,8 +68,8 @@ public class motorTest extends Subsystem {
 //    }
     
     //main static variable
-    public double motorSpeed;
-    public double driveSpeed;
+//    public double motorSpeed;
+//    public double driveSpeed;
     
     //sets motor speed according to encoder value
 //    public void resetArm() {
