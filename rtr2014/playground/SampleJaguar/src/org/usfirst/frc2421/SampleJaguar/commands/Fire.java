@@ -33,37 +33,37 @@ public class  Fire extends Command {
     
     // Called just before this Command runs the first time
     protected void initialize() {
-        initialValue = RobotMap.motorTestencoder.getRaw();
+//        initialValue = RobotMap.motorTestencoder.getRaw();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        int value = initialValue - RobotMap.motorTestencoder.getRaw();
-        value /= 2;        
-        System.out.println(value);
+//        int value = initialValue - RobotMap.motorTestencoder.getRaw();
+//        value /= 2;        
+//        System.out.println(value);
         
-        if(reset.isActive()){
-            motorSpeed = 0;
-            finished = true;
-        }
-        
-        if(value < 0) /*&& (Robot.motorTest.readEncoder() < 90 + DEADZONE)*/{
-            motorSpeed = 0.25;
-            try {
-                Robot.motorTest.setX(motorSpeed);
-            } catch (CANTimeoutException ex){
-                ex.printStackTrace();
-            }
-        }
-        if(value >= 90) {
-            motorSpeed = 0;
-            finished = true;
-            System.out.println("Stop");
-            try {
-                Robot.motorTest.setX(motorSpeed);
-            } catch (CANTimeoutException ex) {
-                ex.printStackTrace();
-            }
-        }
+//        if(reset.isActive()){
+//            motorSpeed = 0;
+//            finished = true;
+//        }
+//        
+//        if(value < 0) /*&& (Robot.motorTest.readEncoder() < 90 + DEADZONE)*/{
+//            motorSpeed = 0.25;
+//            try {
+//                Robot.motorTest.setX(motorSpeed);
+//            } catch (CANTimeoutException ex){
+//                ex.printStackTrace();
+//            }
+//        }
+//        if(value >= 90) {
+//            motorSpeed = 0;
+//            finished = true;
+//            System.out.println("Stop");
+//            try {
+//                Robot.motorTest.setX(motorSpeed);
+//            } catch (CANTimeoutException ex) {
+//                ex.printStackTrace();
+//            }
+//        }
         
     }
     // Make this return true when this Command no longer needs to run execute()

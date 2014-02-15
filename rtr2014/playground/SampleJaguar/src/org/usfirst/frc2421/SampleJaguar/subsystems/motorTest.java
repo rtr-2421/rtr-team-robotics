@@ -39,16 +39,16 @@ public class motorTest extends Subsystem {
     }
     
     //Sets the speed of all of the numbers to the provided input "speed"
-    public void setX(double speed) throws CANTimeoutException {
-        jagTest1.setX(speed);
-        jagTest2.setX(speed);
-       // jagTest3.setX(speed);
-    }
-    
-    public void setX2(double speed2) throws CANTimeoutException {
-        driveCan1.setX(speed2);
-        driveCan2.setX(speed2);
-    }
+//    public void setX(double speed) throws CANTimeoutException {
+//        jagTest1.setX(speed);
+//        jagTest2.setX(speed);
+//       // jagTest3.setX(speed);
+//    }
+//    
+//    public void setX2(double speed2) throws CANTimeoutException {
+//        driveCan1.setX(speed2);
+//        driveCan2.setX(speed2);
+//    }
     //Gets the encoder value
     public int readEncoder(){
         int value = 0;
@@ -72,39 +72,39 @@ public class motorTest extends Subsystem {
     public double driveSpeed;
     
     //sets motor speed according to encoder value
-    public void resetArm() {
-        //check encoder, and sets the cjag motors to the start pos
-        if(readEncoder() == 90) {
-            motorSpeed = -.25;
-            try {
-                setX(motorSpeed);
-            } catch (CANTimeoutException ex) {
-                ex.printStackTrace();
-            }
-        }
-        if(readEncoder() == 0) {
-            motorSpeed = 0;
-            try {
-                setX(motorSpeed);
-            } catch (CANTimeoutException ex) {
-                ex.printStackTrace();
-            }
-        }else{
-            System.out.println(readEncoder());
-        }
-    }
-    
-        
-    public void launchArm() {
-        if(readEncoder() <= 0){
-            motorSpeed = 0.25;
-            try {
-                setX(motorSpeed);
-            } catch (CANTimeoutException ex){
-                ex.printStackTrace();
-            }
-        }
-      }
+//    public void resetArm() {
+//        //check encoder, and sets the cjag motors to the start pos
+//        if(readEncoder() == 90) {
+//            motorSpeed = -.25;
+//            try {
+//                setX(motorSpeed);
+//            } catch (CANTimeoutException ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+//        if(readEncoder() == 0) {
+//            motorSpeed = 0;
+//            try {
+//                setX(motorSpeed);
+//            } catch (CANTimeoutException ex) {
+//                ex.printStackTrace();
+//            }
+//        }else{
+//            System.out.println(readEncoder());
+//        }
+//    }
+//    
+//        
+//    public void launchArm() {
+//        if(readEncoder() <= 0){
+//            motorSpeed = 0.25;
+//            try {
+//                setX(motorSpeed);
+//            } catch (CANTimeoutException ex){
+//                ex.printStackTrace();
+//            }
+//        }
+//      }
     //creates a variable for range reading of ult
     public double readUltrasonic(){
         return ultRange.getAverageVoltage() * 8.8573;

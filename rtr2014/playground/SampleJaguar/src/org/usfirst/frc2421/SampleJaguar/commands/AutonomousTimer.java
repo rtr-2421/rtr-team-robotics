@@ -30,14 +30,14 @@ public AutonomousTimer() {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-    while (loopTimer >= 0){
-        try {
-            Robot.motorTest.setX (1);
-        } catch (CANTimeoutException ex) {
-        }
-        loopTimer = loopTimer - 1;   
-    }
-    timerIsFinished = true;
+//    while (loopTimer >= 0){
+//        try {
+//            Robot.motorTest.setX (1);
+//        } catch (CANTimeoutException ex) {
+//        }
+//        loopTimer = loopTimer - 1;   
+//    }
+//    timerIsFinished = true;
 }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
