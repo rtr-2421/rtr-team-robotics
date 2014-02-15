@@ -12,9 +12,11 @@
 package org.usfirst.frc2421.Apollo;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc2421.Apollo.commands.*;
 import org.usfirst.frc2421.Apollo.subsystems.*;
 
@@ -85,6 +87,45 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        try {
+            SmartDashboard.putNumber("LEFT DRIVE", RobotMap.driveleftrive.getX());
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            SmartDashboard.putNumber("RIGHT DRIVE", RobotMap.driverightDrive.getX());
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            SmartDashboard.putNumber("CAT MOTOR 1", RobotMap.catapultcatMotor1.getX());
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            SmartDashboard.putNumber("CAT MOTOR 2", RobotMap.catapultcatMotor2.getX());
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            SmartDashboard.putNumber("CAT MOTOR 3", RobotMap.catapultcatMotor3.getX());
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        SmartDashboard.putNumber("CATAPULT ENCODER", RobotMap.catAngle.getRaw());
+        try {
+            SmartDashboard.putNumber("INTAKE EJECTOR", RobotMap.ballIntakeballEjector.getX());
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            SmartDashboard.putNumber("INTAKE MOTOR", RobotMap.ballIntakeintakeMotor.getX()
+            );
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+        SmartDashboard.putNumber("LEFT DRIVE ENCODER", RobotMap.leftWheelEncoder.getRaw());
+        SmartDashboard.putNumber("RIGHT DRIVE ENCODER", RobotMap.rightWheelEncoder.getRaw());
     }
 
     /**
