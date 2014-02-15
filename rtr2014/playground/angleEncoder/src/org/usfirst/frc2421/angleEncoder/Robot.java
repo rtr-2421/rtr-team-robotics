@@ -9,6 +9,7 @@
 // it from being updated in the future.
 package org.usfirst.frc2421.angleEncoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -73,7 +74,20 @@ public class Robot extends IterativeRobot {
         double distance = RobotMap.bigRedButtonmagEncoder.getDistance() / 12;
 //        System.out.println("Distance = " + distance);
         
-        
+        if(distance < 2.00){
+            try {
+                Robot.bigRedButton.cANJaguar1.setX(0.25);
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+        }
+        if(distance >= 2.00){
+            try {
+                Robot.bigRedButton.cANJaguar1.setX(0);
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+        }
         
     }
     /**
