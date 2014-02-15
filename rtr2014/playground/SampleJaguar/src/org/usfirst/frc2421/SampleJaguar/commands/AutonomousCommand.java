@@ -33,7 +33,7 @@ public class  AutonomousCommand extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        initialValue = RobotMap.motorTestencoder.getRaw();
+//        initialValue = RobotMap.motorTestencoder.getRaw();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -51,10 +51,10 @@ public class  AutonomousCommand extends Command {
         
     }
     
-    public int getEncoderValue(){
-        int value = initialValue - RobotMap.motorTestencoder.getRaw();
-        value /= 2;
-        return value;
-    }
+//    public int getEncoderValue(){
+//        int value = initialValue - RobotMap.motorTestencoder.getRaw();
+//        value /= 2;
+//        return value;
+//    }
     
 }

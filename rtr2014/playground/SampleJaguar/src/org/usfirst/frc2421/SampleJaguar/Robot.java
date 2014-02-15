@@ -25,7 +25,7 @@ import org.usfirst.frc2421.SampleJaguar.subsystems.*;
  */
 public class Robot extends IterativeRobot {
     Command autonomousCommand;
-    Encoder encoder = RobotMap.motorTestencoder;
+//    Encoder encoder = RobotMap.motorTestencoder;
     int pulsePerRotation = 360; //encoder pulse per rotation
         
     public static OI oi;

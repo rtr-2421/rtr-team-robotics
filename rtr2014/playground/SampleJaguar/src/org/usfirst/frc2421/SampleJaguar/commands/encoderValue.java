@@ -23,7 +23,7 @@ public class encoderValue extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        initialValue = RobotMap.motorTestencoder.getRaw();
+//        initialValue = RobotMap.motorTestencoder.getRaw();
     }
 
     // Called repeatedly when this Command is scheduled to run
