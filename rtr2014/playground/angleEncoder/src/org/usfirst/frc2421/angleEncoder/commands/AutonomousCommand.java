@@ -12,13 +12,14 @@ import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.command.Command;
 import java.lang.Math.*;
 import org.usfirst.frc2421.angleEncoder.Robot;
+import org.usfirst.frc2421.angleEncoder.RobotMap;
 /**
  *
  */
 public class AutonomousCommand extends Command {
     static double initialValue;
     int cyclePerRev = 250;
-    double wheelCircumference = 21.21;
+    double wheelCircumference = 18.84;
     
     
     public AutonomousCommand() {
@@ -30,7 +31,7 @@ public class AutonomousCommand extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        initialValue = Robot.bigRedButton.magEncoder.getRaw() / cyclePerRev * wheelCircumference;
+        initialValue = Robot.bigRedButton.magEncoder.getRaw() / (cyclePerRev * wheelCircumference);
         // Sets initial value in Previous Line to Distance in Inches
         
     }
@@ -44,9 +45,10 @@ public class AutonomousCommand extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        double value = initialValue - Robot.bigRedButton.magEncoder.getRaw() / cyclePerRev * wheelCircumference; 
+        double value = initialValue - (Robot.bigRedButton.magEncoder.getRaw() / (cyclePerRev * wheelCircumference)); 
         // Sets output of Previous Line to Distance in Inches
-        System.out.println("Angle value = " + value);
+//        System.out.println("Angle value = " + value);
+//        System.out.println("Distance = " + Robot.bigRedButton.magEncoder.getDistance());
         
         if(value < 0){
             value *= -1;
