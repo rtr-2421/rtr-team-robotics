@@ -12,9 +12,9 @@ import org.usfirst.frc2421.SampleJaguar.Robot;
  *
  */
 public class  AutonomousTimer extends Command {
-    int driveTime = 4;
-    int loopTimer = driveTime * 20000;
-    boolean timerIsFinished = false;
+//    int driveTime = 4;
+//    int loopTimer = driveTime * 20000;
+//    boolean timerIsFinished = false;
 
 public AutonomousTimer() {
         // Use requires() here to declare subsystem dependencies
@@ -41,7 +41,7 @@ public AutonomousTimer() {
 }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return timerIsFinished;
+        return false;
     }
     // Called once after isFinished returns true
     protected void end() {
