@@ -29,7 +29,7 @@ public class driveReverse extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         try {
-            Robot.bigRedButton.cANJaguar1.setX(speed);
+            Robot.bigRedButton.cANJaguar1.setX(-speed);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }

@@ -37,11 +37,11 @@ public class AutonomousCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        try {
-            Robot.bigRedButton.cANJaguar1.setX(.1);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
+//        try {
+//            Robot.bigRedButton.cANJaguar1.setX(.1);
+//        } catch (CANTimeoutException ex) {
+//            ex.printStackTrace();
+//        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
@@ -60,11 +60,11 @@ public class AutonomousCommand extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
-        try {
-            Robot.bigRedButton.cANJaguar1.setX(0);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
+//        try {
+//            Robot.bigRedButton.cANJaguar1.setX(0);
+//        } catch (CANTimeoutException ex) {
+//            ex.printStackTrace();
+//        }
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
