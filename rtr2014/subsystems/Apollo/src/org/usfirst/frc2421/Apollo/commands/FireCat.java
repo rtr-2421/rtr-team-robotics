@@ -20,6 +20,8 @@ public class FireCat extends Command {
     static int initialValue;//Initial value of encoder
     double motorspeed = Robot.catapult.fireSpeed;//Speed of catapult motor
     Encoder catAngle = RobotMap.catAngle;//The catapult's encoder
+    int value;
+    boolean finished;
     
     public FireCat() {
         // Use requires() here to declare subsystem dependencies
@@ -30,27 +32,43 @@ public class FireCat extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         initialValue = catAngle.getRaw();//Setting the initial value.
+        finished = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         
+        value = initialValue - catAngle.getRaw();
+        value /= 2;
+        
+        if(value < 0){
+            value *= -1;
+        }
+        
+        if(value < 195){
         try {
             Robot.catapult.setX(motorspeed);//Setting the motorspeed
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
+        }
         
-        //gets the current raw value then converts it to an angle
+        if(value >= 195){
+            try {
+                Robot.catapult.setX(0);
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+            finished = true;
+        }
         
-        int value = initialValue - catAngle.getRaw();
-        value /= 2;
+        
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return finished;
     }
 
     // Called once after isFinished returns true

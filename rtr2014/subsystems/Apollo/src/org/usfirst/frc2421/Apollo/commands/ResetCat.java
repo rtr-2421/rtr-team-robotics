@@ -25,6 +25,9 @@ public class  ResetCat extends Command {
     static int initialValue = RobotMap.catAngle.getRaw();
     double motorspeed = Robot.catapult.fireSpeed;
     Encoder catAngle = RobotMap.catAngle;
+    int value;
+    boolean finished;
+    final double scaleFactor = 0.25;
 
     public ResetCat() {
         // Use requires() here to declare subsystem dependencies
@@ -40,13 +43,14 @@ public class  ResetCat extends Command {
         
         //sets an initial raw value
         initialValue = catAngle.getRaw();
+        finished = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
        
         try {
-            Robot.catapult.setX(-motorspeed);
+            Robot.catapult.setX(-motorspeed * scaleFactor);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
