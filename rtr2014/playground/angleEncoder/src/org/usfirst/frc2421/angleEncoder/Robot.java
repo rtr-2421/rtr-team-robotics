@@ -56,8 +56,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
-        
+        Scheduler.getInstance().run();        
     }
     public void teleopInit() {
 	// This makes sure that the autonomous stops running when
@@ -72,7 +71,10 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         double distance = RobotMap.bigRedButtonmagEncoder.getDistance() / 12;
-        System.out.println("Distance = " + distance);
+//        System.out.println("Distance = " + distance);
+        
+        
+        
     }
     /**
      * This function called periodically during test mode
