@@ -28,6 +28,7 @@ public class  motorOff extends Command {
     protected void execute() {
         Robot.subsystem1.motorSpeed = 0;
         Robot.subsystem1.setX(Robot.subsystem1.motorSpeed);
+        System.out.println("off");
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

@@ -60,7 +60,7 @@ public class OI {
         
         buttonOff = new JoystickButton(joystick, 1);
         buttonOff.whenPressed(new motorOff());
-        buttonOn = new JoystickButton(joystick, 1);
+        buttonOn = new JoystickButton(joystick, 2);
         buttonOn.whenPressed(new motorOn());
 	    
         // SmartDashboard Buttons

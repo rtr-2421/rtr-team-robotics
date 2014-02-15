@@ -28,6 +28,7 @@ public class  motorOn extends Command {
     protected void execute() {
         Robot.subsystem1.motorSpeed = .25;
         Robot.subsystem1.setX(Robot.subsystem1.motorSpeed);
+        System.out.println("on");
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
@@ -36,6 +37,8 @@ public class  motorOn extends Command {
     // Called once after isFinished returns true
     protected void end() {
     }
+    
+    //potato
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
