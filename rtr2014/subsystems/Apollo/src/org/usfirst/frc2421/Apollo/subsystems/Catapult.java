@@ -57,7 +57,7 @@ public class Catapult extends Subsystem {
         return lowerLimit.get();
     }
     public boolean upperLimit(){
-        return upperLimit.get();
+        return upperLimit.
     }
     
     
