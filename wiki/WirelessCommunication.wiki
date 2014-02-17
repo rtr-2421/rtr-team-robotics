@@ -1,0 +1,38 @@
+#summary Explains how to set up the robot routers for wireless use.
+
+== Introduction ==
+
+The setup of the two routers involves using one as an access point, and the other, mounted on the robot, as a bridge. The process involves setting up a DHCP server for assigning ip-addresses.
+
+By Josh Piel
+
+
+== Details ==
+
+The step-by-step process for setting up the routers.
+
+=== Setting up the access point ===
+The access point is the router that is not mounted on the robot. It is used for hosting the wi-fi network that is used to connect to the robot.
+  ====Step 1 - Access the D-Link settings page====
+  Use an ethernet cable to plug the computer directly into the access point for first time setup. Verify that the computer is set to automatically obtain an IP address.
+
+  The settings page can be accessed at http://dlinkap/. (If that page does not load or it appears to be non-existant, try to reset the router by pushing the small button on the back with a paperclip or screwdriver.)
+
+  When at the login screen, if the router was not reset, use the password 'Team2421'. If that does not work, or the router was reset, try a blank password. If that does not work, try to reset the router (stated above).
+  
+  ====Step 2 - Configure the network====
+  First the SSID and WPA2 key need to be setup. This can be accomplished by using the setup wizard on the setup tab of the router settings.
+  
+  Set the name of the access point to dlinkap (or leave it at that) and move on. 
+
+    Next, pick manual mode, and then set the SSID to 'Team2421'. When prompted, select the passphrase type as WPA2 personal (or automatic) and make the passphrase also 'Team2421'.
+
+  ====Step 3 - Setup the LAN ip-address====
+  While still in the setup tab, click the NETWORK SETTINGS button on the left sidebar.
+
+  In the LAN SETTINGS section, change the combo-box from Dynamic-IP to Static IP. In the now-visible fields, set the IP address to '10.24.21.20' and the subnet mask to '255.255.255.0'.
+
+  ====Step 4 - Setup the DHCP server====
+  On the top of the screen, select the tab 'ADVANCED'
+
+  //NOT FINISHED - JOSH WILL CONTINUE FROM HERE
