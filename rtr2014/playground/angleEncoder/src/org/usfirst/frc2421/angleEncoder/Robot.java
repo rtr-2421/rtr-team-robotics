@@ -77,6 +77,10 @@ public class Robot extends IterativeRobot {
 //            Robot.bigRedButton.magEncoder.reset();
 //        }
         
+        double distance1 = Robot.bigRedButton.magEncoder.getDistance() / 12;
+        double distance2 = Robot.bigRedButton.magEncoder2.getDistance() / 12;
+        System.out.println("Encoder 1 Value = " + distance1);
+        System.out.println("Encoder 2 Value = " + distance2);
         
     }
     public void teleopInit() {

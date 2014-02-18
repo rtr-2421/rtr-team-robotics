@@ -85,7 +85,7 @@ public class AutonomousCommand extends Command {
                 }
                 
                 finished = true;
-        }   
+            }   
         }
     }
     // Make this return true when this Command no longer needs to run execute()
