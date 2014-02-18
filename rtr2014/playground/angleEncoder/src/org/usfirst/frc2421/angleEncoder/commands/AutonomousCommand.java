@@ -19,7 +19,10 @@ import org.usfirst.frc2421.angleEncoder.RobotMap;
 public class AutonomousCommand extends Command {
 
     boolean finished = false;
+    boolean equalDistance = false;
     double distanceTraveled;
+    double distanceTraveled2;
+    double averageDistance;
     static double distance = 4.00;
     
     public AutonomousCommand() {
@@ -39,21 +42,50 @@ public class AutonomousCommand extends Command {
     protected void execute() {
         
         distanceTraveled = Robot.bigRedButton.magEncoder.getDistance() / 12;
+        distanceTraveled2 = Robot.bigRedButton.magEncoder2.getDistance() / 12;
+        averageDistance = (distanceTraveled + distanceTraveled2)/2;
+        
                 
-        if(distanceTraveled < distance){
-        try {
-            Robot.bigRedButton.cANJaguar1.setX(0.25);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
-        }
-        if(distanceTraveled >= distance){
+        if(distanceTraveled > distanceTraveled2){
             try {
-                Robot.bigRedButton.cANJaguar1.setX(0);
+                Robot.bigRedButton.controlMotorL(0);
+                Robot.bigRedButton.controlMotorR(0.25);
             } catch (CANTimeoutException ex) {
                 ex.printStackTrace();
             }
-            finished = true;
+        }
+        else if(distanceTraveled2 > distanceTraveled){
+            try {
+                Robot.bigRedButton.controlMotorL(0.25);
+                Robot.bigRedButton.controlMotorR(0);
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+        }
+        else if(distanceTraveled == distanceTraveled2){
+            equalDistance = true;
+        }        
+        
+        if(equalDistance){        
+            if(averageDistance < distance){
+                
+            try {
+                Robot.bigRedButton.setX(0.25);
+            } catch (CANTimeoutException ex) {
+                ex.printStackTrace();
+            }
+            
+            }
+            if(averageDistance >= distance){
+                
+                try {
+                    Robot.bigRedButton.setX(0);
+                } catch (CANTimeoutException ex) {
+                    ex.printStackTrace();
+                }
+                
+                finished = true;
+        }   
         }
     }
     // Make this return true when this Command no longer needs to run execute()
@@ -74,22 +106,26 @@ public class AutonomousCommand extends Command {
     // Called once after isFinished returns true
     protected void end() {
         try {
-            Robot.bigRedButton.cANJaguar1.setX(0);
+            Robot.bigRedButton.setX(0);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
         finished = false;
+        equalDistance = false;
         Robot.bigRedButton.magEncoder.reset();
+        Robot.bigRedButton.magEncoder2.reset();
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
         try {
-            Robot.bigRedButton.cANJaguar1.setX(0);
+            Robot.bigRedButton.setX(0);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
         finished = false;
+        equalDistance = false;
         Robot.bigRedButton.magEncoder.reset();
+        Robot.bigRedButton.magEncoder2.reset();
     }
 }

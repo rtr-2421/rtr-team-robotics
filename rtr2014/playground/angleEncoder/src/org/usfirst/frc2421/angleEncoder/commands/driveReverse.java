@@ -29,7 +29,7 @@ public class driveReverse extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         try {
-            Robot.bigRedButton.cANJaguar1.setX(-speed);
+            Robot.bigRedButton.setX(-speed);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
@@ -43,7 +43,7 @@ public class driveReverse extends Command {
     // Called once after isFinished returns true
     protected void end() {
         try {
-            Robot.bigRedButton.cANJaguar1.setX(0);
+            Robot.bigRedButton.setX(0);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
@@ -53,7 +53,7 @@ public class driveReverse extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
         try {
-            Robot.bigRedButton.cANJaguar1.setX(0);
+            Robot.bigRedButton.setX(0);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
