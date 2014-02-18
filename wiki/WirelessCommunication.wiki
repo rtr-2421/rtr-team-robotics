@@ -36,3 +36,4 @@ The access point is the router that is not mounted on the robot. It is used for 
   On the top of the screen, select the tab 'ADVANCED'
 
   //NOT FINISHED - JOSH WILL CONTINUE FROM HERE
+GY8KJ6Wp3Hh7
