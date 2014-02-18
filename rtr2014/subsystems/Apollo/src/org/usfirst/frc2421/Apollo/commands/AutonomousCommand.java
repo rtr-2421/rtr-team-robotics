@@ -39,6 +39,7 @@ public class  AutonomousCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        //Moves the robot forward loopnumber of times
         if (loopTimer >= 0){
             try {
                 Robot.drive.controlMotorL(1);
@@ -49,6 +50,7 @@ public class  AutonomousCommand extends Command {
             }
     
         }
+        //stops when timer hits 0
         else {
             timerIsFinished = true;
         }
