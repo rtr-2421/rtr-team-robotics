@@ -12,7 +12,9 @@ import org.usfirst.frc2421.Window.RobotMap;
 import org.usfirst.frc2421.Window.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.can.*;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc2421.Window.Robot;
 /**
  *
  */
@@ -41,4 +43,17 @@ public class Windows extends Subsystem {
     public boolean isFrontPressed(){
         return limitSwitch2.get();
     }
+    
+    public void eject(){
+        Scheduler.getInstance().run();
+        
+        if (Robot.windows.isBackPressed() == true){
+            Robot.windows.setX(-0.1);
+        }
+        
+        if (Robot.windows.isFrontPressed() == true){
+            Robot.windows.setX(0.1);
+        }
+    }
+    
 }
