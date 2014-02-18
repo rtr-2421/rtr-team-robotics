@@ -8,6 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.usfirst.frc2421.Window;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc2421.Window.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
