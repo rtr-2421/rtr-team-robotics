@@ -66,10 +66,10 @@ public class RobotMap {
         }
 	
         
-        catapultupperLimit = new DigitalInput(1, 5);
+        catapultupperLimit = new DigitalInput(5);
 	LiveWindow.addSensor("Catapult", "upperLimit", catapultupperLimit);
         
-        catapultlowerLimit = new DigitalInput(1, 6);
+        catapultlowerLimit = new DigitalInput(6);
 	LiveWindow.addSensor("Catapult", "lowerLimit", catapultlowerLimit);
         
         catAngle = new Encoder(1, 9, 1, 10, false, EncodingType.k4X);
@@ -78,14 +78,14 @@ public class RobotMap {
 //        catAngle.setPIDSourceParameter(PIDSourceParameter.kRate);
         catAngle.start();
         try { 
-            driveleftrive = new CANJaguar(7);
+            driveleftrive = new CANJaguar(10);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
 	
         
         try { 
-            driverightDrive = new CANJaguar(2);
+            driverightDrive = new CANJaguar(6);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
@@ -104,8 +104,8 @@ public class RobotMap {
         ultrasonicRangeFinder = new AnalogChannel(2);
 	LiveWindow.addSensor("Drive", "distanceSensor", ultrasonicRangeFinder);
         
-        drivephotoSensor = new DigitalInput(1, 1);
-	LiveWindow.addSensor("Drive", "photoSensor", drivephotoSensor);
+//        drivephotoSensor = new DigitalInput(1, 3);
+//	LiveWindow.addSensor("Drive", "photoSensor", drivephotoSensor);
         
         try { 
             ballIntakeintakeMotor = new CANJaguar(3);

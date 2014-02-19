@@ -50,6 +50,12 @@ public class PassBall extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+        try {
+            Robot.ballIntake.setEjectSpeed(0);
+            Robot.ballIntake.setIntakeSpeed(0);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
     }
 
     // Called when another command which requires one or more of the same
