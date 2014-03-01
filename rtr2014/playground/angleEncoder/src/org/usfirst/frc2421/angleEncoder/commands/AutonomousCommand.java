@@ -25,6 +25,8 @@ public class AutonomousCommand extends Command {
     double averageDistance;
     static double distance = 4.00;
     
+    double deadZone = 0.2;
+    
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -46,7 +48,7 @@ public class AutonomousCommand extends Command {
         averageDistance = (distanceTraveled + distanceTraveled2)/2;
         
                 
-        if(distanceTraveled > distanceTraveled2){
+        if (distanceTraveled <= deadZone && distanceTraveled > distanceTraveled2){
             try {
                 Robot.bigRedButton.controlMotorL(0);
                 Robot.bigRedButton.controlMotorR(0.25);
@@ -54,7 +56,7 @@ public class AutonomousCommand extends Command {
                 ex.printStackTrace();
             }
         }
-        else if(distanceTraveled2 > distanceTraveled){
+        else if(distanceTraveled2 <= deadZone && distanceTraveled2 > distanceTraveled){
             try {
                 Robot.bigRedButton.controlMotorL(0.25);
                 Robot.bigRedButton.controlMotorR(0);
