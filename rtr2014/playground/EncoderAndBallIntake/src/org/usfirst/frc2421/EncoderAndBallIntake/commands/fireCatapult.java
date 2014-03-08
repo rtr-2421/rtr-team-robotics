@@ -18,7 +18,9 @@ import org.usfirst.frc2421.EncoderAndBallIntake.RobotMap;
 public class  fireCatapult extends Command {
     
     static int initialValue;
+    int catAngle = Robot.catapult.catAngle;
     double motorspeed = Robot.catapult.motorspeed;
+    boolean finished = false;
     
     public fireCatapult() {
         // Use requires() here to declare subsystem dependencies
@@ -42,19 +44,20 @@ public class  fireCatapult extends Command {
             value *= -1;
         }
         
-        if(value < 90){
+        if(value < catAngle){
         try {
             Robot.catapult.setX(motorspeed);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
         }
-        if(value >= 90){
+        if(value >= catAngle){
             try {
                 Robot.catapult.setX(0);
             } catch (CANTimeoutException ex) {
                 ex.printStackTrace();
             }
+            finished = true;
         }
         
         
@@ -63,7 +66,7 @@ public class  fireCatapult extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return finished;
     }
     // Called once after isFinished returns true
     protected void end() {
@@ -72,6 +75,7 @@ public class  fireCatapult extends Command {
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
+        finished = false;
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
@@ -81,5 +85,6 @@ public class  fireCatapult extends Command {
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }
+        finished = false;
     }
 }
