@@ -18,7 +18,6 @@ import edu.wpi.first.wpilibj.can.CANTimeoutException;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
 /**
  *
  */
