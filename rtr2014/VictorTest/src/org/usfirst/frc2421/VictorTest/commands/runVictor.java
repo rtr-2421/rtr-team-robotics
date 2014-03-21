@@ -46,33 +46,36 @@ public class  runVictor extends Command {
         System.out.print("The code is running the method");
         if(!hasEjected){
             
-        System.out.print("It realizes it has not launched");
-        if(RobotMap.reset.get()){
-        Robot.ballEject.EjectArm(1);
-        }
-        else if(!RobotMap.reset.get()){
-            Robot.ballEject.EjectArm(1);
-        }
-        
-        if(RobotMap.ejected.get())
-            Robot.ballEject.stopArm();
-        
+            System.out.print("It realizes it has not launched");
+            if(RobotMap.reset.get()){
+                System.out.print("The code has sent the voltage");
+                Robot.ballEject.EjectArm(1);
             }
+            else if(!RobotMap.reset.get()){
+                Robot.ballEject.EjectArm(1);
+            }
+        
+            if(RobotMap.ejected.get())
+                Robot.ballEject.stopArm();
+        
+        }
         
         else{
             
             if(RobotMap.ejected.get()){
-        Robot.ballEject.EjectArm(-1);
-        }
-        else if(!RobotMap.ejected.get()){
-            Robot.ballEject.EjectArm(-1);
-        }
-            
-        if(RobotMap.reset.get())
-            Robot.ballEject.stopArm();
+                Robot.ballEject.EjectArm(-1);
             }
-        
+            else if(!RobotMap.ejected.get()){
+                Robot.ballEject.EjectArm(-1);
+            }
+            
+            if(RobotMap.reset.get()){
+                Robot.ballEject.stopArm();
+                finished = true;
+            }
         }
+        
+    }
 //    public void resetEjector(){
 //        if(!RobotMap.reset.get())
 //        Robot.ballEject.EjectArm(1);
@@ -81,7 +84,7 @@ public class  runVictor extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return finished;
     }
 
     // Called once after isFinished returns true
@@ -92,6 +95,7 @@ public class  runVictor extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        Robot.ballEject.stopArm();
+        finished = true;
+        isFinished();
     }
 }
