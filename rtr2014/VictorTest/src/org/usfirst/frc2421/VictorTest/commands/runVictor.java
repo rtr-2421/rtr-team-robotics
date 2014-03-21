@@ -13,12 +13,16 @@ package org.usfirst.frc2421.VictorTest.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2421.VictorTest.Robot;
+import org.usfirst.frc2421.VictorTest.RobotMap;
 
 /**
  *
  */
 public class  runVictor extends Command {
 
+    private boolean finished = false;
+    private boolean hasEjected = false;
+    
     public runVictor() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -30,29 +34,48 @@ public class  runVictor extends Command {
     
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.ballEject.setEject();
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         ejectBall();
-        resetEjector();
     }
     
     public void ejectBall(){
-        while (!Robot.ballEject.reject()) {
-            Robot.ballEject.setEject();
+        if(!hasEjected){
+            
+        if(RobotMap.reset.get()){
+        Robot.ballEject.EjectArm(1);
         }
-        Robot.ballEject.stop();
-    }
-    
-    public void resetEjector(){
-        while (!Robot.ballEject.finished()) {
-            Robot.ballEject.setReset();
+        else if(!RobotMap.reset.get()){
+            Robot.ballEject.EjectArm(1);
         }
-        Robot.ballEject.stop();
         
-    }
+        if(RobotMap.ejected.get())
+            Robot.ballEject.stopArm();
+        
+            }
+        
+        else{
+            
+            if(RobotMap.ejected.get()){
+        Robot.ballEject.EjectArm(-1);
+        }
+        else if(!RobotMap.ejected.get()){
+            Robot.ballEject.EjectArm(-1);
+        }
+            
+        if(RobotMap.reset.get())
+            Robot.ballEject.stopArm();
+            }
+        
+        }
+//    public void resetEjector(){
+//        if(!RobotMap.reset.get())
+//        Robot.ballEject.EjectArm(1);
+//        
+//    }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
@@ -61,14 +84,12 @@ public class  runVictor extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.ballEject.stop();
+        Robot.ballEject.stopArm();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        while (!Robot.ballEject.finished()) { // Add limit/timeout
-            Robot.ballEject.setEject();
-        }
+        Robot.ballEject.stopArm();
     }
 }
