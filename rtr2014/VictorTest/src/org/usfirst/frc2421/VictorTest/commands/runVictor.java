@@ -43,12 +43,12 @@ public class  runVictor extends Command {
     }
     
     public void ejectBall(){
-        System.out.print("The code is running the method");
+        System.out.println("The code is running the method");
         if(!hasEjected){
             
-            System.out.print("It realizes it has not launched");
+            System.out.println("It realizes it has not launched");
             if(RobotMap.reset.get()){
-                System.out.print("The code has sent the voltage");
+                System.out.println("The code has sent the voltage");
                 Robot.ballEject.EjectArm(1);
             }
             else if(!RobotMap.reset.get()){
