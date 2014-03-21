@@ -55,9 +55,11 @@ public class  runVictor extends Command {
                 Robot.ballEject.EjectArm(1);
             }
         
-            if(RobotMap.ejected.get())
+            if(RobotMap.ejected.get()){
                 Robot.ballEject.stopArm();
-        
+                hasEjected = true;
+            }
+
         }
         
         else{
