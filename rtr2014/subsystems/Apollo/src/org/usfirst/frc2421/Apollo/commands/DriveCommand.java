@@ -47,9 +47,9 @@ public class  DriveCommand extends Command {
     protected void execute() {
         
         double x;
-        x = -driveStick.getX();//X has a reversed value and has to be negative.
+        x = -driveStick.getX() * Robot.drive.reversed;//X has a reversed value and has to be negative.
         double y;
-        y = driveStick.getY();
+        y = driveStick.getY() * Robot.drive.reversed;
         
         if((-deadZone < x) && (x < deadZone) && (-deadZone < y) && (y < deadZone)){//Checking if the joystick is in the deadzone.
             leftSpeed = 0;//Shouldn't move while inside deadzone.
