@@ -113,11 +113,7 @@ public class Robot extends IterativeRobot {
             ex.printStackTrace();
         }
         SmartDashboard.putNumber("CATAPULT ENCODER", RobotMap.catAngle.getRaw());
-        try {
-            SmartDashboard.putNumber("INTAKE EJECTOR", RobotMap.ballIntakeballEjector.getX());
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
+        SmartDashboard.putNumber("INTAKE EJECTOR", RobotMap.ballIntakeballEjector.get());
         try {
             SmartDashboard.putNumber("INTAKE MOTOR", RobotMap.ballIntakeintakeMotor.getX()
             );
