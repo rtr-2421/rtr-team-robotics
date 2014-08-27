@@ -39,18 +39,18 @@ public class  driveCommand extends Command {
         double x = Robot.oi.joystick.getX();
         double y = Robot.oi.joystick.getY();
         
-        double leftSpeed;
-        double rightSpeed;
+        double driveSpeed;
+        double turnSpeed;
         
         double deadZone = 0.2;
         
         if((x < deadZone) && (x > -deadZone) && (y < deadZone) && (y > -deadZone)){
-            leftSpeed = 0;
-            rightSpeed = 0;
+            driveSpeed = 0;
+            turnSpeed = 0;
         }
         else{
-            leftSpeed = y + x;
-            rightSpeed = y - x;
+            driveSpeed = y;
+            turnSpeed = x;
         }
         
         if(y > 1){
@@ -68,8 +68,8 @@ public class  driveCommand extends Command {
         }
         
         try {
-            Robot.drive.setLeftSpeed(leftSpeed);
-            Robot.drive.setRightSpeed(rightSpeed);
+            Robot.drive.setLeftSpeed(driveSpeed);
+            Robot.drive.setRightSpeed(turnSpeed);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }

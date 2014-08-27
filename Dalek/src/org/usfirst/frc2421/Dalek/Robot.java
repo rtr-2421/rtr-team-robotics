@@ -87,7 +87,10 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-    }
+        
+        System.out.println(drive.getEncoderValue());
+        System.out.println(oi.joystick.getDirectionDegrees());
+        }
 
     /**
      * This function called periodically during test mode
