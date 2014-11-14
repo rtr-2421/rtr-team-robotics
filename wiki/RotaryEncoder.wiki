@@ -1,0 +1,14 @@
+#Notes for quadrature rotary encoder
+= Introduction =
+
+We have this working on Apollo and need to capture the wiring pin-out that worked best. Also we learned a lot about the values coming off the encoder and how to interpret them. *Need to update these notes.*
+
+
+= Details =
+== Wiring ==
+All I currently have is the PPT file assembled to guide the test configurations.
+
+== Coding ==
+=== Initializing the encoder ===
+=== Reading Values ===
+=== Making the Data information ===
