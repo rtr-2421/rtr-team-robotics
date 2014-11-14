@@ -1,4 +1,4 @@
-# Notes for quadrature rotary encoder
+#summary Notes for quadrature rotary encoder
 = Introduction =
 
 We have this working on Apollo and need to capture the wiring pin-out that worked best. Also we learned a lot about the values coming off the encoder and how to interpret them. *Need to update these notes.*
