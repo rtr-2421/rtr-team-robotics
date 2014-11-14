@@ -15,3 +15,10 @@ Students need to not the pin-out that worked and capture it here.
 === Initializing the encoder ===
 === Reading Values ===
 === Making the Data information ===
+
+Count per rotation/conversion to an angle.
+
+Rotational direction.
+
+== Limitations ==
+Stopping at a precise angle from high speed is not likely to work well. (Recall Apollo's catapult) The couple milliseconds it takes for the control loop to recognized the angle condition is met will likely exceed you margin of error.
