@@ -1,4 +1,4 @@
-#Notes for quadrature rotary encoder
+# Notes for quadrature rotary encoder
 = Introduction =
 
 We have this working on Apollo and need to capture the wiring pin-out that worked best. Also we learned a lot about the values coming off the encoder and how to interpret them. *Need to update these notes.*
@@ -7,7 +7,7 @@ We have this working on Apollo and need to capture the wiring pin-out that worke
 = Details =
 == Wiring ==
 All I currently have is the PPT file assembled to guide the test configurations.
-
+http://rtr-team-robotics.googlecode.com/svn/wiki/images/E4PEncoderWiringPin-outOptions.pdf
 == Coding ==
 === Initializing the encoder ===
 === Reading Values ===
