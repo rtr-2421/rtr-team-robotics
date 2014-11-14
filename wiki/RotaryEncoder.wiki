@@ -14,7 +14,7 @@ Students need to not the pin-out that worked and capture it here.
 == Coding ==
 === Initializing the encoder ===
 === Reading Values ===
-=== Creating Information fro Data ===
+=== Creating Information from Data ===
 
 Count per rotation/conversion to an angle.
 
