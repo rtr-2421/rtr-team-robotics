@@ -14,5 +14,5 @@ http://rtr-team-robotics.googlecode.com/svn/wiki/images/RobotVisionArchitecture.
 
 == Useful Links ==
 
-*  [https://github.com/bytedeco/javacv]
-*  [http://stackoverflow.com/questions/276292/capturing-image-from-webcam-in-java]
+  * [https://github.com/bytedeco/javacv]
+  * [http://stackoverflow.com/questions/276292/capturing-image-from-webcam-in-java]
