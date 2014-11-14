@@ -13,5 +13,6 @@ Beside off-loading the processing burden of vision processing, there are signifi
 http://rtr-team-robotics.googlecode.com/svn/wiki/images/RobotVisionArchitecture.jpg
 
 == Useful Links ==
-* [https://github.com/bytedeco/javacv]
-* [http://stackoverflow.com/questions/276292/capturing-image-from-webcam-in-java]
+
+*  [https://github.com/bytedeco/javacv]
+*  [http://stackoverflow.com/questions/276292/capturing-image-from-webcam-in-java]
