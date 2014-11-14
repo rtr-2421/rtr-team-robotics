@@ -8,6 +8,7 @@ We have this working on Apollo and need to capture the wiring pin-out that worke
 == Wiring ==
 All I currently have is the PPT file assembled to guide the test configurations.
 http://rtr-team-robotics.googlecode.com/svn/wiki/images/E4PEncoderWiringPin-outOptions.pdf
+Students need to not the pin-out that worked and capture it here.
 == Coding ==
 === Initializing the encoder ===
 === Reading Values ===
