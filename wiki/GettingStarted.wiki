@@ -29,3 +29,5 @@ _Need to fill this section out as someone installs JDK and Netbeans individually
 The Subversion (SVN) client plugin was installed as part of Netbeans. This is the protocol we will use to access the team's source code repository in [http://code.google.com/p/rtr-team-robotics/ Google Code].
 
 [SVNConnectingFromNetbeans] follow these instructions to connect and checkout the team projects.
+
+You can also connect via a command line client as well as clients that integrate with your file browsers. [SVNBasics See here for more details.]
