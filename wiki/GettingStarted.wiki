@@ -9,7 +9,6 @@ This page provides general FRC setup instructions, plus team-specific setup step
 [http://wpilib.screenstepslive.com/s/3120/m/7885 2014 FRC Technical Resources Reference]
 [http://wpilib.screenstepslive.com/s/4485/m/13809 2015 Java Programming Tech Refs]
 ==Install Java/Netbeans Bundle==
-These instructions are from 2014, but you can use them as a general guide to installing the latest JDK and Netbeans. Alternately, you can use the Ubuntu SW Center to install the latest Canonical versions of each of these.
   * You can install the latest Java JDK and Netbeans as a bundle from [http://www.oracle.com/technetwork/java/javase/downloads/jdk-7-netbeans-download-432126.html HERE].
   * [LinuxInstallInstructions Linux install instructions]
   * [WindowsInstallInstructions Windows install instructions]
