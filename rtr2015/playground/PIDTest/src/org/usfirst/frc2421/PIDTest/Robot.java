@@ -99,7 +99,7 @@ public class Robot extends IterativeRobot {
         drive.encoder.setPIDSourceParameter(Encoder.PIDSourceParameter.kRate);
         drive.encoder.setDistancePerPulse((Math.PI*circumference)/pulses_per_rev);
         pid = new PIDController(drive.Kp, drive.Ki, drive.Kd, drive.encoder, new PIDJaguar(drive.jaguar));
-        pid.setSetpoint(-50);
+        pid.setSetpoint(0.25*pidScale);
         pid.setOutputRange(-1, 1);
         pid.enable();
         
