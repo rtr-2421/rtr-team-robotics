@@ -98,8 +98,8 @@ public class Robot extends IterativeRobot {
         pidScale = -100;
         drive.encoder.setPIDSourceParameter(Encoder.PIDSourceParameter.kRate);
         drive.encoder.setDistancePerPulse((Math.PI*circumference)/pulses_per_rev);
-        pid = new PIDController(.001, 0, 0, 0, drive.encoder, new PIDJaguar(drive.jaguar));
-        pid.setSetpoint(0.5*pidScale);
+        pid = new PIDController(0.05, 0, 0, 0, drive.encoder, new PIDJaguar(drive.jaguar));
+        pid.setSetpoint(-50);
         pid.setOutputRange(-1, 1);
         pid.enable();
         
@@ -114,9 +114,8 @@ public class Robot extends IterativeRobot {
 //        drive.jaguar.set(1);
 //        System.out.println(drive.encoder.getRate());
         System.out.println("Error: "+pid.getError());
+        System.out.println("Jag Value: "+drive.jaguar.get());
         System.out.println("PID: "+pid.get()+"\n");
-        
-        Timer.delay(20/1000);
         
     }
 

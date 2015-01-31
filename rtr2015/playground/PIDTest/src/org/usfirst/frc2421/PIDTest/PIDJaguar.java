@@ -12,9 +12,13 @@ public class PIDJaguar implements PIDOutput{
 	}
 	
 	public void pidWrite(double output){
-		double rate = jag.get() + output;
-		rate = Math.min(-1, rate);
-		rate = Math.max(1, rate);
+		double rate = jag.get() - output;
+		if(rate > 1){
+			rate = 1;
+		}
+		else if(rate < -1){
+			rate = -1;
+		}
 		jag.set(rate);
 	}
 	
