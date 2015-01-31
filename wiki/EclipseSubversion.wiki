@@ -30,22 +30,33 @@
 
 15. To import a project:
 
-Go to File>Import>SVN>Project from SVN
-Create a new repository location.
-In URL put "https://rtr-team-robotics.googlecode.com/svn/"
-Get your username and password from Source.
-Check Save authentication.
-Click Browse, and look under rtr2015 to find your project.
-Click Finish.
-Choose "Checkout as a project with the existing name."
- Click OK.
+-Go to File>Import>SVN>Project from SVN    
+   
+-Create a new repository location.     
+
+-In URL put "https://rtr-team-robotics.googlecode.com/svn/" 
+    
+-Get your username and password from Source.     
+
+-Check Save authentication.      
+
+-Click Browse, and look under rtr2015 to find your project.     
+ 
+-Click Finish.     
+
+-Choose "Checkout as a project with the existing name."     
+ 
+-Click OK.   
 
 16. To export a project:
 
-Right-click the project, go to Team>Share Project
-Choose SVN, click Next.
-Pick a repository location, and use browse to find your correct folder.
-Click Finish.
+-Right-click the project, go to Team>Share Project   
+ 
+-Choose SVN, click Next.
+
+-Pick a repository location, and use browse to find your correct folder.
+
+-Click Finish.
 
 Troubleshooting:
 
