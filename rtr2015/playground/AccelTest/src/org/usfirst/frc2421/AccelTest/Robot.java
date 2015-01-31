@@ -95,10 +95,9 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        RobotMap.subsystem1AnalogAccelerometer1.getAcceleration();
         double acceleration = RobotMap.subsystem1AnalogAccelerometer1.getAcceleration();
-        SmartDashboard.putNumber("Acceleration",RobotMap.subsystem1AnalogAccelerometer1.getAcceleration());
-        //System.out.println("Acceleration: " + acceleration);
+        SmartDashboard.putNumber("Acceleration: ",RobotMap.subsystem1AnalogAccelerometer1.getAcceleration());
+        System.out.println("Acceleration: " + acceleration);
     }
 
     /**
