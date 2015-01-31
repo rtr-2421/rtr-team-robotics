@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc2421.AccelTest.commands.*;
 import org.usfirst.frc2421.AccelTest.subsystems.*;
 import org.usfirst.frc2421.AccelTest.RobotMap;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -96,8 +97,8 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         RobotMap.subsystem1AnalogAccelerometer1.getAcceleration();
         double acceleration = RobotMap.subsystem1AnalogAccelerometer1.getAcceleration();
-        System.out.println ("Acceleration: " + acceleration );
-        
+        SmartDashboard.putNumber("Acceleration",RobotMap.subsystem1AnalogAccelerometer1.getAcceleration());
+        //System.out.println("Acceleration: " + acceleration);
     }
 
     /**
