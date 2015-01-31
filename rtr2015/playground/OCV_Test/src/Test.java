@@ -1,5 +1,9 @@
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -7,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import org.opencv.core.Core;
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
 import org.opencv.core.Point;
@@ -21,8 +26,8 @@ public class Test implements Runnable{
 	
 	private String filename;
 	JFrame f = new JFrame();
-	VideoCapture cap = new VideoCapture(0);
-	Mat frame = Highgui.imread("http://10.24.21.11/jpg/1/image.jpg");
+	VideoCapture cap = new VideoCapture("http://10.24.21.11/jpg/image.cgi");
+	Mat frame;
 //	CascadeClassifier faceDetector;
 //	CascadeClassifier eye_cascade;
 	Detector d = new Detector("output.png", frame);
@@ -34,12 +39,28 @@ public class Test implements Runnable{
 	}
 	
     public void run(){
-    	if(!cap.isOpened()){
-    		System.out.println("No cam");
-    	}
-    	else{
+//    	if(!cap.isOpened()){
+//    		System.out.println("No cam");
+//    	}
+//    	else{
 //    		if(cap.read(frame)){
-					Highgui.imwrite("camera.jpg", frame);
+//				Highgui.imwrite("camera.jpg", frame);
+    			BufferedImage i = null;
+				try {
+					i = ImageIO.read(new URL("http://10.24.21.11/jpg/1/image.jpg"));
+				} catch (MalformedURLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}		
+				
+				byte[] data = ((DataBufferByte) i.getRaster().getDataBuffer()).getData();
+				Mat frame = new Mat(i.getHeight(), i.getWidth(), CvType.CV_8UC3);
+				frame.put(0, 0, data);
+		
+				Highgui.imwrite("camera.jpg", frame);
 //    				d.run();
 					c.run();
     				try {
@@ -50,7 +71,7 @@ public class Test implements Runnable{
     				f.pack();
     				f.setVisible(true);    			
 //    		}    		
-    	}
+//    	}
     } 
     
     

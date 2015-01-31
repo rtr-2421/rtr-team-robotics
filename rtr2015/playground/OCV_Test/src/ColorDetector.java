@@ -30,7 +30,6 @@ public class ColorDetector implements Runnable{
 		
 		List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
 		Rect bound = new Rect();
-		int large_index = 0;
 		double area = 0;
 		Imgproc.findContours(imgThresholded, contours, new Mat(), Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
 		
@@ -38,7 +37,6 @@ public class ColorDetector implements Runnable{
 			double a = Imgproc.contourArea(contours.get(b), false);
 			if(a > area){
 				area = a;
-				large_index = b;
 				bound = Imgproc.boundingRect(contours.get(b));
 			}
 		}
