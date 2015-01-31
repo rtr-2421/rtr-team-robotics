@@ -94,7 +94,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        liftCan();
+        //liftCan();
         
     }
 
@@ -104,7 +104,7 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         LiveWindow.run();
     }
-    public void liftCan()
+    /*public void liftCan()
     {
     	double speed = 1;
         double y = OI.liftStick.getY();
@@ -118,6 +118,6 @@ public class Robot extends IterativeRobot {
         {
         	RobotMap.liftmotorCANJaguarLiftCan.set(0);
         }
-    }
+    }*/
 }
 

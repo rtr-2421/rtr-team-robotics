@@ -30,7 +30,7 @@ public class liftToteUp extends Command {
     	double speed = 1;    	
     	
     	RobotMap.liftmotorCANJaguarLiftTote.set(-speed);//Go up
-    	if(LimitOutputBoolean == true)
+    	if(LimitOutputBoolean == false)
     	{
     		RobotMap.liftmotorCANJaguarLiftTote.set(0);
     	}
