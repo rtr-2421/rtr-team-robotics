@@ -26,10 +26,9 @@ public class liftToteDown extends Command {
     protected void execute() {
     	isFinished = true;
     	double speed = 1;
-    	boolean LimitOutputBoolean = true;
-    	//boolean LimitOutputBoolean = LimitSwitch.limitOutput2;
+    	boolean LimitOutputBoolean = LimitSwitch.limitOutput2;
     	RobotMap.liftmotorCANJaguarLiftTote.set(speed);//Go up
-    	if(LimitOutputBoolean == false)
+    	if(LimitOutputBoolean == true)
     	{
     		RobotMap.liftmotorCANJaguarLiftTote.set(0);
     	}

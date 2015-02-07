@@ -25,12 +25,11 @@ public class liftToteUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	isFinished = true;
-    	boolean LimitOutputBoolean = true;
-    	//boolean LimitOutputBoolean = LimitSwitch.limitOutput1;
+    	boolean LimitOutputBoolean = LimitSwitch.limitOutput2;
     	double speed = 1;    	
     	
     	RobotMap.liftmotorCANJaguarLiftTote.set(-speed);//Go up
-    	if(LimitOutputBoolean == false)
+    	if(LimitOutputBoolean == true)
     	{
     		RobotMap.liftmotorCANJaguarLiftTote.set(0);
     	}

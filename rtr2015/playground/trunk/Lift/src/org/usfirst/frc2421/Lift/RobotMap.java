@@ -37,7 +37,7 @@ public class RobotMap {
         //liftmotorCANJaguarLiftCan = new CANJaguar(17);
         liftmotorCANJaguarLiftTote = new CANJaguar(3);
         LimitSwitch1 = new DigitalInput(0);
-        LimitSwitch2 = new DigitalInput(1);
+        LimitSwitch2 = new DigitalInput(9);
         
         LiveWindow.addSensor("Limit Switch", "Limit Switch 1", LimitSwitch1);
         LiveWindow.addSensor("Limit Switch", "Limit Switch 2", LimitSwitch2);
