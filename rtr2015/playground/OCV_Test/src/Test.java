@@ -69,36 +69,36 @@ public class Test implements Runnable{
     					e.printStackTrace();
     				}
     				f.pack();
-    				f.setVisible(true);    			
+    				f.setVisible(true);
 //    		}    		
 //    	}
     } 
     
     
-//    public void detectAndDisplay(Mat frame)
-//    {
-//   	 	String face_cascade_name = "C:/Users/Eyob Woldeghebriel/Desktop/opencv/sources/data/haarcascades/haarcascade_frontalface_alt.xml";
-//        VideoCapture camera = new VideoCapture(0);
-////        VideoCapture camera = new VideoCapture("http://10.24.21.11/mjpg/video.mjpg");
-// 
-//        CascadeClassifier faceDetector = new CascadeClassifier("C:/Users/Eyob Woldeghebriel/Desktop/opencv/sources/data/haarcascades/haarcascade_frontalface_alt.xml");
-//        Mat image = frame;
-//
-//        // Detect faces in the image.
-//        // MatOfRect is a special container class for Rect.
-//        MatOfRect faceDetections = new MatOfRect();
-//        faceDetector.detectMultiScale(image, faceDetections);
-//
-//        System.out.println(String.format("Detected %s faces", faceDetections.toArray().length));
-//
-//        // Draw a bounding box around each face.
-//        for (Rect rect : faceDetections.toArray()) {
-//            Core.rectangle(image, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0));
-//        }
-//
-//        // Save the visualized detection.
-//        System.out.println(String.format("Writing %s", filename));
-//        Highgui.imwrite(filename, image);
-//   }
+    public void detectAndDisplay(Mat frame)
+    {
+   	 	String face_cascade_name = "C:/Users/Eyob Woldeghebriel/Desktop/opencv/sources/data/haarcascades/haarcascade_frontalface_alt.xml";
+        VideoCapture camera = new VideoCapture(0);
+//        VideoCapture camera = new VideoCapture("http://10.24.21.11/mjpg/video.mjpg");
+ 
+        CascadeClassifier faceDetector = new CascadeClassifier("C:/Users/Eyob Woldeghebriel/Desktop/opencv/sources/data/haarcascades/haarcascade_frontalface_alt.xml");
+        Mat image = frame;
+
+        // Detect faces in the image.
+        // MatOfRect is a special container class for Rect.
+        MatOfRect faceDetections = new MatOfRect();
+        faceDetector.detectMultiScale(image, faceDetections);
+
+        System.out.println(String.format("Detected %s faces", faceDetections.toArray().length));
+
+        // Draw a bounding box around each face.
+        for (Rect rect : faceDetections.toArray()) {
+            Core.rectangle(image, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0));
+        }
+
+        // Save the visualized detection.
+        System.out.println(String.format("Writing %s", filename));
+        Highgui.imwrite(filename, image);
+   }
 
 }
