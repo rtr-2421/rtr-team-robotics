@@ -50,7 +50,7 @@ public class roboSystem extends Subsystem {
 
 	Gyro gyro = RobotMap.roboSystemgyro;
 
-	AnalogAccelerometer acc = RobotMap.roboSystemacc;
+	BuiltInAccelerometer acc = RobotMap.roboSystemacc;
 
 	AnalogInput ult = RobotMap.ultraSonic;
 

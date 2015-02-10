@@ -34,7 +34,7 @@ public class RobotMap {
     public static CANJaguar roboSystemfrontRight;
     public static CANJaguar roboSystembackRight;
     public static Gyro roboSystemgyro;
-    public static AnalogAccelerometer roboSystemacc;
+    public static BuiltInAccelerometer roboSystemacc;
     public static Ultrasonic roboSystemUltrasonic1;
     public static Encoder roboSystembackRightEnc;
     
@@ -70,10 +70,8 @@ public class RobotMap {
         roboSystemgyro = new Gyro(0);
         LiveWindow.addSensor("roboSystem", "gyro", roboSystemgyro);
         roboSystemgyro.setSensitivity(0.007);
-        roboSystemacc = new AnalogAccelerometer(1);
+        roboSystemacc = new BuiltInAccelerometer();
         LiveWindow.addSensor("roboSystem", "acc", roboSystemacc);
-        roboSystemacc.setSensitivity(0.0);
-        roboSystemacc.setZero(2.5);
         roboSystemUltrasonic1 = new Ultrasonic(0, 1);
         LiveWindow.addSensor("roboSystem", "Ultrasonic 1", roboSystemUltrasonic1);
         
