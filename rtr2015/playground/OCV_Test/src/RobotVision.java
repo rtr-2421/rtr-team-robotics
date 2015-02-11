@@ -1,7 +1,7 @@
 import org.opencv.core.*;
 import org.opencv.highgui.VideoCapture;
  
-public class FaceDetector{
+public class RobotVision{
 	
 	private static String window_name = "Capture - Face detection";
 	

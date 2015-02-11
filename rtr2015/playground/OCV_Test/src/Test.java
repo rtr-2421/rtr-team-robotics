@@ -46,15 +46,24 @@ public class Test implements Runnable{
 //    		if(cap.read(frame)){
 //				Highgui.imwrite("camera.jpg", frame);
     			BufferedImage i = null;
-				try {
-					i = ImageIO.read(new URL("http://10.24.21.11/jpg/1/image.jpg"));
-				} catch (MalformedURLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}		
+    			while(true)
+    			{
+    				try {
+    					i = ImageIO.read(new URL("http://10.24.21.11/jpg/1/image.jpg"));
+    				} catch (MalformedURLException e1) {
+    					// TODO Auto-generated catch block
+    					System.out.println("Cannot connect - Bad URL");
+    					continue;
+    				} catch (IOException e1) {
+    					// TODO Auto-generated catch block
+    					System.out.println("Cannot connect - IOException");
+    					continue;
+    				} catch (Exception ex){
+    					System.out.println("Cannot connect to robot");
+    					continue;
+    				}
+    				break;
+    			}
 				
 				byte[] data = ((DataBufferByte) i.getRaster().getDataBuffer()).getData();
 				Mat frame = new Mat(i.getHeight(), i.getWidth(), CvType.CV_8UC3);
