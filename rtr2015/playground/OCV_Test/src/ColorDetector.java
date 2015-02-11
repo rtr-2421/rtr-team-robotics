@@ -107,14 +107,20 @@ public class ColorDetector implements Runnable {
 		else
 		{
 			System.out.println("Bad");
-
+		}
+		
+		//probably not needed, replaced by josh code
 		if (bound.contains(new Point(imgOrg.width() / 2, imgOrg.height() / 2))) {
 			// if(contours.contains(new Point(imgOrg.width()/2,
 			// imgOrg.height()/2))){
 			System.out.println("Good");
 
 		} else {
-
+			
+			System.out.println("bad");
+		}
+		
+		//andrew
 		while (Ultra >= 12) {
 			if (mid >= 330) {
 				// Put motor strafe Right here
@@ -149,3 +155,5 @@ public class ColorDetector implements Runnable {
 	}
 
 }
+		
+
