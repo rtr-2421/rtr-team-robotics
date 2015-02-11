@@ -6,11 +6,11 @@ import org.usfirst.frc2421.Cerberus.Robot;
 /**
  *
  */
-public class  LowerTote extends Command {
+public class  LiftBin extends Command {
 
 	boolean isFinished = false;
 	
-    public LowerTote() {
+    public LiftBin() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.roboSystem);
