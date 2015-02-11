@@ -34,6 +34,8 @@ public class roboSystem extends Subsystem {
 	CANJaguar frontRight = RobotMap.roboSystemfrontRight;
 	CANJaguar backRight = RobotMap.roboSystembackRight;
 	
+	CANJaguar toteMotor = RobotMap.roboSystemTote;
+	
 	public double kP = 0.001;
     public double kI = 0;
     public double kD = 0.001;
@@ -53,7 +55,14 @@ public class roboSystem extends Subsystem {
 	BuiltInAccelerometer acc = RobotMap.roboSystemacc;
 
 	AnalogInput ult = RobotMap.ultraSonic;
+	
+	public DigitalInput limitTop = RobotMap.toteTop;
+	public DigitalInput limitBottom = RobotMap.toteBottom;
 
+	public void setToteLifter(double speed){
+		toteMotor.set(speed);
+	}
+	
 	public void setSpeedFrontLeftMotor(double speed) {
 		pid1.setSetpoint(speed*scale1);
 	}

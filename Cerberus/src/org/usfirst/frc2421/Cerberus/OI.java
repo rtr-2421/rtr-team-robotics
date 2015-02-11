@@ -12,6 +12,8 @@
 package org.usfirst.frc2421.Cerberus;
 
 import org.usfirst.frc2421.Cerberus.commands.*;
+
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 
@@ -61,7 +63,11 @@ public class OI {
         
         driveStick = new Joystick(1);
         
-
+        JoystickButton liftTote = new JoystickButton(driveStick, 1);
+        liftTote.whenPressed(new LiftTote());
+        
+        JoystickButton lowerTote = new JoystickButton(driveStick, 2);
+        lowerTote.whenPressed(new LowerTote());
 	    
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
