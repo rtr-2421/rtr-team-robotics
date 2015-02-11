@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-import org.usfirst.frc2421.Cerberus.subsystems.roboSystem;
+import org.usfirst.frc2421.Cerberus.subsystems.Drive;
 
 public class Server implements Runnable {
 
@@ -69,7 +69,7 @@ class CommandThread implements Runnable {
 	}
 }
 
-class Command extends roboSystem {
+class Command extends Drive {
 
 	/*
 	 * need to code motor methods need to code sensors

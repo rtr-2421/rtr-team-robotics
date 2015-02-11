@@ -34,6 +34,7 @@ public class RobotMap {
     public static CANJaguar roboSystemfrontRight;
     public static CANJaguar roboSystembackRight;
     public static CANJaguar roboSystemTote;
+    public static CANJaguar roboSystemBin;
     public static Gyro roboSystemgyro;
     public static BuiltInAccelerometer roboSystemacc;
     public static Ultrasonic roboSystemUltrasonic1;
@@ -88,5 +89,6 @@ public class RobotMap {
         toteTop = new DigitalInput(1);
         toteBottom = new DigitalInput(2);
         roboSystemTote = new CANJaguar(9);
+        roboSystemBin = new CANJaguar(10);
     }
 }
