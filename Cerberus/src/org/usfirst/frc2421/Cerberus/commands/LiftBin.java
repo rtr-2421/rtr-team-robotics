@@ -24,8 +24,8 @@ public class  LiftBin extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	boolean stop = Robot.lifter.limitTop.get();
-    	double speed = 1;
+    	boolean stop = Robot.lifter.binBottom.get();
+    	double speed = Robot.lifter.binSpeed;
     	
     	if(stop){
     		Robot.lifter.setBinLifter(0);

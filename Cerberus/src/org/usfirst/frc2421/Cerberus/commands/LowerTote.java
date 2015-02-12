@@ -25,7 +25,7 @@ public class  LowerTote extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	boolean stop = Robot.lifter.limitBottom.get();
-    	double speed = 1;
+    	double speed = Robot.lifter.toteSpeed;
     	
     	if(stop){
     		Robot.lifter.setToteLifter(0);
