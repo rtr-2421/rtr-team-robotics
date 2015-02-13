@@ -24,6 +24,7 @@ public class PIDValueIncrease extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Drive.Kp += 0.001; // Change to whichever (p,i,d) that you want.
+    	System.out.println(Drive.Kp);
     	isFinished = true;
     }
 
