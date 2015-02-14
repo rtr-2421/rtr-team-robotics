@@ -24,15 +24,7 @@ public class  LiftTote extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	boolean stop = Robot.lifter.limitBottom.get();
-    	double speed = Robot.lifter.toteSpeed;
-    	
-    	if(stop){
-    		Robot.lifter.setToteLifter(0);
-    	}
-    	else{
-    		Robot.lifter.setToteLifter(-speed);
-    	}
+    	Robot.lifter.setToteLifter(0.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()

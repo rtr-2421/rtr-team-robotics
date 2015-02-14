@@ -63,17 +63,17 @@ public class OI {
         
         driveStick = new Joystick(1);
         
-        JoystickButton liftBin = new JoystickButton(driveStick, 1);
-        liftBin.whileHeld(new LiftBin());
+        JoystickButton liftBin = new JoystickButton(driveStick, 3);
+        liftBin.whenPressed(new LiftBin());
         
         JoystickButton lowerBin = new JoystickButton(driveStick, 2);
-        lowerBin.whileHeld(new LowerBin());
+        lowerBin.whenPressed(new LowerBin());
         
-        JoystickButton liftTote = new JoystickButton(driveStick, 4);
-        liftTote.whileHeld(new LiftTote());
+        JoystickButton liftTote = new JoystickButton(driveStick, 5);
+        liftTote.whenPressed(new LiftTote());
         
         JoystickButton lowerTote = new JoystickButton(driveStick, 4);
-        lowerTote.whileHeld(new LowerTote());     
+        lowerTote.whenPressed(new LowerTote());     
 	    
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());

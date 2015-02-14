@@ -1,7 +1,9 @@
 package org.usfirst.frc2421.Cerberus.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc2421.Cerberus.Robot;
+import org.usfirst.frc2421.Cerberus.RobotMap;
 
 /**
  *
@@ -20,29 +22,27 @@ public class  LowerBin extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	isFinished = false;
+    	double speed = Robot.lifter.binSpeed;
+    	Robot.lifter.setBinLifter(speed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	boolean stop = Robot.lifter.binTop.get();
-    	double speed = Robot.lifter.binSpeed;
-    	
-    	if(stop){
-    		Robot.lifter.setBinLifter(0);
-    	}
-    	else{
-    		Robot.lifter.setBinLifter(speed);
-    	}
+    	if(isFinished() == true)
+    		end();
+    		
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return isFinished;
+    protected boolean isFinished() {  
+    	return RobotMap.binBottom.get();
+        
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	isFinished = false;
+    	Robot.lifter.setBinLifter(0);
     }
 
     // Called when another command which requires one or more of the same
