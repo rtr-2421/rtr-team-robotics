@@ -18,13 +18,14 @@ public class Server implements Runnable {
 		try {
 			System.out.println("Listening on port " + port);
 			ServerSocket ss = new ServerSocket(port);
+			Thread t;
 
 			while (true) {
 				Socket s = ss.accept();
+				t = new Thread(new CommandThread(s, cmd));
 
 				System.out.println("Connection established");
 
-				Thread t = new Thread(new CommandThread(s, cmd));
 				t.start();
 			}
 		} catch (Exception e) {
