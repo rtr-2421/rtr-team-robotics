@@ -93,6 +93,8 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         DriveCommand drive = new DriveCommand();
+        
+        drive.start();
     }
 
     /**
@@ -100,7 +102,6 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        
     }
 
     /**
