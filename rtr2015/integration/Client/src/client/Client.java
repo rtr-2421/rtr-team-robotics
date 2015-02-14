@@ -49,9 +49,9 @@ public class Client {
 				s = new Socket(ip, port);
 				return s;
 			} catch (UnknownHostException e) {
-				System.out.println("The Host is Unknown.");
+				System.err.println("The Host is Unknown.");
 			} catch (IOException e) {
-				System.out.println("Network Error.");
+				System.err.println("Network Error.");
 			}
 		}
 	}
