@@ -24,6 +24,8 @@ public class  DriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	 double deadZone = 0.2;
+    	
     	 double x = Robot.oi.driveStick.getX();
          double y = Robot.oi.driveStick.getY();
          double w = Robot.oi.turnStick.getX();
@@ -31,22 +33,51 @@ public class  DriveCommand extends Command {
          double a = 0;
          double b = 1;
          
-         double m1 = x + y - w*(a+b);
-         double m2 = -x + y + w*(a+b);
-         double m3 = -x + y - w*(a+b);
-         double m4 = x + y + w*(a+b);
+         double m1;
+         double m2;
+         double m3;
+         double m4;
          
-         Math.max(m1, -1);
- 		 Math.min(m1, 1);
- 		
- 		 Math.max(m2, -1);
- 		 Math.min(m2, 1);
- 		
- 		 Math.max(m3, -1);
- 		 Math.min(m3, 1);
- 		
- 		 Math.max(m4, -1);
- 		 Math.min(m4, 1);
+         if((x < deadZone && x > -deadZone) && (y < deadZone && y > -deadZone)){
+        	 m1 = 0;
+        	 m2 = 0;
+        	 m3 = 0;
+        	 m4 = 0;
+         }
+         else{
+        	 m1 = x + y - w*(a+b);
+             m2 = -x + y + w*(a+b);
+             m3 = -x + y - w*(a+b);
+             m4 = x + y + w*(a+b);
+         }
+         
+         if(m1 > 1){
+         	m1 = 1;
+         }
+         if(m1 < -1){
+         	m1 = -1;
+         }
+         
+         if(m2 > 1){
+         	m2 = 1;
+         }
+         if(m2 < -1){
+         	m2 = -1;
+         }
+         
+         if(m3 > 1){
+         	m3 = 1;
+         }
+         if(m3 < -1){
+         	m3 = -1;
+         }
+         
+         if(m4 > 1){
+         	m4 = 1;
+         }
+         if(m4 < -1){
+         	m4 = -1;
+         }
          
          Robot.driveSystem.setSpeedFrontLeftMotor(-m1);
          Robot.driveSystem.setSpeedFrontRightMotor(m2);

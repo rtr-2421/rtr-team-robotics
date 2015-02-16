@@ -43,10 +43,10 @@ public class Drive extends Subsystem {
 	public PIDController pid3 = new PIDController(kP, kI, kD, backLeftEnc, new PIDJaguar(backLeft));
 	public PIDController pid4 = new PIDController(kP, kI, kD, backRightEnc, new PIDJaguar(backRight));
     
-    double scale1 = -80;
-    double scale2 = -80;
-    double scale3 = -80;
-    double scale4 = -80;
+    double scale1 = -90;
+    double scale2 = -90;
+    double scale3 = -90;
+    double scale4 = -90;
 
 	Gyro gyro = RobotMap.roboSystemgyro;
 
@@ -106,6 +106,7 @@ public class Drive extends Subsystem {
 
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new DriveCommand());
 	}
 
 	public double getUltRange() {

@@ -12,10 +12,14 @@ public class PIDJaguar implements PIDOutput{
 	}
 	
 	public void pidWrite(double output){
-		double speed = motor.get() - output;
-		Math.max(speed, -1);
-		Math.min(speed, 1);
-		motor.set(speed);
+		double rate = motor.get() - output;
+		if(rate > 1){
+			rate = 1;
+		}
+		else if(rate < -1){
+			rate = -1;
+		}
+		motor.set(rate);
 	}
 	
 }
