@@ -26,7 +26,7 @@ public class  LowerTote extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lifter.setToteLifter(-0.5);
+    	Robot.lifter.setToteLifter(-1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

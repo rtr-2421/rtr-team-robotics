@@ -75,8 +75,8 @@ public class RobotMap {
         
         roboSystemfrontLeft = new CANJaguar(23); 
         roboSystembackLeft = new CANJaguar(15);
-        roboSystemfrontRight = new CANJaguar(22);
-        roboSystembackRight = new CANJaguar(5);
+        roboSystemfrontRight = new CANJaguar(5);
+        roboSystembackRight = new CANJaguar(22);
         
         
         roboSystemgyro = new Gyro(0);
