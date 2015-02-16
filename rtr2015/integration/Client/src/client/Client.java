@@ -10,27 +10,32 @@ import java.util.Scanner;
 
 public class Client {
 	public static void main(String[] args) {
-		int port = 3000;
-		// Image Processing
+		int port = 5800;
+		boolean finish = false;
 		Socket s = getSocket(port);
+		Scanner sending = new Scanner(System.in);
 		try {
 			System.out.println("Connected on port " + port);
+			Scanner in = new Scanner(s.getInputStream());
 			PrintWriter out;
 			out = new PrintWriter(s.getOutputStream(), true);
-			String str = "";
-			for (int i = 0; i < 1000; i++) {
-				int r = new Random().nextInt(2);
-
-				if (r == 0) {
-					str = "Not Centered";
-				} else if (r == 1) {
-					str = "Centered";
+			// String quote = in.nextLine();
+			// System.out.println(quote);
+			// in.nextLine();
+			// in.nextLine();
+			while (true) {
+				while (finish == false) {
+					String done = in.nextLine();
+					if (done.equalsIgnoreCase("done")) {
+						finish = true;
+					} else {
+						System.out.println(in.nextLine());
+					}
 				}
-
-				out.println(str);
+				out.println(sending.nextLine());
+				String done = "Not Done";
 			}
-
-			s.close();
+			// s.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -42,16 +47,16 @@ public class Client {
 		InetAddress ip;
 		Scanner sc = new Scanner(System.in);
 		while (true) {
-			System.out.print("What Server do you want to connect to?");
+			System.out.print("What server do you want to connect to?");
 			host = sc.nextLine();
 			try {
 				ip = InetAddress.getByName(host);
 				s = new Socket(ip, port);
 				return s;
 			} catch (UnknownHostException e) {
-				System.err.println("The Host is Unknown.");
+				System.out.println("The Host is Unknown.");
 			} catch (IOException e) {
-				System.err.println("Network Error.");
+				System.out.println("Network Error.");
 			}
 		}
 	}
