@@ -10,7 +10,7 @@ import org.usfirst.frc2421.Cerberus.RobotMap;
  */
 public class  LiftBin extends Command {
 
-	boolean isFinished = false;
+	static boolean isFinished = false;
 	
     public LiftBin() {
         // Use requires() here to declare subsystem dependencies
@@ -29,7 +29,7 @@ public class  LiftBin extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(isFinished() == true)
+    	if(isFinished() == true || isFinished)
     		end();
     }
 

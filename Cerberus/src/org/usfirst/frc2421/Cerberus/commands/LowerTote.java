@@ -10,7 +10,7 @@ import org.usfirst.frc2421.Cerberus.subsystems.ToteLifter;
  */
 public class  LowerTote extends Command {
 
-	boolean isFinished = false;
+	static boolean isFinished = false;
 	
     public LowerTote() {
         // Use requires() here to declare subsystem dependencies
@@ -22,11 +22,15 @@ public class  LowerTote extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	isFinished = false;
+    	double speed = Robot.lifter.toteSpeed;
+    	Robot.lifter.setToteLifter(speed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lifter.setToteLifter(-1);
+    	if(isFinished)
+    		end();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,7 +40,7 @@ public class  LowerTote extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	isFinished = false;
+    	Robot.lifter.setToteLifter(0);
     }
 
     // Called when another command which requires one or more of the same

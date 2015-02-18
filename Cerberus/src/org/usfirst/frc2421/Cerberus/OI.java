@@ -73,7 +73,10 @@ public class OI {
         liftTote.whenPressed(new LiftTote());
         
         JoystickButton lowerTote = new JoystickButton(driveStick, 4);
-        lowerTote.whenPressed(new LowerTote());     
+        lowerTote.whenPressed(new LowerTote());    
+        
+        JoystickButton emergencyStop = new JoystickButton(driveStick, 1);
+        emergencyStop.whenPressed(new Stop());
 	    
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
