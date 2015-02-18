@@ -1,113 +1,93 @@
 package server;
 
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-import org.usfirst.frc2421.Cerberus.subsystems.Drive;
-
 public class Server implements Runnable {
 
+	@SuppressWarnings("resource")
 	public void run() {
 
-		int port = 3000;
-
-		Command cmd = new Command();
+		int port = 5800;
 
 		try {
-			System.out.println("Listening on port " + port);
-			ServerSocket ss = new ServerSocket(port);
-			Thread t;
+			System.out.println("Server hosting on port: " + port);
+			ServerSocket ss;
+			ss = new ServerSocket(port);
 
 			while (true) {
 				Socket s = ss.accept();
-				t = new Thread(new CommandThread(s, cmd));
-
 				System.out.println("Connection established");
-
+				Thread t = new Thread(new ServerThread(s));
 				t.start();
 			}
 		} catch (Exception e) {
-
+			System.out.println("System exception");
+			e.printStackTrace();
 		}
 	}
 }
 
-class CommandThread implements Runnable {
-
+class ServerThread implements Runnable {
 	private Socket s;
-	private Command cmd;
 
-	public CommandThread(Socket s, Command cmd) {
-		this.s = s;
-		this.cmd = cmd;
+	public ServerThread(Socket socket) {
+		this.s = socket;
 	}
 
 	public void run() {
-
-		String client = s.getInetAddress().toString();
-		System.out.println("Connected to " + client);
+		String clientip;
+		clientip = s.getInetAddress().toString();
+		System.out.println("Connected to " + clientip);
 
 		try {
+			@SuppressWarnings("resource")
 			Scanner in = new Scanner(s.getInputStream());
-			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+			boolean reconnect = true;
 
-			while (true) {
-				String input = in.nextLine();
+			while (reconnect) {
 
-				if (!input.equals("centered")) {
-					break;
-				} else if (input.equals("centered")) {
-					System.out.println("Good");
+				while (true) {
+					String input = in.nextLine();
+
+					if (input.equalsIgnoreCase("bye")) {
+						reconnect = false;
+						break;
+					} else if (input.equalsIgnoreCase("good/center")) {
+
+					} else if (input.equalsIgnoreCase("left")) {
+
+					} else if (input.equalsIgnoreCase("right")) {
+
+					} else if (input.equalsIgnoreCase("top")) {
+
+					} else if (input.equalsIgnoreCase("bot")) {
+
+					} else if (input.equalsIgnoreCase("top left")) {
+
+					} else if (input.equalsIgnoreCase("top right")) {
+
+					} else if (input.equalsIgnoreCase("bot left")) {
+
+					} else if (input.equalsIgnoreCase("bot right")) {
+
+					} else if (input.equalsIgnoreCase("bad")) {
+
+					} else if (input.equalsIgnoreCase("reconnect")) {
+
+					}
 				}
+
+				reconnect = true;
+
 			}
 
-			s.close();
 		} catch (Exception e) {
+			e.printStackTrace();
 
 		}
-	}
-}
 
-class Command extends Drive {
-
-	/*
-	 * need to code motor methods need to code sensors
-	 */
-
-	public void moveMotorFrontLeft(double speed) {
-		setSpeedFrontLeftMotor(speed);
-	}
-
-	public void moveMotorBackLeft(double speed) {
-		setSpeedBackLeftMotor(speed);
-	}
-
-	public void moveMotorFrontRight(double speed) {
-		setSpeedFrontRightMotor(speed);
-	}
-
-	public void moveMotorBackRight(double speed) {
-		setSpeedBackRightMotor(speed);
-	}
-
-	public void strafeRight() {
-
-	}
-
-	public void strafeLeft() {
-
-	}
-
-	public void setAllMotorsForward(double speed) {
-
-	}
-
-	public void testRange() {
-		if (getUltRange() < .5) {
-			setAllMotorsToSpeed(0.0);
-			// need motors and code for tote lift
-		}
+		System.out.println("Closed connection to" + clientip);
 	}
 }
