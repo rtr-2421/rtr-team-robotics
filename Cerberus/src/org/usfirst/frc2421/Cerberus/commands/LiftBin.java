@@ -13,6 +13,7 @@ public class  LiftBin extends Command {
 	static boolean isFinished = false;
 	
     public LiftBin() {
+    	isFinished = false;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lifter);
@@ -35,7 +36,7 @@ public class  LiftBin extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return RobotMap.binBottom.get();
+    	return RobotMap.binTop.get();
     }
 
     // Called once after isFinished returns true

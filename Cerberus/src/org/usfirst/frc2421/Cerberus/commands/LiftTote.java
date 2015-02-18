@@ -11,6 +11,7 @@ public class  LiftTote extends Command {
 	static boolean isFinished = false;
 	
     public LiftTote() {
+    	isFinished = false;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lifter);

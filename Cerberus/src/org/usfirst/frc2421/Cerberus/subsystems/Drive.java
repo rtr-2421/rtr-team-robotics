@@ -84,10 +84,10 @@ public class Drive extends Subsystem {
     	pid3.setInputRange(scale3, -scale3);
     	pid4.setInputRange(scale4, -scale4);
     	
-    	pid1.setOutputRange(-1, 1);
-    	pid2.setOutputRange(-1, 1);
-    	pid3.setOutputRange(-1, 1);
-    	pid4.setOutputRange(-1, 1);
+    	pid1.setOutputRange(-0.1, 0.1);
+    	pid2.setOutputRange(-0.1, 0.1);
+    	pid3.setOutputRange(-0.1, 0.1);
+    	pid4.setOutputRange(-0.1, 0.1);
     	
     	pid1.enable();
     	pid2.enable();

@@ -13,6 +13,7 @@ public class  LowerTote extends Command {
 	static boolean isFinished = false;
 	
     public LowerTote() {
+    	isFinished = false;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lifter);
@@ -24,7 +25,7 @@ public class  LowerTote extends Command {
     protected void initialize() {
     	isFinished = false;
     	double speed = Robot.lifter.toteSpeed;
-    	Robot.lifter.setToteLifter(speed);
+    	Robot.lifter.setToteLifter(-speed);
     }
 
     // Called repeatedly when this Command is scheduled to run

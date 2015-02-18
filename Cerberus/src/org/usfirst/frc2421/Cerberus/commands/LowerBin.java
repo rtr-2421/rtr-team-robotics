@@ -13,6 +13,7 @@ public class  LowerBin extends Command {
 	static boolean isFinished = false;
 	
     public LowerBin() {
+    	isFinished = false;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lifter);

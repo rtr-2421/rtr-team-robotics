@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Stop extends Command {
+	boolean isFinished = false;
 
     public Stop() {
         // Use requires() here to declare subsystem dependencies
@@ -16,10 +17,10 @@ public class Stop extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	LiftTote.isFinished = true;
-    	LowerTote.isFinished = true;
-    	LiftBin.isFinished = true;
-    	LowerBin.isFinished = true;
+    	isFinished = false;
+    	Robot.lifter.setToteLifter(0);
+    	Robot.lifter.setBinLifter(0);
+    	isFinished = true;
     }
 
     // Called repeatedly when this Command is scheduled to run

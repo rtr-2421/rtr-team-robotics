@@ -75,7 +75,7 @@ public class OI {
         JoystickButton lowerTote = new JoystickButton(driveStick, 4);
         lowerTote.whenPressed(new LowerTote());    
         
-        JoystickButton emergencyStop = new JoystickButton(driveStick, 1);
+        JoystickButton emergencyStop = new JoystickButton(driveStick, 6);
         emergencyStop.whenPressed(new Stop());
 	    
         // SmartDashboard Buttons
