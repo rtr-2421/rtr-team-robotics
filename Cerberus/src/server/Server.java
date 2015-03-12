@@ -55,27 +55,30 @@ class ServerThread implements Runnable {
 						reconnect = false;
 						break;
 					} else if (input.equalsIgnoreCase("good/center")) {
+						//stop strafe
+						//start moving forward until ultrasonic is in range
 
 					} else if (input.equalsIgnoreCase("left")) {
+						//keep going left
 
 					} else if (input.equalsIgnoreCase("right")) {
-
+						//go right
 					} else if (input.equalsIgnoreCase("top")) {
-
+						//equal to center
 					} else if (input.equalsIgnoreCase("bot")) {
-
+						// equal to center
 					} else if (input.equalsIgnoreCase("top left")) {
-
+						// equal to left
 					} else if (input.equalsIgnoreCase("top right")) {
-
+						// equal to right
 					} else if (input.equalsIgnoreCase("bot left")) {
-
+						// equal to left
 					} else if (input.equalsIgnoreCase("bot right")) {
-
+						// equal to right
 					} else if (input.equalsIgnoreCase("bad")) {
-
+						// keep moving
 					} else if (input.equalsIgnoreCase("reconnect")) {
-
+						// reconnects the client
 					}
 				}
 

@@ -13,10 +13,7 @@ package org.usfirst.frc2421.Cerberus;
     
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType; import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
-import edu.wpi.first.wpilibj.can.*;
-
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import java.util.Vector;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into

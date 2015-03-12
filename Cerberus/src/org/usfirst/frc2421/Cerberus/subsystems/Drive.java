@@ -72,8 +72,8 @@ public class Drive extends Subsystem {
 	}
 
 	public void setAllMotorsToSpeed(double speed) {
-		setSpeedFrontLeftMotor(speed);
-		setSpeedBackLeftMotor(speed);
+		setSpeedFrontLeftMotor(-speed);
+		setSpeedBackLeftMotor(-speed);
 		setSpeedFrontRightMotor(speed);
 		setSpeedBackRightMotor(speed);
 	}
