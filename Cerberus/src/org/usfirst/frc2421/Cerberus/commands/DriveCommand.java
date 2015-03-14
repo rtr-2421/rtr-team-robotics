@@ -37,7 +37,7 @@ public class DriveCommand extends Command {
 		double speed_m3;
 		double speed_m4;
 
-		if ((x < deadZone && x > -deadZone) && (y < deadZone && y > -deadZone)) {
+		if ((x < deadZone && x > -deadZone) && (y < deadZone && y > -deadZone) && (w < deadZone && w > -deadZone)) {
 			speed_m1 = 0;
 			speed_m2 = 0;
 			speed_m3 = 0;
