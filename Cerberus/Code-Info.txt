@@ -1,0 +1,21 @@
++--------------------+
+| Server-Client Code |
++--------------------+
+|	|
+|	+--------------------------------------------------------------------------------+
+|	|- Client                                                                        |
+|	|	-- runs on the Raspberry Pi as jar file (java -jar <clientjarfilename>.jar), |
+|	|		wifi/ethernet connection will work assuming on same network as RoboRio   |
+|	|	-- Requires port 5800 in both Server and Client                              |
+|	|	-- Client must use IP address of Server host <RoboRio IP Address>            |
+|	|	-- Client does all image processing and sends info back to Server as Strings |
+|	+--------------------------------------------------------------------------------+
+|	|
+|	+--------------------------------------------------------------------------+
+|	|- Server                                                                  |
+|	|	-- Runs as a separate thread on the RoboRio to avoid code interference |
+|	|	-- Thread is terminated at the end of Autonomous                       |
+|	|	-- Use input from Client to determine robot movements                  |
+|	+--------------------------------------------------------------------------+		
+|
++------------------
