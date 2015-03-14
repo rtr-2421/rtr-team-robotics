@@ -71,8 +71,8 @@ class ServerThread implements Runnable {
 						curx = 0;
 						cury = 0;
 						drive.setDirection(0, 1);
-						if (drive.getUltRange() < 1.5
-								&& drive.getUltRange() > 0) {
+						if (drive.getUltRange(1.0) < 1.5
+								&& drive.getUltRange(1.0) > 0) {
 							drive.setDirection(0, 0);
 							LiftTote ut = new LiftTote();
 							LowerTote dt = new LowerTote();
@@ -96,8 +96,8 @@ class ServerThread implements Runnable {
 						curx = 0;
 						cury = 0;
 						drive.setDirection(0, 1);
-						if (drive.getUltRange() < 1.5
-								&& drive.getUltRange() > 0) {
+						if (drive.getUltRange(1.0) < 1.5
+								&& drive.getUltRange(1.0) > 0) {
 							drive.setDirection(0, 0);
 							LiftTote ut = new LiftTote();
 							LowerTote dt = new LowerTote();

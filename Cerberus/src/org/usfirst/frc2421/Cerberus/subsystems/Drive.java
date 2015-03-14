@@ -10,6 +10,8 @@
 
 package org.usfirst.frc2421.Cerberus.subsystems;
 
+import java.util.Random;
+
 import org.usfirst.frc2421.Cerberus.Robot;
 import org.usfirst.frc2421.Cerberus.RobotMap;
 import org.usfirst.frc2421.Cerberus.commands.*;
@@ -180,5 +182,10 @@ public class Drive extends Subsystem {
 		System.out.println("Distance (in test): "
 				+ ((volt1 * 0.10 * 1000) + 0.3));
 		return distInches;
+	}
+	
+	public double getUltRange(double d) {
+		double r = (double) new Random().nextInt(10);
+		return r;
 	}
 }
