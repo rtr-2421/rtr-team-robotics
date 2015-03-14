@@ -34,7 +34,7 @@ public class Drive extends Subsystem {
 	CANJaguar frontRight = RobotMap.roboSystemfrontRight;
 	CANJaguar backRight = RobotMap.roboSystembackRight;
 	
-	public double kP = 0.0005;
+	public double kP = 0.0005;//Originally 0.001
     public double kI = 0;
     public double kD = 0.001;
 
