@@ -12,7 +12,7 @@ public class Server implements Runnable {
 
 	@SuppressWarnings("resource")
 	public void run() {
-
+		// required port
 		int port = 5800;
 
 		try {
