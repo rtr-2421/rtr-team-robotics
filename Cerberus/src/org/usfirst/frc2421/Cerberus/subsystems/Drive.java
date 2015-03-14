@@ -32,7 +32,7 @@ public class Drive extends Subsystem {
 	CANJaguar frontRight = RobotMap.roboSystemfrontRight;
 	CANJaguar backRight = RobotMap.roboSystembackRight;
 	
-	public double kP = 0.001;
+	public double kP = 0.0005;
     public double kI = 0;
     public double kD = 0.001;
 
@@ -40,6 +40,8 @@ public class Drive extends Subsystem {
 	public PIDController pid2 = new PIDController(kP, kI, kD, frontRightEnc, new PIDJaguar(frontRight));
 	public PIDController pid3 = new PIDController(kP, kI, kD, backLeftEnc, new PIDJaguar(backLeft));
 	public PIDController pid4 = new PIDController(kP, kI, kD, backRightEnc, new PIDJaguar(backRight));
+	
+	double speedScale = 0.5;
     
     double scale1 = -90;
     double scale2 = -90;
@@ -54,19 +56,19 @@ public class Drive extends Subsystem {
 	
 	
 	public void setSpeedFrontLeftMotor(double speed) {
-		pid1.setSetpoint(speed*scale1);
+		pid1.setSetpoint(speedScale*speed*scale1);
 	}
 
 	public void setSpeedBackLeftMotor(double speed) {
-		pid3.setSetpoint(speed*scale3);
+		pid3.setSetpoint(speedScale*speed*scale3);
 	}
 
 	public void setSpeedFrontRightMotor(double speed) {
-		pid2.setSetpoint(speed*scale2);
+		pid2.setSetpoint(speedScale*speed*scale2);
 	}
 
 	public void setSpeedBackRightMotor(double speed) {
-		pid4.setSetpoint(speed*scale4);
+		pid4.setSetpoint(speedScale*speed*scale4);
 	}
 
 	public void setAllMotorsToSpeed(double speed) {
