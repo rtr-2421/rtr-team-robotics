@@ -38,7 +38,7 @@ public class Drive extends Subsystem {
     public double kI = 0;
     public double kD = 0.001;
     
-	double speedScale = 0.5;
+	double speedScale = 1;
 
 	Gyro gyro = RobotMap.roboSystemgyro;
 
@@ -75,7 +75,7 @@ public class Drive extends Subsystem {
 	
 	public void setDirection(double x, double y){
 		double w = 0;
-
+		double speed = 0.5;
 		double a = 0;
 		double b = 1;
 
@@ -94,32 +94,32 @@ public class Drive extends Subsystem {
 		speed_m3 = -x + y - w * (a + b);
 		speed_m4 = x + y + w * (a + b);
 
-		if (speed_m1 > 1) {
-			speed_m1 = 1;
+		if (speed_m1 > speed) {
+			speed_m1 = speed;
 		}
-		if (speed_m1 < -1) {
-			speed_m1 = -1;
-		}
-
-		if (speed_m2 > 1) {
-			speed_m2 = 1;
-		}
-		if (speed_m2 < -1) {
-			speed_m2 = -1;
+		if (speed_m1 < -speed) {
+			speed_m1 = -speed;
 		}
 
-		if (speed_m3 > 1) {
-			speed_m3 = 1;
+		if (speed_m2 > speed) {
+			speed_m2 = speed;
 		}
-		if (speed_m3 < -1) {
-			speed_m3 = -1;
+		if (speed_m2 < -speed) {
+			speed_m2 = -speed;
 		}
 
-		if (speed_m4 > 1) {
-			speed_m4 = 1;
+		if (speed_m3 > speed) {
+			speed_m3 = speed;
 		}
-		if (speed_m4 < -1) {
-			speed_m4 = -1;
+		if (speed_m3 < -speed) {
+			speed_m3 = -speed;
+		}
+
+		if (speed_m4 > speed) {
+			speed_m4 = speed;
+		}
+		if (speed_m4 < -speed) {
+			speed_m4 = -speed;
 		}
 
 		Robot.driveSystem.setSpeedFrontLeftMotor(-speed_m1);

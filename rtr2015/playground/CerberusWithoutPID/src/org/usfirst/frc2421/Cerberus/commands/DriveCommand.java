@@ -24,6 +24,7 @@ public class DriveCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		double deadZone = 0.2;
+		double speed = 0.5;
 
 		double x = Robot.oi.driveStick.getX();
 		double y = Robot.oi.driveStick.getY();
@@ -49,32 +50,32 @@ public class DriveCommand extends Command {
 			speed_m4 = x + y + w * (a + b);
 		}
 
-		if (speed_m1 > 1) {
-			speed_m1 = 1;
+		if (speed_m1 > speed) {
+			speed_m1 = speed;
 		}
-		if (speed_m1 < -1) {
-			speed_m1 = -1;
-		}
-
-		if (speed_m2 > 1) {
-			speed_m2 = 1;
-		}
-		if (speed_m2 < -1) {
-			speed_m2 = -1;
+		if (speed_m1 < -speed) {
+			speed_m1 = -speed;
 		}
 
-		if (speed_m3 > 1) {
-			speed_m3 = 1;
+		if (speed_m2 > speed) {
+			speed_m2 = speed;
 		}
-		if (speed_m3 < -1) {
-			speed_m3 = -1;
+		if (speed_m2 < -speed) {
+			speed_m2 = -speed;
 		}
 
-		if (speed_m4 > 1) {
-			speed_m4 = 1;
+		if (speed_m3 > speed) {
+			speed_m3 = speed;
 		}
-		if (speed_m4 < -1) {
-			speed_m4 = -1;
+		if (speed_m3 < -speed) {
+			speed_m3 = -speed;
+		}
+
+		if (speed_m4 > speed) {
+			speed_m4 = speed;
+		}
+		if (speed_m4 < -speed) {
+			speed_m4 = -speed;
 		}
 
 		Robot.driveSystem.setSpeedFrontLeftMotor(-speed_m1);

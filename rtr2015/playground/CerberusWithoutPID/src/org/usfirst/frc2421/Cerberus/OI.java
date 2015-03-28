@@ -63,19 +63,19 @@ public class OI {
         
         driveStick = new Joystick(1);
         
-        JoystickButton liftBin = new JoystickButton(driveStick, 3);
+        JoystickButton liftBin = new JoystickButton(turnStick, 3);
         liftBin.whenPressed(new LiftBin());
         
-        JoystickButton lowerBin = new JoystickButton(driveStick, 2);
+        JoystickButton lowerBin = new JoystickButton(turnStick, 2);
         lowerBin.whenPressed(new LowerBin());
         
-        JoystickButton liftTote = new JoystickButton(driveStick, 5);
-        liftTote.whenPressed(new LiftTote());
+        JoystickButton liftTote = new JoystickButton(turnStick, 5);
+        liftTote.whenPressed(new LowerTote());
         
-        JoystickButton lowerTote = new JoystickButton(driveStick, 4);
-        lowerTote.whenPressed(new LowerTote());    
+        JoystickButton lowerTote = new JoystickButton(turnStick, 4);
+        lowerTote.whenPressed(new LiftTote());    
         
-        JoystickButton emergencyStop = new JoystickButton(driveStick, 6);
+        JoystickButton emergencyStop = new JoystickButton(turnStick, 1);
         emergencyStop.whenPressed(new Stop());
 	    
         // SmartDashboard Buttons

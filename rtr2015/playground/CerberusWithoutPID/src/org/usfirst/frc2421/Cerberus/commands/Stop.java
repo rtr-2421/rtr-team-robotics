@@ -18,13 +18,17 @@ public class Stop extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	isFinished = false;
-    	Robot.lifter.setToteLifter(0);
-    	Robot.lifter.setBinLifter(0);
-    	isFinished = true;
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(isFinished == false){
+    		Robot.lifter.setToteLifter(0);
+        	Robot.lifter.setBinLifter(0);
+        	isFinished = true;
+        	end();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

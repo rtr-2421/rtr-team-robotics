@@ -75,9 +75,9 @@ public class RobotMap {
         roboSystemfrontRight = new CANJaguar(5);
         roboSystembackRight = new CANJaguar(22);
         
-        roboSystemgyro = new Gyro(0);
-        LiveWindow.addSensor("roboSystem", "gyro", roboSystemgyro);
-        roboSystemgyro.setSensitivity(0.007);
+        //roboSystemgyro = new Gyro(0);
+        //LiveWindow.addSensor("roboSystem", "gyro", roboSystemgyro);
+        //roboSystemgyro.setSensitivity(0.007);
         
         roboSystemacc = new BuiltInAccelerometer();
         LiveWindow.addSensor("roboSystem", "acc", roboSystemacc);
