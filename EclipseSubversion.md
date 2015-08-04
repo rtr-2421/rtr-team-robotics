@@ -1,0 +1,63 @@
+#How to use subversion with the Eclipse IDE.
+
+1. Open Eclipse. Go to Help>Eclipse Marketplace.
+
+2. Go to Find and type in "Subversive".
+
+3. Find Subversive and click Install.
+
+4. On the next screen, click Confirm.
+
+5. Choose "I accept the terms of the license agreement." Click Finish.
+
+6. After Eclipse restarts, go to Windows>Preferences.
+
+7. Go to Team. Expand the menu, and click on SVN.
+
+8. If the "Install Connectors" windows pops up, skip to 10.
+
+9. Go to the "SVN Connector" tab. Click on "Get Connectors..."
+
+10. Click on all of the check boxes, and hit Finish.
+
+11. Click Next, then click Next again.
+
+12. Choose "I accept the terms of the license agreement." Click Finish.
+
+13. Click OK on the Security Warning.
+
+14. Click Yes when it asks to restart.
+
+15. To import a project:
+
+-Go to File>Import>SVN>Project from SVN
+
+-Create a new repository location.
+
+-In URL put "https://rtr-team-robotics.googlecode.com/svn/"
+
+-Get your username and password from Source.
+
+-Check Save authentication.
+
+-Click Browse, and look under rtr2015 to find your project.
+
+-Click Finish.
+
+-Choose "Checkout as a project with the existing name."
+
+-Click OK.
+
+16. To export a project:
+
+-Right-click the project, go to Team>Share Project
+
+-Choose SVN, click Next.
+
+-Pick a repository location, and use browse to find your correct folder.
+
+-Click Finish.
+
+Troubleshooting:
+
+- If you're using the Verizon MiFi hotspot, you might get an error when    downloading the connectors. Ask Eyob for his phone's hotspot to download the connectors if you have issues. Once connected, repeat steps 6-14.

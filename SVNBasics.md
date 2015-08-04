@@ -1,0 +1,21 @@
+# Introduction #
+This page is an introduction to Subversion terminology and tasks
+# Terminology #
+  * Checkout - get a copy of the repository files
+  * Update - pull the latest copy of the repository files
+  * Merge - incorporate change made since your last update as you commit your changes.
+  * Commit - upload your changes back to the repository
+# Connecting to the Repository #
+For FRC, we are using the Netbeans Integrated Development Environment (IDE). The Subversion client is included in the bundled software. You can install a standalone client, like TortoiseSVN, if it helps you see what's going on in the repository.
+  * [Connecting from NetBeans](SVNConnectingFromNetbeans.md)
+  * [Connecting from Tortoise](SVNConnectingFromTortoise.md)
+  * [Connecting from Linux](SVNConnectingFromLinux.md)
+# Normal Workflow (from [svn-book](http://svnbook.red-bean.com/en/1.7/svn-book.pdf)) #
+Subversion has numerous features, options, bells, and whistles, but on a day-to-day basis, odds are that you will use only a few of them. In this section, we'll run through the most common things that you might find yourself doing with Subversion in the course of a day's work.
+The typical work cycle looks like this:
+    1. Update your working copy. This involves the use of the svn update command.
+    1. Make your changes. The most common changes that you'll make are edits to the contents of your existing files. But sometimes you need to add, remove, copy and move files and directories—the svn add, svn delete, svn copy, and svn move commands handle those sorts of structural changes within the working copy.
+    1. Review your changes. The svn status and svn diff commands are critical to reviewing the changes you've made in your working copy.
+    1. Fix your mistakes. Nobody's perfect, so as you review your changes, you may spot something that's not quite right. Sometimes the easiest way to fix a mistake is start all over again from scratch. The svn revert command restores a file or directory to its unmodified state.
+    1. Resolve any conflicts (merge others' changes). In the time it takes you to make and review your changes, others might have made and published changes, too. You'll want to integrate their changes into your working copy to avoid the potential outofdateness scenarios when you attempt to publish your own. Again, the svn update command is the way to do this. If this results in local conflicts, you'll need to resolve those using the svn resolve command.
+    1. Publish (commit) your changes. The svn commit command transmits your changes to the repository where, if they are accepted, they create the newest versions of all the things you modified. Now others can see your work, too!

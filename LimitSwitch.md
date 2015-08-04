@@ -1,0 +1,11 @@
+# Introduction #
+
+The Limit Switch returns a true/false value whether the switch is up/down depending on how you wire the switch.
+
+
+# Details #
+
+Add your content here.  Format your content with:
+  * Text in **bold** or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages

@@ -1,0 +1,23 @@
+# Introduction #
+
+We have this working on Apollo and need to capture the wiring pin-out that worked best. Also we learned a lot about the values coming off the encoder and how to interpret them. **Need to update these notes.**
+
+
+# Details #
+## Wiring ##
+All I currently have is the PPT file assembled to guide the test configurations.
+
+http://rtr-team-robotics.googlecode.com/svn/wiki/images/E4PEncoderWiringPin-outOptions.pdf
+
+Students need to not the pin-out that worked and capture it here.
+## Coding ##
+### Initializing the encoder ###
+### Reading Values ###
+### Creating Information from Data ###
+
+Count per rotation/conversion to an angle.
+
+Rotational direction.
+
+## Limitations ##
+Stopping at a precise angle from high speed is not likely to work well. (Recall Apollo's catapult) The couple milliseconds it takes for the control loop to recognized the angle condition is met will likely exceed you margin of error.
